@@ -346,10 +346,12 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
     <>
       <Header>
         <Heading as="h1" size="xxl" color="secondary" mb="24px">
-          {TranslateString(999, 'Farms')}
+          {tokenMode
+            ? TranslateString(10002, 'Stake tokens to earn LYPTUS')
+            : TranslateString(320, 'Stake LP tokens to earn LYPTUS')}
         </Heading>
         <Heading size="lg" color="text">
-          {TranslateString(999, 'Stake Liquidity Pool (LP) tokens to earn.')}
+          {TranslateString(10000, 'Deposit Fee will be used to buyback LYPTUS')}
         </Heading>
       </Header>
       <Page>
@@ -402,7 +404,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           </FilterContainer>
         </ControlContainer>
         {renderContent()}
-        <StyledImage src="/images/3dpan.png" alt="Pancake illustration" width={120} height={103} />
+        <Image src="/images/lyptus/8.png" alt="illustration" width={1352} height={587} responsive />
       </Page>
     </>
   )

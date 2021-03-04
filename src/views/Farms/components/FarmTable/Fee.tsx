@@ -38,7 +38,6 @@ const TextFeeHightlight = styled(Text)`
 `
 
 const Fee: React.FunctionComponent<FeeProps> = ({ fee }) => {
-
   return (
     <Container>
       <FeeWrapper>

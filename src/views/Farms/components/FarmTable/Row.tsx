@@ -123,7 +123,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
                   <td key={key}>
                     <CellInner>
                       <CellLayout label={TranslateString(999, 'Fee')}>
-                        <Fee {...props.fee}/>
+                        <Fee {...props.fee} />
                       </CellLayout>
                     </CellInner>
                   </td>
