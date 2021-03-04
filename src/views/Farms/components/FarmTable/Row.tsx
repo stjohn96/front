@@ -122,7 +122,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
                 return (
                   <td key={key}>
                     <CellInner>
-                      <CellLayout label={TranslateString(999, 'Fee')}>
+                      <CellLayout label={TranslateString(10001, 'Fee')}>
                         <Fee {...props.fee} />
                       </CellLayout>
                     </CellInner>

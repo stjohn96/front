@@ -70,7 +70,7 @@ const Staked: React.FunctionComponent<FarmWithStakedValue> = ({
     return (
       <ActionContainer>
         <ActionTitles>
-          <Subtle>{TranslateString(999, 'START FARMING')}</Subtle>
+          <Subtle>{TranslateString(737, 'START FARMING')}</Subtle>
         </ActionTitles>
         <ActionContent>
           <UnlockButton width="100%" />
@@ -85,7 +85,7 @@ const Staked: React.FunctionComponent<FarmWithStakedValue> = ({
         <ActionContainer>
           <ActionTitles>
             <Title>{lpSymbol} </Title>
-            <Subtle>{TranslateString(999, 'STAKED')}</Subtle>
+            <Subtle>{TranslateString(738, 'STAKED')}</Subtle>
           </ActionTitles>
           <ActionContent>
             <div>
@@ -107,12 +107,12 @@ const Staked: React.FunctionComponent<FarmWithStakedValue> = ({
     return (
       <ActionContainer>
         <ActionTitles>
-          <Subtle>{TranslateString(999, 'STAKE')} </Subtle>
+          <Subtle>{TranslateString(735, 'STAKE')} </Subtle>
           <Title>{lpSymbol}</Title>
         </ActionTitles>
         <ActionContent>
           <Button width="100%" onClick={onPresentDeposit} variant="secondary">
-            {TranslateString(999, 'Stake LP')}
+            {TranslateString(736, 'Stake LP')}
           </Button>
         </ActionContent>
       </ActionContainer>
@@ -122,11 +122,11 @@ const Staked: React.FunctionComponent<FarmWithStakedValue> = ({
   return (
     <ActionContainer>
       <ActionTitles>
-        <Subtle>{TranslateString(999, 'ENABLE FARM')}</Subtle>
+        <Subtle>{TranslateString(740, 'ENABLE FARM')}</Subtle>
       </ActionTitles>
       <ActionContent>
         <Button width="100%" disabled={requestedApproval} onClick={handleApprove} variant="secondary">
-          {TranslateString(999, 'Enable')}
+          {TranslateString(741, 'Enable')}
         </Button>
       </ActionContent>
     </ActionContainer>

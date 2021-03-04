@@ -3,7 +3,7 @@ import { Route, useRouteMatch, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
-import { Image, Heading, RowType, Toggle, Text } from '@pancakeswap-libs/uikit'
+import { Image, Heading, RowType, Toggle, Text, HelpIcon, Link } from '@pancakeswap-libs/uikit'
 import styled from 'styled-components'
 import { BLOCKS_PER_YEAR, CAKE_PER_BLOCK, CAKE_POOL_PID } from 'config'
 import FlexLayout from 'components/layout/Flex'
@@ -38,6 +38,21 @@ const ControlContainer = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     padding: 16px 32px;
+  }
+`
+
+const AddressLink = styled(Link)`
+  display: inline-block;
+  font-weight: 400;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 80px;
+  white-space: nowrap;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    font-size: 16px;
+    width: auto;
   }
 `
 
@@ -353,6 +368,11 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         <Heading size="lg" color="text">
           {TranslateString(10000, 'Deposit Fee will be used to buyback LYPTUS')}
         </Heading>
+        <Text>
+          <AddressLink href={`https://bscscan.com/address/${account}`} color="text" external>
+            <HelpIcon color="textSubtle" /> {TranslateString(10005, 'Learn more about our Burn mechanism and fee farming')}
+          </AddressLink>
+        </Text>
       </Header>
       <Page>
         <ControlContainer>

@@ -2042,7 +2042,7 @@
 
 "@pancakeswap-libs/uikit@koaladefi/uikit#releases_refresh":
   version "0.13.1"
-  resolved "https://codeload.github.com/koaladefi/uikit/tar.gz/f91705c54cf0aeff1b363daecb453b0398c89e9b"
+  resolved "https://codeload.github.com/koaladefi/uikit/tar.gz/070b6e2c37c5728d0fafeb8111e253184b99c253"
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"

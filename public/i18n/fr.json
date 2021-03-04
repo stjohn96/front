@@ -1244,6 +1244,48 @@
     },
     {
       "data": {
+        "stringId": 735,
+        "text": "DEPOSER"
+      }
+    },
+    {
+      "data": {
+        "stringId": 736,
+        "text": "Déposer vos LP"
+      }
+    },
+    {
+      "data": {
+        "stringId": 737,
+        "text": "COMMENCER A FARMER"
+      }
+    },
+    {
+      "data": {
+        "stringId": 738,
+        "text": "DEPOSÉ"
+      }
+    },
+    {
+      "data": {
+        "stringId": 739,
+        "text": "GAGNÉ"
+      }
+    },
+    {
+      "data": {
+        "stringId": 740,
+        "text": "ACTIVER LE FARMING"
+      }
+    },
+    {
+      "data": {
+        "stringId": 741,
+        "text": "Activer"
+      }
+    },
+    {
+      "data": {
         "stringId": 10000,
         "text": "Les frais de dépôt seront utilisés pour racheter des LYPTUS"
       }
@@ -1270,6 +1312,12 @@
       "data": {
         "stringId": 10004,
         "text": "Token en circulation"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10005,
+        "text": "En savoir plus sur notre mécanisme de brûlage et notre agriculture payante"
       }
     }
   ],
