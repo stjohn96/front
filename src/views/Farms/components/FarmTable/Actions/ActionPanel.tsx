@@ -125,7 +125,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, apr, 
       <InfoContainer>
         <StakeContainer>
           Stake:
-          <StyledLinkExternal href={`https://exchange.pancakeswap.finance/#/add/${liquidityUrlPathParts}`}>
+          <StyledLinkExternal href={`https://swap.koaladefi.finance/#/add/${liquidityUrlPathParts}`}>
             {lpLabel}
           </StyledLinkExternal>
         </StakeContainer>
@@ -135,9 +135,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, apr, 
         <StyledLink href={info} external>
           {TranslateString(999, 'Info site')}
         </StyledLink>
-        <TagsContainer>
-          {dual ? <DualTag /> : null}
-        </TagsContainer>
+        <TagsContainer>{dual ? <DualTag /> : null}</TagsContainer>
       </InfoContainer>
       <ValueContainer>
         <ValueWrapper>

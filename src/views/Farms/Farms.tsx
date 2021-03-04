@@ -370,7 +370,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         </Heading>
         <Text>
           <AddressLink href={`https://bscscan.com/address/${account}`} color="text" external>
-            <HelpIcon color="textSubtle" /> {TranslateString(10005, 'Learn more about our Burn mechanism and fee farming')}
+            <HelpIcon color="textSubtle" />{' '}
+            {TranslateString(10005, 'Learn more about our Burn mechanism and fee farming')}
           </AddressLink>
         </Text>
       </Header>
