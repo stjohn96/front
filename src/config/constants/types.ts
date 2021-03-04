@@ -55,6 +55,7 @@ export interface FarmConfig {
   quoteTokenSymbol: QuoteToken
   quoteTokenAdresses: Address
   multiplier?: string
+  isTokenOnly?: boolean
   isCommunity?: boolean
   dual?: {
     rewardPerBlock: number

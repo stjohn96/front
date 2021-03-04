@@ -15,6 +15,7 @@ interface FarmCardActionsProps {
   tokenName?: string
   pid?: number
   addLiquidityUrl?: string
+  depositFeeBP?: number
 }
 
 const IconButtonWrapper = styled.div`

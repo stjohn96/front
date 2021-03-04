@@ -8,6 +8,7 @@ import { useHarvest } from 'hooks/useHarvest'
 import useI18n from 'hooks/useI18n'
 import { usePriceCakeBusd } from 'state/hooks'
 import { useCountUp } from 'react-countup'
+import useStake from '../../../../../hooks/useStake'
 
 import { ActionContainer, ActionTitles, Title, Subtle, ActionContent, Earned, Staked } from './styles'
 
@@ -27,6 +28,7 @@ const HarvestAction: React.FunctionComponent<FarmWithStakedValue> = ({ pid, user
   const [pendingTx, setPendingTx] = useState(false)
   const { account } = useWeb3React()
   const { onReward } = useHarvest(pid)
+  const { onStake } = useStake(pid)
   const TranslateString = useI18n()
 
   const { countUp, update } = useCountUp({
@@ -45,7 +47,7 @@ const HarvestAction: React.FunctionComponent<FarmWithStakedValue> = ({ pid, user
   return (
     <ActionContainer>
       <ActionTitles>
-        <Title>CAKE </Title>
+        <Title>LYPTUS </Title>
         <Subtle>EARNED</Subtle>
       </ActionTitles>
       <ActionContent>
@@ -53,6 +55,19 @@ const HarvestAction: React.FunctionComponent<FarmWithStakedValue> = ({ pid, user
           <Earned>{displayBalance}</Earned>
           <Staked>~{countUp}USD</Staked>
         </div>
+        {pid === 0 ? (
+          <Button
+            disabled={earnings === 0 || pendingTx}
+            marginBottom="15px"
+            onClick={async () => {
+              setPendingTx(true)
+              await onStake(earnings.toString())
+              setPendingTx(false)
+            }}
+          >
+            <p>{TranslateString(704, 'Compound')}</p>
+          </Button>
+        ) : null}
         <Button
           disabled={!earnings || pendingTx || !account}
           onClick={async () => {
