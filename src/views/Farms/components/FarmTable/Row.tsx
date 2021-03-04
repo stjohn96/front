@@ -10,6 +10,7 @@ import Earned, { EarnedProps } from './Earned'
 import Details from './Details'
 import Multiplier, { MultiplierProps } from './Multiplier'
 import Liquidity, { LiquidityProps } from './Liquidity'
+import Fee, { FeeProps } from './Fee'
 import ActionPanel from './Actions/ActionPanel'
 import CellLayout from './CellLayout'
 import { DesktopColumnSchema, MobileColumnSchema } from '../types'
@@ -20,6 +21,7 @@ export interface RowProps {
   earned: EarnedProps
   multiplier: MultiplierProps
   liquidity: LiquidityProps
+  fee: FeeProps
   details: FarmWithStakedValue
 }
 
@@ -30,6 +32,7 @@ const cells = {
   details: Details,
   multiplier: Multiplier,
   liquidity: Liquidity,
+  fee: Fee,
 }
 
 const CellInner = styled.div`
@@ -115,6 +118,16 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
                     </CellInner>
                   </td>
                 )
+              case 'fee':
+                return (
+                  <td key={key}>
+                    <CellInner>
+                      <CellLayout label={TranslateString(999, 'Fee')}>
+                        <Fee {...props.fee}/>
+                      </CellLayout>
+                    </CellInner>
+                  </td>
+                )
               default:
                 return (
                   <td key={key}>
@@ -168,7 +181,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
       {handleRenderRow()}
       {actionPanelToggled && details && (
         <tr>
-          <td colSpan={6}>
+          <td colSpan={7}>
             <ActionPanel {...props} />
           </td>
         </tr>

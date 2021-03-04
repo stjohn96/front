@@ -37,18 +37,18 @@ const Collectibles = () => {
   return (
     <>
       <Heading as="h4" size="md" mb="8px">
-        {TranslateString(999, 'Pancake Collectibles')}
+        {TranslateString(999, 'Koala Collectibles')}
       </Heading>
       <Text as="p">
         {TranslateString(
           999,
-          'Pancake Collectibles are special ERC-721 NFTs that can be used on the PancakeSwap platform.',
+          'Koala Collectibles are special ERC-721 NFTs that can be used on the Koala DeFi platform.',
         )}
       </Text>
       <Text as="p">
         {TranslateString(
           999,
-          "NFTs in this user's wallet that aren't approved Pancake Collectibles won't be shown here.",
+          "NFTs in this user's wallet that aren't approved Koala Collectibles won't be shown here.",
         )}
       </Text>
       {nftsInWallet.length > 0 && (

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Text, BaseLayout } from '@pancakeswap-libs/uikit'
+import { Heading, Text, BaseLayout, Button, Image } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
 import FarmStakingCard from 'views/Home/components/FarmStakingCard'
@@ -10,10 +10,11 @@ import TotalValueLockedCard from 'views/Home/components/TotalValueLockedCard'
 import EarnAPYCard from 'views/Home/components/EarnAPYCard'
 import EarnAssetCard from 'views/Home/components/EarnAssetCard'
 import WinCard from 'views/Home/components/WinCard'
+import TwitterCard from 'views/Home/components/TwitterCard'
+import ListedOn from 'views/Home/components/ListedOn'
 
 const Hero = styled.div`
   align-items: center;
-  background-image: url('/images/pan-bg-mobile.svg');
   background-repeat: no-repeat;
   background-position: top center;
   display: flex;
@@ -25,7 +26,6 @@ const Hero = styled.div`
   text-align: center;
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/pan-bg2.svg'), url('/images/pan-bg.svg');
     background-position: left center, right center;
     height: 165px;
     padding-top: 0;
@@ -83,23 +83,32 @@ const Home: React.FC = () => {
     <Page>
       <Hero>
         <Heading as="h1" size="xl" mb="24px" color="secondary">
-          {TranslateString(576, 'PancakeSwap')}
+          {TranslateString(576, 'Koala DeFi Finance')}
         </Heading>
-        <Text>{TranslateString(578, 'The #1 AMM and yield farm on Binance Smart Chain.')}</Text>
+        <Text>{TranslateString(578, 'High yields BSC farm brought by the Koalas.')}</Text>
+        <hr />
+        <a href="https://swap.koaladefi.finance/#/swap?inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0xba26397cdff25f0d26e815d218ef3c77609ae7f1">
+          <Button variant="subtle">
+            {TranslateString(733, 'BUY')}{' '}
+            <img src="/images/farms/lyptus.png" alt="LYPTUS Token" width="70" height="70" />{' '}
+            {TranslateString(734, 'LYPTUS Token Now!')}
+          </Button>
+        </a>
       </Hero>
+      <div>
+        <p>
+          <a href="https://twitter.com/KoalaDefi/status/1365255264484659201" target="_blank" rel="noreferrer">
+            <Image src="/images/koala/airdrop-website-01.png" alt="Airdrop" width={1934} height={376} responsive />
+          </a>
+        </p>
+      </div>
       <div>
         <Cards>
           <FarmStakingCard />
-          <LotteryCard />
-        </Cards>
-        <CTACards>
-          <EarnAPYCard />
-          <EarnAssetCard />
-          <WinCard />
-        </CTACards>
-        <Cards>
+          <TwitterCard />
           <CakeStats />
           <TotalValueLockedCard />
+          <ListedOn />
         </Cards>
       </div>
     </Page>

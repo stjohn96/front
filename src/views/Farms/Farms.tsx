@@ -121,7 +121,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const cakePrice = usePriceCakeBusd()
   const bnbPrice = usePriceBnbBusd()
   const [query, setQuery] = useState('')
-  const [viewMode, setViewMode] = useState(ViewMode.TABLE) // ViewMode.CARD
+  const [viewMode, setViewMode] = useState(ViewMode.TABLE) // ViewMode.CARD / TABLE
   const ethPriceUsd = usePriceEthBusd()
   const { account } = useWeb3React()
   const [sortOption, setSortOption] = useState('hot')
@@ -262,6 +262,9 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       liquidity: {
         liquidity: farm.liquidity,
       },
+      fee: {
+        fee: farm.depositFeeBP,
+      },
       multiplier: {
         multiplier: farm.multiplier,
       },
@@ -364,10 +367,10 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
               <Text>SORT BY</Text>
               <Select
                 options={[
-                  {
-                    label: 'Hot',
-                    value: 'hot',
-                  },
+                  // {
+                  //   label: 'Hot',
+                  //   value: 'hot',
+                  // },
                   {
                     label: 'APR',
                     value: 'apr',
@@ -383,6 +386,10 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
                   {
                     label: 'Liquidity',
                     value: 'liquidity',
+                  },
+                  {
+                    label: 'Fees',
+                    value: 'fees',
                   },
                 ]}
                 onChange={handleSortOptionChange}
