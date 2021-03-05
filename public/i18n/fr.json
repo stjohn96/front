@@ -1286,6 +1286,12 @@
     },
     {
       "data": {
+        "stringId": 1068,
+        "text": "Déposer"
+      }
+    },
+    {
+      "data": {
         "stringId": 10000,
         "text": "Les frais de dépôt seront utilisés pour racheter des LYPTUS"
       }
