@@ -33,8 +33,13 @@ const config: MenuEntry[] = [
     href: '/pools',
   },
   {
+    label: 'Bush',
+    icon: 'TicketIcon',
+    href: '/bush',
+  },
+  {
     label: 'Certik Audit (In-Progress)',
-    icon: 'ShieldIcon', // ShieldIcon
+    icon: 'ShieldIcon',
     href: 'https://twitter.com/KoalaDefi/status/1367218225310818308',
     target: '_blank',
   },

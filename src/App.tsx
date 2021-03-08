@@ -25,6 +25,7 @@ const Collectibles = lazy(() => import('./views/Collectibles'))
 const Teams = lazy(() => import('./views/Teams'))
 const Team = lazy(() => import('./views/Teams/Team'))
 const Profile = lazy(() => import('./views/Profile'))
+const Bush = lazy(() => import('./views/Bush'))
 
 // This config is required for number formating
 BigNumber.config({
@@ -60,6 +61,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/pools">
               <Farms tokenMode />
+            </Route>
+            <Route path="/bush">
+              <Bush />
             </Route>
             {/* 404 */}
             <Route component={NotFound} />
