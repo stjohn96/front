@@ -367,7 +367,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         </Heading>
         <Text>
           <AddressLink href="https://doc.koaladefi.finance/tokennomics/burn-mechanism-and-fee-farming" color="text" external>
-            <HelpIcon color="textSubtle" />{' '}
+            <HelpIcon color="textSubtle" />{' '} 
             {TranslateString(10006, 'Learn more about our Burn mechanism and fee farming')}
           </AddressLink>
         </Text>
