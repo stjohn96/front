@@ -27,7 +27,7 @@ const Bush = () => {
         {TranslateString(999, 'Bush')}
       </Heading>
       <Heading size="lg" color="text">
-        {TranslateString(10000, 'Stake LYPTUS, earn ?')}
+        {TranslateString(999, 'Stake LYPTUS, earn ?')}
       </Heading>
       </Header>
       <Page>
