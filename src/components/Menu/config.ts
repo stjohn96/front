@@ -40,7 +40,7 @@ const config: MenuEntry[] = [
   {
     label: 'Certik Audit (In-Progress)',
     icon: 'ShieldIcon',
-    href: 'https://twitter.com/KoalaDefi/status/1367218225310818308',
+    href: 'https://certik.org/projects/koaladefi',
     target: '_blank',
   },
   // {
