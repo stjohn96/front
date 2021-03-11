@@ -26,6 +26,8 @@ export interface Farm extends FarmConfig {
     stakedBalance: BigNumber
     earnings: BigNumber
   }
+  lpTotalSupply?: BigNumber
+  lpTokenBalanceMC?: BigNumber
 }
 
 export interface Pool extends PoolConfig {

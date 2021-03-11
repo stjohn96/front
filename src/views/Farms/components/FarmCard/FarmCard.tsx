@@ -18,6 +18,8 @@ import ApyButton from './ApyButton'
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber
   liquidity?: BigNumber
+  lpTotalSupply?: BigNumber
+  lpPrice?: BigNumber
 }
 
 const RainbowLight = keyframes`
@@ -127,6 +129,18 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
     : '-'
 
+  const lpPrice = useMemo(() => {
+    if (farm.isTokenOnly) {
+      return null
+    }
+
+    return Number(totalValue) / Number(farm.lpTokenBalanceMC)
+  }, [farm, totalValue])
+
+  const lpTokenPriceFormated = lpPrice
+    ? `~$${Number(lpPrice).toLocaleString(undefined, { maximumFractionDigits: 2 })}`
+    : '-'
+
   const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('PANCAKE', '')
   const earnLabel = farm.dual ? farm.dual.earnLabel : 'LYPTUS'
   const farmAPY = farm.apy && farm.apy.times(new BigNumber(100)).toNumber().toLocaleString('en-US').slice(0, -1)
@@ -188,8 +202,10 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
           removed={removed}
           bscScanAddress={`https://bscscan.com/address/${farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]}`}
           totalValueFormated={totalValueFormated}
+          lpTokenPriceFormated={lpTokenPriceFormated}
           lpLabel={lpLabel}
           addLiquidityUrl={addLiquidityUrl}
+          isTokenOnly={farm.isTokenOnly}
         />
       </ExpandingWrapper>
     </FCard>

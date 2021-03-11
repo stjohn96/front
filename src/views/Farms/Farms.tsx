@@ -366,7 +366,11 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           {TranslateString(10000, 'Deposit Fee will be used to buyback LYPTUS')}
         </Heading>
         <Text>
-          <AddressLink href="https://doc.koaladefi.finance/tokennomics/burn-mechanism-and-fee-farming" color="text" external>
+          <AddressLink
+            href="https://doc.koaladefi.finance/tokennomics/burn-mechanism-and-fee-farming"
+            color="text"
+            external
+          >
             <HelpIcon color="textSubtle" />{' '}
             {TranslateString(10006, 'Learn more about our Burn mechanism and fee farming')}
           </AddressLink>

@@ -23,20 +23,15 @@ const Bush = () => {
   return (
     <>
       <Header>
-      <Heading as="h1" size="xxl" color="secondary" mb="24px">
-        {TranslateString(999, 'Bush')}
-      </Heading>
-      <Heading size="lg" color="text">
-        {TranslateString(999, 'Stake LYPTUS, earn ?')}
-      </Heading>
+        <Heading as="h1" size="xxl" color="secondary" mb="24px">
+          {TranslateString(999, 'Bush')}
+        </Heading>
+        <Heading size="lg" color="text">
+          {TranslateString(999, 'Stake LYPTUS, earn ?')}
+        </Heading>
       </Header>
       <Page>
-        <Text>
-          {TranslateString(
-            999,
-            'Work in progress',
-          )}
-        </Text>
+        <Text>{TranslateString(999, 'Work in progress')}</Text>
       </Page>
     </>
   )

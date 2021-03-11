@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import useI18n from 'hooks/useI18n'
 import { LinkExternal, Text, Link } from '@pancakeswap-libs/uikit'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { communityFarms } from 'config/constants'
-import { CommunityTag, CoreTag, DualTag } from 'components/Tags'
+import { DualTag } from 'components/Tags'
 
+import BigNumber from 'bignumber.js'
+import { usePriceBnbBusd, usePriceCakeBusd, usePriceEthBusd } from 'state/hooks'
 import HarvestAction from './HarvestAction'
 import StakedAction from './StakedAction'
 import Apr, { AprProps } from '../Apr'
 import Multiplier, { MultiplierProps } from '../Multiplier'
 import Liquidity, { LiquidityProps } from '../Liquidity'
 import Fee, { FeeProps } from '../Fee'
+import { QuoteToken } from '../../../../../config/constants/types'
 
 export interface ActionPanelProps {
   apr: AprProps
@@ -42,7 +45,6 @@ const StyledLinkExternal = styled(LinkExternal)`
 
 const StyledLink = styled(Link)`
   font-weight: 400;
-  margin-top: 8px;
 `
 
 const StakeContainer = styled.div`
@@ -53,6 +55,21 @@ const StakeContainer = styled.div`
 
   ${({ theme }) => theme.mediaQueries.sm} {
     justify-content: flex-start;
+  }
+`
+
+const LpPriceContainer = styled.div`
+  color: ${({ theme }) => theme.colors.text};
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    justify-content: flex-start;
+  }
+
+  span {
+    color: ${({ theme }) => theme.colors.textSubtle};
   }
 `
 
@@ -118,7 +135,37 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, apr, 
   const lpAddress = farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
   const bsc = `https://bscscan.com/address/${lpAddress}`
   const info = `https://pancakeswap.info/pair/${lpAddress}`
-  const isCommunityFarm = communityFarms.includes(tokenSymbol)
+  const cakePrice = usePriceCakeBusd()
+  const bnbPrice = usePriceBnbBusd()
+  const ethPrice = usePriceEthBusd()
+
+  const totalValue: BigNumber = useMemo(() => {
+    if (!farm.lpTotalInQuoteToken) {
+      return null
+    }
+    if (farm.quoteTokenSymbol === QuoteToken.BNB) {
+      return bnbPrice.times(farm.lpTotalInQuoteToken)
+    }
+    if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
+      return cakePrice.times(farm.lpTotalInQuoteToken)
+    }
+    if (farm.quoteTokenSymbol === QuoteToken.ETH) {
+      return ethPrice.times(farm.lpTotalInQuoteToken)
+    }
+    return farm.lpTotalInQuoteToken
+  }, [bnbPrice, cakePrice, ethPrice, farm.lpTotalInQuoteToken, farm.quoteTokenSymbol])
+
+  const lpPrice = useMemo(() => {
+    if (farm.isTokenOnly) {
+      return null
+    }
+
+    return Number(totalValue) / Number(farm.lpTokenBalanceMC)
+  }, [farm, totalValue])
+
+  const lpTokenPriceFormated = lpPrice
+    ? `~$${Number(lpPrice).toLocaleString(undefined, { maximumFractionDigits: 2 })}`
+    : '-'
 
   return (
     <Container>
@@ -135,6 +182,12 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, apr, 
         <StyledLink href={info} external>
           {TranslateString(999, 'Info site')}
         </StyledLink>
+        {!farm.isTokenOnly && (
+          <LpPriceContainer>
+            Lp Price:
+            <span>{lpTokenPriceFormated}</span>
+          </LpPriceContainer>
+        )}
         <TagsContainer>{dual ? <DualTag /> : null}</TagsContainer>
       </InfoContainer>
       <ValueContainer>

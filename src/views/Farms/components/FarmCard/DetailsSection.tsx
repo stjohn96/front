@@ -7,8 +7,10 @@ export interface ExpandableSectionProps {
   bscScanAddress?: string
   removed?: boolean
   totalValueFormated?: string
+  lpTokenPriceFormated?: string
   lpLabel?: string
   addLiquidityUrl?: string
+  isTokenOnly: boolean
 }
 
 const Wrapper = styled.div`
@@ -34,8 +36,10 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
   bscScanAddress,
   removed,
   totalValueFormated,
+  lpTokenPriceFormated,
   lpLabel,
   addLiquidityUrl,
+  isTokenOnly,
 }) => {
   const TranslateString = useI18n()
 
@@ -49,6 +53,12 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
         <Flex justifyContent="space-between">
           <Text>{TranslateString(23, 'Total Liquidity')}:</Text>
           <Text>{totalValueFormated}</Text>
+        </Flex>
+      )}
+      {!isTokenOnly && (
+        <Flex justifyContent="space-between">
+          <Text>{TranslateString(999, 'LP price')}:</Text>
+          <Text>{lpTokenPriceFormated}</Text>
         </Flex>
       )}
       <Flex justifyContent="flex-start">
