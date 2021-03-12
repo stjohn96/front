@@ -199,6 +199,14 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           </div>
           <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
         </StyledDetails>
+        {blocksUntilStart > 0 && (
+          <StyledDetails>
+            <div style={{ flex: 1 }}>
+              ⏱ {TranslateString(999, 'Blocks until start')}:
+            </div>
+            <Balance fontSize="14px" isDisabled={isFinished} value={blocksUntilStart} decimals={0} />
+          </StyledDetails>
+        )}
       </div>
       <CardFooter
         projectLink={projectLink}
