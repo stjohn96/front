@@ -34,7 +34,7 @@ const config: MenuEntry[] = [
   },
   {
     label: 'Bush',
-    icon: 'TicketIcon',
+    icon: 'BushIcon',
     href: '/bush',
   },
   {

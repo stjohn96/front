@@ -33,6 +33,7 @@ export enum QuoteToken {
   'ETH' = 'ETH',
   'COMP' = 'COMP',
   'SUSHI' = 'SUSHI',
+  'LYPTUS' = 'LYPTUS',
 }
 
 export enum PoolCategory {
@@ -68,9 +69,11 @@ export interface PoolConfig {
   sousId: number
   image?: string
   tokenName: string
+  tokenAddress: string
   stakingTokenName: QuoteToken
   stakingLimit?: number
   stakingTokenAddress?: string
+  stakingTokenDecimals?: number
   contractAddress: Address
   poolCategory: PoolCategory
   projectLink: string
@@ -78,6 +81,7 @@ export interface PoolConfig {
   sortOrder?: number
   harvest?: boolean
   isFinished?: boolean
+  isBush?: boolean
   tokenDecimals: number
 }
 

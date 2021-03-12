@@ -127,9 +127,7 @@ const Staked: React.FunctionComponent<FarmWithStakedValue> = ({
           <ActionContent>
             <div>
               <Earned>{displayBalance}</Earned>
-              {!farm.isTokenOnly && (
-                <StakedTag>~{displayBalanceUsd}USD</StakedTag>
-              )}
+              {!farm.isTokenOnly && <StakedTag>~{displayBalanceUsd}USD</StakedTag>}
             </div>
             <IconButtonWrapper>
               <IconButton variant="secondary" onClick={onPresentWithdraw} mr="6px">

@@ -152,7 +152,11 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
             (needsApproval && !isOldSyrup ? (
               <div style={{ flex: 1 }}>
                 <Button disabled={isFinished || requestedApproval} onClick={handleApprove} width="100%">
-                  {`Approve ${stakingTokenName}`}
+                  {pool?.isBush === true ? (
+                    <span>{TranslateString(999, 'Approve this bush')}</span>
+                  ) : (
+                    <span>{`Approve ${stakingTokenName}`}</span>
+                  )}
                 </Button>
               </div>
             ) : (
@@ -190,9 +194,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         </StyledDetails>
         <StyledDetails>
           <div style={{ flex: 1 }}>
-            <span role="img" aria-label={stakingTokenName}>
-              🥞{' '}
-            </span>
+            <img src="/images/farms/lyptus.png" alt="LYPTUS Token" width="15" height="15" />{' '}
             {TranslateString(384, 'Your Stake')}:
           </div>
           <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />

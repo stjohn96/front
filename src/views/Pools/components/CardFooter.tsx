@@ -102,9 +102,7 @@ const CardFooter: React.FC<Props> = ({
           <Row style={{ marginBottom: '4px' }}>
             <FlexFull>
               <Label>
-                <span role="img" aria-label="syrup">
-                  🥞{' '}
-                </span>
+                <img src="/images/farms/lyptus.png" alt="LYPTUS Token" width="15" height="15" />{' '}
                 {TranslateString(408, 'Total')}
               </Label>
             </FlexFull>
@@ -113,7 +111,7 @@ const CardFooter: React.FC<Props> = ({
           {blocksUntilStart > 0 && (
             <Row>
               <FlexFull>
-                <Label>{TranslateString(410, 'Start')}:</Label>
+                <Label>{TranslateString(999, 'Until start')}:</Label>
               </FlexFull>
               <Balance fontSize="14px" isDisabled={isFinished} value={blocksUntilStart} decimals={0} />
             </Row>
@@ -121,7 +119,7 @@ const CardFooter: React.FC<Props> = ({
           {blocksUntilStart === 0 && blocksRemaining > 0 && (
             <Row>
               <FlexFull>
-                <Label>{TranslateString(410, 'End')}:</Label>
+                <Label>{TranslateString(999, 'End')}:</Label>
               </FlexFull>
               <Balance fontSize="14px" isDisabled={isFinished} value={blocksRemaining} decimals={0} />
             </Row>
