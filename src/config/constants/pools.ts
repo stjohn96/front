@@ -2,7 +2,7 @@ import { PoolConfig, QuoteToken, PoolCategory } from './types'
 
 const pools: PoolConfig[] = [
   {
-    sousId: 1,
+    sousId: 66,
     tokenName: 'BUSD',
     tokenAddress: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
     stakingTokenName: QuoteToken.LYPTUS,
