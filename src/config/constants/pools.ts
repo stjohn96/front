@@ -14,7 +14,7 @@ const pools: PoolConfig[] = [
     poolCategory: PoolCategory.CORE,
     projectLink: 'https://koaladefi.finance',
     harvest: true,
-    tokenPerBlock: '0.00004',
+    tokenPerBlock: '0.025',
     sortOrder: 999,
     isFinished: false,
     tokenDecimals: 18,
