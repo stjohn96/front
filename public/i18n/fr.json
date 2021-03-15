@@ -663,7 +663,7 @@
     {
       "data": {
         "stringId": 538,
-        "text": "Total brûlé"
+        "text": "Total déjà mangé"
       }
     },
     {
@@ -1330,6 +1330,12 @@
       "data": {
         "stringId": 10006,
         "text": "En savoir plus sur notre mécanisme de brûlage et notre agriculture payante"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10007,
+        "text": "Nombre de token brulés"
       }
     }
   ],

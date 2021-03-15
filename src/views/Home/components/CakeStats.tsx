@@ -64,7 +64,7 @@ const CakeStats = () => {
             </strong>
             <ReactTooltip id="circulatingSupplyTooltip" effect="solid">
               <span>
-                = {TranslateString(536, 'Total Minted')} - {TranslateString(538, 'Total Burned')}
+                = {TranslateString(536, 'Total Minted')} - {TranslateString(10007, 'Total of token burned')}
               </span>
             </ReactTooltip>
           </Text>
@@ -79,7 +79,15 @@ const CakeStats = () => {
           {totalSupply && <CardValue fontSize="14px" value={getBalanceNumber(totalSupply)} decimals={0} />}
         </Row>
         <Row>
-          <Text fontSize="14px">{TranslateString(538, 'Total Burned')}</Text>
+          <Text fontSize="14px">
+            {TranslateString(538, 'Feeding frenzy')}{' '}
+            <span data-tip data-for="totalBurnedTooltip">
+              <FontAwesomeIcon icon={faQuestionCircle} />
+            </span>
+          </Text>
+          <ReactTooltip id="totalBurnedTooltip" effect="solid">
+            <span>{TranslateString(10007, 'Total of token burned')}</span>
+          </ReactTooltip>
           <CardValue fontSize="14px" value={getBalanceNumber(burnedBalance)} decimals={0} />
         </Row>
         <Row>
