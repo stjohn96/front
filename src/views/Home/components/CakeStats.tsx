@@ -80,7 +80,7 @@ const CakeStats = () => {
         </Row>
         <Row>
           <Text fontSize="14px">
-            {TranslateString(538, 'Feeding frenzy')}{' '}
+            {TranslateString(538, 'LYPTUS eaten by Koalas')}{' '}
             <span data-tip data-for="totalBurnedTooltip">
               <FontAwesomeIcon icon={faQuestionCircle} />
             </span>
