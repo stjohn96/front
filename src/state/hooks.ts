@@ -80,6 +80,13 @@ export const usePoolFromPid = (sousId): Pool => {
   return pool
 }
 
+// Bush
+
+export const useBushs = (): Pool[] => {
+  const bushs = useSelector((state: State) => state.pools.data)
+  return bushs
+}
+
 // Prices
 
 export const usePriceBnbBusd = (): BigNumber => {
@@ -224,9 +231,12 @@ export const useGetApiPrice = (token: string) => {
 
 export const useTotalValue = (): BigNumber => {
   const farms = useFarms()
+  const bushs = useBushs()
   const bnbPrice = usePriceBnbBusd()
   const cakePrice = usePriceCakeBusd()
   let value = new BigNumber(0)
+
+  // farms
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
     if (farm.lpTotalInQuoteToken) {
@@ -241,5 +251,19 @@ export const useTotalValue = (): BigNumber => {
       value = value.plus(val)
     }
   }
+
+  // bush (pools)
+  for (let i = 0; i < bushs.length; i++) {
+    const bush = bushs[i]
+
+    const bushValue = new BigNumber(bush.totalStaked).times(cakePrice).div(new BigNumber(10).pow(bush.tokenDecimals))
+
+    if (!bushValue.isNaN()) {
+      value = value.plus(bushValue)
+    }
+
+    console.log(bush.tokenName, bushValue.toJSON())
+  }
+
   return value
 }
