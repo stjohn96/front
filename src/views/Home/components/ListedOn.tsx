@@ -4,13 +4,13 @@ import styled from 'styled-components'
 import useI18n from 'hooks/useI18n'
 
 const StyledListedOn = styled(Card)`
-  margin-left: auto;
-  margin-right: auto;
+  padding: 20px;
 `
 
-const LinkListed = styled.p`
+const LinkListed = styled.a`
   float: left;
   min-width: 200px;
+  margin: 5px;
 `
 
 const ListedOn = () => {
@@ -32,6 +32,16 @@ const ListedOn = () => {
             <Image
               src="/images/extras/dappradar.svg"
               alt="DappRadar provides information and insights about all the existing dapps! At the tap of your finger, find the most successful and used decentralized games, casinos, and marketplaces, among others."
+              width={150}
+              height={50}
+            />
+          </a>
+        </LinkListed>
+        <LinkListed>
+          <a href="https://www.bsc.news/bsc-projects" target="_blank" rel="noreferrer">
+            <Image
+              src="/images/extras/bscnews.svg"
+              alt="The most recent news about Binance Smart Chain. Latest news about DeFi, Projects, Binance blockchain, cryptocurrency prices and more."
               width={150}
               height={50}
             />
