@@ -22,14 +22,16 @@ const TotalValueLockedCard = () => {
     <StyledTotalValueLockedCard>
       <CardBody>
         <Heading size="lg" mb="24px">
-          {TranslateString(762, 'Total Value Locked (TVL)')}
+          {TranslateString(731, 'Total Value Locked (TVL)')}
         </Heading>
         <>
           {/* <Heading size="xl">{`$${tvl}`}</Heading> */}
           {/* <Heading size="xl"> */}
           <CardValue value={totalValue.toNumber()} prefix="$" decimals={2} />
           {/* </Heading> */}
-          <Text color="textSubtle">{TranslateString(732, 'Across all Farms and Pools')}</Text>
+          <Text color="textSubtle">
+            {TranslateString(732, 'Across all Farms, Pools and Bushs')}
+          </Text>
         </>
       </CardBody>
     </StyledTotalValueLockedCard>

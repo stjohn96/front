@@ -51,7 +51,7 @@ const CakeStats = () => {
   return (
     <StyledCakeStats>
       <CardBody>
-        <Heading size="xl" mb="24px">
+        <Heading size="lg" mb="24px">
           {TranslateString(534, 'Lyptus Stats')}
         </Heading>
         <RowHighlighted>
