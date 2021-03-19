@@ -50,7 +50,7 @@ export const allLanguages = [
   // KO,
   // PTBR,
   // RO,
-  // RU,
+  RU,
   // SR,
   // ESES,
   // SVSE,
