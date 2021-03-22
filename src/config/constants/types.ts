@@ -1,4 +1,5 @@
 import { TranslatableText } from 'state/types'
+import BigNumber from 'bignumber.js'
 
 export type IfoStatus = 'idle' | 'coming_soon' | 'live' | 'finished'
 
@@ -69,6 +70,7 @@ export interface PoolConfig {
   sousId: number
   image?: string
   tokenName: string
+  tokenLabel: string
   tokenAddress: string
   stakingTokenName: QuoteToken
   stakingLimit?: number
@@ -82,7 +84,9 @@ export interface PoolConfig {
   harvest?: boolean
   isFinished?: boolean
   isBush?: boolean
+  bushVersion?: number
   tokenDecimals: number
+  depositFee?: number
 }
 
 export type Images = {

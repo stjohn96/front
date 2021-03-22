@@ -24,9 +24,7 @@ const EarnAssetCard = () => {
   return (
     <StyledFarmStakingCard>
       <CardBody>
-        <Heading size="lg">
-          Earn
-        </Heading>
+        <Heading size="lg">Earn</Heading>
         <CardMidContent>{assets}</CardMidContent>
         <Flex justifyContent="space-between">
           <Heading size="lg">

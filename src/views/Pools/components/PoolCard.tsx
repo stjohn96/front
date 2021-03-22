@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js'
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
-import { Button, IconButton, useModal, AddIcon, Image } from '@pancakeswap-libs/uikit'
+import { Button, IconButton, useModal, AddIcon, Image, Flex, Text } from '@pancakeswap-libs/uikit'
 import { useWeb3React } from '@web3-react/core'
 import UnlockButton from 'components/UnlockButton'
 import Label from 'components/Label'
@@ -16,6 +16,9 @@ import { useSousHarvest } from 'hooks/useHarvest'
 import Balance from 'components/Balance'
 import { QuoteToken, PoolCategory } from 'config/constants/types'
 import { Pool } from 'state/types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
+import ReactTooltip from 'react-tooltip'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
 import CompoundModal from './CompoundModal'
@@ -24,6 +27,7 @@ import Card from './Card'
 import OldSyrupTitle from './OldSyrupTitle'
 import HarvestButton from './HarvestButton'
 import CardFooter from './CardFooter'
+import { usePoolFromPid } from '../../../state/hooks'
 
 interface PoolWithApy extends Pool {
   apy: BigNumber
@@ -38,6 +42,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     sousId,
     image,
     tokenName,
+    tokenLabel,
     stakingTokenName,
     stakingTokenAddress,
     projectLink,
@@ -62,6 +67,9 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const { onStake } = useSousStake(sousId, isBnbPool)
   const { onUnstake } = useSousUnstake(sousId)
   const { onReward } = useSousHarvest(sousId, isBnbPool)
+  const test = usePoolFromPid(sousId)
+
+  // console.log(pool.contractAddress['56'], test, test.depositFee)
 
   const [requestedApproval, setRequestedApproval] = useState(false)
   const [pendingTx, setPendingTx] = useState(false)
@@ -113,7 +121,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       {isFinished && sousId !== 0 && <PoolFinishedSash />}
       <div style={{ padding: '24px' }}>
         <CardTitle isFinished={isFinished && sousId !== 0}>
-          {isOldSyrup && '[OLD]'} {tokenName} {TranslateString(348, 'Pool')}
+          {isOldSyrup && '[OLD]'} {tokenLabel} {TranslateString(999, 'Bush')}
         </CardTitle>
         <div style={{ marginBottom: '8px', display: 'flex', alignItems: 'center' }}>
           <div style={{ flex: 1 }}>
@@ -184,6 +192,30 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
               </>
             ))}
         </StyledCardActions>
+
+        <StyledDetails>
+          <div style={{ flex: 1 }}>
+            {TranslateString(10001, 'Deposit Fee')}{' '}
+            <span data-tip data-for="depositFeeTooltip">
+              <FontAwesomeIcon icon={faQuestionCircle} />
+            </span>{' '}
+            :
+          </div>
+          <Text
+            bold
+            style={{
+              backgroundColor: pool.depositFee === 0 ? '#4bca4b' : 'transparent',
+              color: pool.depositFee === 0 ? 'white' : '#424f3e',
+              padding: pool.depositFee === 0 ? '2px 5px' : 'inherit',
+              borderRadius: pool.depositFee === 0 ? '10px' : 'inherit',
+            }}
+          >
+            {pool.depositFee / 100}%
+          </Text>
+          <ReactTooltip id="depositFeeTooltip" effect="solid" place="right">
+            <span>{TranslateString(742, 'Deposit fees will be automatically eaten (burnt)')}</span>
+          </ReactTooltip>
+        </StyledDetails>
         <StyledDetails>
           <div style={{ flex: 1 }}>{TranslateString(736, 'APR')}:</div>
           {isFinished || isOldSyrup || !apy || apy?.isNaN() || !apy?.isFinite() ? (

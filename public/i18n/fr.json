@@ -525,7 +525,7 @@
     {
       "data": {
         "stringId": 486,
-        "text": "You can unstake at any time."
+        "text": "Vous pouvez retirer à tout moment"
       }
     },
     {
@@ -771,7 +771,7 @@
     {
       "data": {
         "stringId": 580,
-        "text": "Déposer des LYPTUS pour en gagner."
+        "text": "Déposer des LYPTUS pour en gagner d'autres."
       }
     },
     {
@@ -1282,6 +1282,18 @@
       "data": {
         "stringId": 741,
         "text": "Activer"
+      }
+    },
+    {
+      "data": {
+        "stringId": 742,
+        "text": "Les frais de dépôt seront automatiquement mangés (brûlés)"
+      }
+    },
+    {
+      "data": {
+        "stringId": 743,
+        "text": "En savoir plus sur le Bush (en)"
       }
     },
     {

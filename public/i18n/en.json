@@ -1226,6 +1226,18 @@
     },
     {
       "data": {
+        "stringId": 742,
+        "text": "Deposit fees will be automatically eaten (burnt)"
+      }
+    },
+    {
+      "data": {
+        "stringId": 743,
+        "text": "Learn more about Bush"
+      }
+    },
+    {
+      "data": {
         "stringId": 10000,
         "text": "Deposit Fee will be used to buyback LYPTUS"
       }

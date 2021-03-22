@@ -3,7 +3,7 @@ import { Route, useRouteMatch } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
 import { useWeb3React } from '@web3-react/core'
-import { Heading } from '@pancakeswap-libs/uikit'
+import { Heading, HelpIcon, Link, Text } from '@pancakeswap-libs/uikit'
 import { BLOCKS_PER_YEAR } from 'config'
 import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
@@ -60,11 +60,15 @@ const Bush: React.FC = () => {
       rewardTokenFarm?.quoteTokenSymbol,
     )
 
-    // /!\ todo
-    // const totalRewardPricePerYear = rewardTokenPriceInBNB.times(pool.tokenPerBlock).times(BLOCKS_PER_YEAR)
     const totalRewardPricePerYear = new BigNumber(1).times(pool.tokenPerBlock).times(BLOCKS_PER_YEAR)
     const totalStakingTokenInPool = stakingTokenPriceInBNB.times(getBalanceNumber(pool.totalStaked))
-    const apy = totalRewardPricePerYear.div(totalStakingTokenInPool).times(100)
+    let apy = totalRewardPricePerYear.div(totalStakingTokenInPool).times(100)
+
+    // /!\ todo: clean this shit
+    if (pool.tokenName === 'WBNB') {
+      console.log(bnbPriceUSD.toJSON())
+      apy = apy.multipliedBy(bnbPriceUSD.toJSON())
+    }
 
     // console.table({
     //   'stakingTokenFarm?.tokenPriceVsQuote': stakingTokenFarm?.tokenPriceVsQuote,
@@ -106,10 +110,22 @@ const Bush: React.FC = () => {
     }
   `
 
+  const AddressLink = styled(Link)`
+    display: inline-block;
+    font-weight: 400;
+    font-size: 12px;
+    white-space: nowrap;
+
+    ${({ theme }) => theme.mediaQueries.sm} {
+      font-size: 16px;
+      width: auto;
+    }
+  `
+
   return (
     <>
       <Header>
-        <Heading as="h1" size="xxl" color="secondary" mb="24px">
+        <Heading as="h1" size="xl" color="secondary" mb="24px">
           {TranslateString(999, 'Bush')}
         </Heading>
         <Heading size="md" color="text">
@@ -117,8 +133,14 @@ const Bush: React.FC = () => {
             <li>{TranslateString(580, 'Stake LYPTUS to earn new tokens.')}</li>
             <li>{TranslateString(486, 'You can unstake at any time.')}</li>
             <li>{TranslateString(406, 'Rewards are calculated per block.')}</li>
+            <li>{TranslateString(742, 'Deposit fees will be automatically eaten (burnt)')}</li>
           </ul>
         </Heading>
+        <Text style={{ marginTop: '10px' }}>
+          <AddressLink href="https://koaladefi.medium.com/the-bush-next-evolution-d9e316be71f1" color="text" external>
+            <HelpIcon color="textSubtle" /> {TranslateString(743, 'Learn more about Bush')}
+          </AddressLink>
+        </Text>
       </Header>
       <PoolTabButtons stackedOnly={stackedOnly} setStackedOnly={setStackedOnly} />
       <Divider />

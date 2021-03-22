@@ -262,7 +262,7 @@ export const useTotalValue = (): BigNumber => {
       value = value.plus(bushValue)
     }
 
-    console.log(bush.tokenName, bushValue.toJSON())
+    // console.log(bush.tokenName, bushValue.toJSON())
   }
 
   return value
