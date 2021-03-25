@@ -43,6 +43,12 @@ const config: MenuEntry[] = [
     href: 'https://certik.org/projects/koaladefi',
     target: '_blank',
   },
+  {
+    label: 'Techrate Audit (In-Progress)',
+    icon: 'ShieldIcon',
+    href: 'https://twitter.com/KoalaDefi/status/1375094043496083461',
+    target: '_blank',
+  },
   // {
   //   label: 'Pools',
   //   icon: 'PoolIcon',
