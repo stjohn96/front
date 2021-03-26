@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Button } from '@pancakeswap-libs/uikit'
+import { Heading, Card, CardBody, Button, MetamaskIcon, LinkExternal } from '@pancakeswap-libs/uikit'
 import { useWeb3React } from '@web3-react/core'
 import useI18n from 'hooks/useI18n'
 import { useAllHarvest } from 'hooks/useHarvest'
@@ -8,6 +8,8 @@ import useFarmsWithBalance from 'hooks/useFarmsWithBalance'
 import UnlockButton from 'components/UnlockButton'
 import CakeHarvestBalance from './CakeHarvestBalance'
 import CakeWalletBalance from './CakeWalletBalance'
+import { BASE_URL } from '../../../config'
+import registerToken from '../../../utils/metamaskUtils'
 
 const StyledFarmStakingCard = styled(Card)`
   background-image: url('/images/cake-bg.svg');
@@ -33,6 +35,10 @@ const Actions = styled.div`
   margin-top: 24px;
 `
 
+const TertiaryButton = styled(Button)`
+  margin: 5px 0;
+`
+
 const FarmedStakingCard = () => {
   const [pendingTx, setPendingTx] = useState(false)
   const { account } = useWeb3React()
@@ -53,13 +59,16 @@ const FarmedStakingCard = () => {
     }
   }, [onReward])
 
+  const tokenImageSrc = `${BASE_URL}/images/farms/lyptus.png`
+  const tokenName = `LYPTUS`
+  const tokenAddress = `0xba26397cdff25f0d26e815d218ef3c77609ae7f1`
+
   return (
     <StyledFarmStakingCard>
       <CardBody>
         <Heading size="lg" mb="24px">
           {TranslateString(542, 'Farms & Staking')}
         </Heading>
-        <CardImage src="/images/cake.svg" alt="cake logo" width={64} height={64} />
         <Block>
           <Label>{TranslateString(544, 'LYPTUS to Harvest')}:</Label>
           <CakeHarvestBalance />
@@ -84,6 +93,23 @@ const FarmedStakingCard = () => {
             <UnlockButton width="100%" />
           )}
         </Actions>
+
+        <Block>
+          <TertiaryButton
+            variant="tertiary"
+            scale="sm"
+            onClick={() => registerToken(tokenAddress, tokenName, 18, tokenImageSrc)}
+            startIcon={<MetamaskIcon />}
+            width="100%"
+          >
+            Add {tokenName} to Metamask
+          </TertiaryButton>
+          <TertiaryButton variant="tertiary" scale="sm" width="100%">
+            <LinkExternal href="https://bscscan.com/token/0xba26397cdff25f0d26e815d218ef3c77609ae7f1">
+              {TranslateString(356, 'View on BscScan')}
+            </LinkExternal>
+          </TertiaryButton>
+        </Block>
       </CardBody>
     </StyledFarmStakingCard>
   )

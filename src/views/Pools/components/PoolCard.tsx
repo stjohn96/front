@@ -45,6 +45,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     tokenLabel,
     stakingTokenName,
     stakingTokenAddress,
+    stakingTokenDecimals,
     projectLink,
     harvest,
     apy,
@@ -241,11 +242,15 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       </div>
       <CardFooter
         projectLink={projectLink}
+        decimals={tokenDecimals}
         totalStaked={totalStaked}
         blocksRemaining={blocksRemaining}
         isFinished={isFinished}
         blocksUntilStart={blocksUntilStart}
         poolCategory={poolCategory}
+        tokenName={stakingTokenName}
+        tokenAddress={stakingTokenAddress}
+        tokenDecimals={stakingTokenDecimals}
       />
     </Card>
   )

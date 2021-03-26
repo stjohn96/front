@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
+import { Card, CardBody, Heading, LinkExternal, Text } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js/bignumber'
 import styled from 'styled-components'
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -88,7 +88,9 @@ const CakeStats = () => {
           <ReactTooltip id="totalBurnedTooltip" effect="solid">
             <span>{TranslateString(10007, 'Total of token burned')}</span>
           </ReactTooltip>
-          <CardValue fontSize="14px" value={getBalanceNumber(burnedBalance)} decimals={0} />
+          <LinkExternal href="https://bscscan.com/token/0xba26397cdff25f0d26e815d218ef3c77609ae7f1?a=0x000000000000000000000000000000000000dead">
+            <CardValue fontSize="14px" value={getBalanceNumber(burnedBalance)} decimals={0} />
+          </LinkExternal>
         </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(540, 'New LYPTUS/block')}</Text>
