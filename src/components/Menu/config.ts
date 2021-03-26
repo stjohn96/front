@@ -69,11 +69,6 @@ const config: MenuEntry[] = [
     icon: 'InfoIcon',
     items: [
       {
-        label: 'PancakeSwap',
-        href: 'https://pancakeswap.info/token/0xba26397cdff25f0d26e815d218ef3c77609ae7f1',
-        target: '_blank',
-      },
-      {
         label: 'Token',
         href: 'https://doc.koaladefi.finance/tokennomics/lyptus-token',
         target: '_blank',
@@ -86,6 +81,26 @@ const config: MenuEntry[] = [
       {
         label: 'Transparency',
         href: 'https://doc.koaladefi.finance/transparency/transparency',
+        target: '_blank',
+      },
+      {
+        label: 'PancakeSwap',
+        href: 'https://pancakeswap.info/token/0xba26397cdff25f0d26e815d218ef3c77609ae7f1',
+        target: '_blank',
+      },
+      {
+        label: 'Dapp.com',
+        href: 'https://www.dapp.com/app/koala-defi-finance',
+        target: '_blank',
+      },
+      {
+        label: 'Dappradar.com',
+        href: 'https://dappradar.com/binance-smart-chain/defi/koala-defi',
+        target: '_blank',
+      },
+      {
+        label: 'Bsc.news',
+        href: 'https://www.bsc.news/bsc-projects',
         target: '_blank',
       },
       // {
