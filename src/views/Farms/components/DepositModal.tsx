@@ -15,7 +15,14 @@ interface DepositModalProps {
   depositFeeBP?: number
 }
 
-const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, tokenName = '', addLiquidityUrl }) => {
+const DepositModal: React.FC<DepositModalProps> = ({
+  max,
+  onConfirm,
+  onDismiss,
+  tokenName = '',
+  addLiquidityUrl,
+  depositFeeBP = 0,
+}) => {
   const [val, setVal] = useState('')
   const [pendingTx, setPendingTx] = useState(false)
   const TranslateString = useI18n()
@@ -35,7 +42,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
   }, [fullBalance, setVal])
 
   return (
-    <Modal title={TranslateString(1068, 'Stake')} onDismiss={onDismiss}>
+    <Modal title={`${TranslateString(316, 'Deposit')} ${tokenName} Tokens`} onDismiss={onDismiss}>
       <ModalInput
         value={val}
         onSelectMax={handleSelectMax}
@@ -44,6 +51,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
         symbol={tokenName}
         addLiquidityUrl={addLiquidityUrl}
         inputTitle={TranslateString(1068, 'Stake')}
+        depositFeeBP={depositFeeBP}
       />
       <ModalActions>
         <Button variant="secondary" onClick={onDismiss} width="100%">

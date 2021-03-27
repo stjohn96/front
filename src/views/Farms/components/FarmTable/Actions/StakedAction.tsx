@@ -79,7 +79,13 @@ const Staked: React.FunctionComponent<FarmWithStakedValue> = ({
   const displayBalanceUsd = (lpPrice * rawStakedBalance).toLocaleString()
 
   const [onPresentDeposit] = useModal(
-    <DepositModal max={tokenBalance} onConfirm={onStake} tokenName={lpSymbol} addLiquidityUrl={addLiquidityUrl} />,
+    <DepositModal
+      max={tokenBalance}
+      onConfirm={onStake}
+      tokenName={lpSymbol}
+      addLiquidityUrl={addLiquidityUrl}
+      depositFeeBP={farm.depositFeeBP}
+    />,
   )
   const [onPresentWithdraw] = useModal(<WithdrawModal max={stakedBalance} onConfirm={onUnstake} tokenName={lpSymbol} />)
 

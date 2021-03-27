@@ -20,7 +20,7 @@ const StyledMaxText = styled.div`
   font-size: 14px;
   font-weight: 700;
   height: 44px;
-  justify-content: flex-end;
+  justify-content: flex-start;
 `
 
 const TokenInput: React.FC<TokenInputProps> = ({ max, symbol, onChange, onSelectMax, value, depositFeeBP }) => {
@@ -35,12 +35,6 @@ const TokenInput: React.FC<TokenInputProps> = ({ max, symbol, onChange, onSelect
       </Flex>
       <Flex alignItems="center">
         <Input onChange={onChange} placeholder="0" value={value} />
-        {depositFeeBP > 0 ? (
-          <StyledMaxText>
-            {TranslateString(10001, 'Deposit Fee')}: {new BigNumber(value || 0).times(depositFeeBP / 10000).toString()}{' '}
-            {symbol}
-          </StyledMaxText>
-        ) : null}
         <Flex alignItems="center">
           <Text bold color="primary" textTransform="uppercase" mx="8px">
             {symbol}
@@ -52,6 +46,12 @@ const TokenInput: React.FC<TokenInputProps> = ({ max, symbol, onChange, onSelect
           </div>
         </Flex>
       </Flex>
+      {depositFeeBP > 0 ? (
+        <StyledMaxText>
+          {TranslateString(10001, 'Deposit Fee')}: {new BigNumber(value || 0).times(depositFeeBP / 10000).toString()}{' '}
+          {symbol}
+        </StyledMaxText>
+      ) : null}
     </Box>
   )
 }
