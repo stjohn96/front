@@ -4,6 +4,7 @@ import { FarmConfig, QuoteToken } from './types'
 const farms: FarmConfig[] = [
   {
     pid: 0,
+    isOldPsc: true,
     isTokenOnly: true,
     lpSymbol: 'LYPTUS',
     lpAddresses: {
@@ -19,11 +20,12 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
   {
-    pid: 1,
-    lpSymbol: 'LYPTUS-BUSD LP',
+    pid: 9,
+    isApe: true,
+    lpSymbol: 'LYPTUS-BUSD APE LP',
     lpAddresses: {
       97: '',
-      56: '0x78D2616171c75FE9338BA26e0a8099272dd0bE92',
+      56: '0x744527700ceB261689dF9862FcD0036f5771324C',
     },
     tokenSymbol: 'LYPTUS',
     tokenAddresses: {
@@ -34,11 +36,12 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
   {
-    pid: 2,
-    lpSymbol: 'LYPTUS-BNB LP',
+    pid: 10,
+    isApe: true,
+    lpSymbol: 'LYPTUS-BNB APE LP',
     lpAddresses: {
       97: '',
-      56: '0x6a03c70EC13475928e6238bBefD695AA660A1632',
+      56: '0x1ea398a30f0f2a6ce00bEBfe08Fe11cd9Df5Afb6',
     },
     tokenSymbol: 'LYPTUS',
     tokenAddresses: {
@@ -50,6 +53,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 3,
+    isPsc: true,
     lpSymbol: 'USDT-BUSD LP',
     lpAddresses: {
       97: '',
@@ -65,6 +69,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 4,
+    isPsc: true,
     isTokenOnly: true,
     lpSymbol: 'BTCB',
     lpAddresses: {
@@ -81,6 +86,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 5,
+    isPsc: true,
     isTokenOnly: true,
     lpSymbol: 'ETH',
     lpAddresses: {
@@ -97,6 +103,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 6,
+    isPsc: true,
     isTokenOnly: true,
     lpSymbol: 'WBNB',
     lpAddresses: {
@@ -113,6 +120,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 7,
+    isPsc: true,
     lpSymbol: 'CAKE-BNB LP',
     lpAddresses: {
       97: '',
@@ -128,6 +136,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 8,
+    isPsc: true,
     isTokenOnly: true,
     lpSymbol: 'ADA',
     lpAddresses: {
@@ -138,6 +147,38 @@ const farms: FarmConfig[] = [
     tokenAddresses: {
       97: '',
       56: '0x3ee2200efb3400fabb9aacf31297cbdd1d435d47', // ADA
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
+  {
+    pid: 1,
+    isOldPsc: true,
+    lpSymbol: 'LYPTUS-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0x78D2616171c75FE9338BA26e0a8099272dd0bE92',
+    },
+    tokenSymbol: 'LYPTUS',
+    tokenAddresses: {
+      97: '',
+      56: '0xba26397cdff25f0d26e815d218ef3c77609ae7f1',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+  {
+    pid: 2,
+    isOldPsc: true,
+    lpSymbol: 'LYPTUS-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x6a03c70EC13475928e6238bBefD695AA660A1632',
+    },
+    tokenSymbol: 'LYPTUS',
+    tokenAddresses: {
+      97: '',
+      56: '0xba26397cdff25f0d26e815d218ef3c77609ae7f1',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,

@@ -16,6 +16,8 @@ import Multiplier, { MultiplierProps } from '../Multiplier'
 import Liquidity, { LiquidityProps } from '../Liquidity'
 import Fee, { FeeProps } from '../Fee'
 import { QuoteToken } from '../../../../../config/constants/types'
+import { BASE_ADD_LIQUIDITY_URL, BASE_APE_ADD_LIQUIDITY_URL, BASE_APE_EXCHANGE_URL } from '../../../../../config'
+import getSwapUrlPathParts from '../../../../../utils/getSwapUrlPathParts'
 
 export interface ActionPanelProps {
   apr: AprProps
@@ -132,6 +134,14 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, apr, 
   const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses, tokenSymbol, dual } = farm
   const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('PANCAKE', '')
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses })
+  const addLiquidityUrl =
+    farm.isApe || farm.isTokenOnly
+      ? `${BASE_APE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+      : `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+
+  const swapeUrlPathParts = getSwapUrlPathParts({ tokenAddresses })
+  const addTokenUrl = `${BASE_APE_EXCHANGE_URL}/${swapeUrlPathParts}`
+  const getUrl = farm.isTokenOnly ? addTokenUrl : addLiquidityUrl
   const lpAddress = farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
   const bsc = `https://bscscan.com/address/${lpAddress}`
   const info = `https://pancakeswap.info/pair/${lpAddress}`
@@ -172,9 +182,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, apr, 
       <InfoContainer>
         <StakeContainer>
           Stake:
-          <StyledLinkExternal href={`https://swap.koaladefi.finance/#/add/${liquidityUrlPathParts}`}>
-            {lpLabel}
-          </StyledLinkExternal>
+          <StyledLinkExternal href={`${getUrl}`}>{lpLabel}</StyledLinkExternal>
         </StakeContainer>
         <StyledLink href={bsc} external>
           {TranslateString(999, 'BscScan')}

@@ -1265,6 +1265,30 @@
         "stringId": 10004,
         "text": "Circulating Supply"
       }
+    },
+    {
+      "data": {
+        "stringId": 10005,
+        "text": "Market Cap"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10006,
+        "text": "Learn more about our Burn mechanism and fee farming"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10007,
+        "text": "Total of token burned"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10008,
+        "text": "Legacy Pancakeswap"
+      }
     }
   ],
   "pagination": {

@@ -59,6 +59,9 @@ export interface FarmConfig {
   multiplier?: string
   isTokenOnly?: boolean
   isCommunity?: boolean
+  isApe?: boolean
+  isPsc?: boolean
+  isOldPsc?: boolean
   dual?: {
     rewardPerBlock: number
     earnLabel: string

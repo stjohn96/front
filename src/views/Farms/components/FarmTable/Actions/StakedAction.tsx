@@ -8,7 +8,7 @@ import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import useI18n from 'hooks/useI18n'
 import { useApprove } from 'hooks/useApprove'
 import { getBep20Contract } from 'utils/contractHelpers'
-import { BASE_ADD_LIQUIDITY_URL } from 'config'
+import { BASE_ADD_LIQUIDITY_URL, BASE_APE_ADD_LIQUIDITY_URL, BASE_APE_EXCHANGE_URL } from 'config'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { getBalanceNumber } from 'utils/formatBalance'
 import useStake from 'hooks/useStake'
@@ -20,6 +20,7 @@ import DepositModal from '../../DepositModal'
 import WithdrawModal from '../../WithdrawModal'
 import { ActionContainer, ActionTitles, ActionContent, Earned, Title, Subtle, Staked as StakedTag } from './styles'
 import { QuoteToken } from '../../../../../config/constants/types'
+import getSwapUrlPathParts from '../../../../../utils/getSwapUrlPathParts'
 
 const IconButtonWrapper = styled.div`
   display: flex;
@@ -73,7 +74,15 @@ const Staked: React.FunctionComponent<FarmWithStakedValue> = ({
   const lpAddress = lpAddresses[process.env.REACT_APP_CHAIN_ID]
   const tokenAddress = tokenAddresses[process.env.REACT_APP_CHAIN_ID]
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses })
-  const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+
+  const addLiquidityUrl =
+    farm.isApe || farm.isTokenOnly
+      ? `${BASE_APE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+      : `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+
+  const swapeUrlPathParts = getSwapUrlPathParts({ tokenAddresses })
+  const addTokenUrl = `${BASE_APE_EXCHANGE_URL}/${swapeUrlPathParts}`
+  const getUrl = farm.isTokenOnly ? addTokenUrl : addLiquidityUrl
   const rawStakedBalance = getBalanceNumber(stakedBalance)
   const displayBalance = rawStakedBalance.toLocaleString()
   const displayBalanceUsd = (lpPrice * rawStakedBalance).toLocaleString()
@@ -83,7 +92,7 @@ const Staked: React.FunctionComponent<FarmWithStakedValue> = ({
       max={tokenBalance}
       onConfirm={onStake}
       tokenName={lpSymbol}
-      addLiquidityUrl={addLiquidityUrl}
+      addLiquidityUrl={getUrl}
       depositFeeBP={farm.depositFeeBP}
     />,
   )
@@ -133,7 +142,7 @@ const Staked: React.FunctionComponent<FarmWithStakedValue> = ({
           <ActionContent>
             <div>
               <Earned>{displayBalance}</Earned>
-              {!farm.isTokenOnly && <StakedTag>~{displayBalanceUsd}USD</StakedTag>}
+              {!farm.isTokenOnly && <StakedTag>≈{displayBalanceUsd} USD</StakedTag>}
             </div>
             <IconButtonWrapper>
               <IconButton variant="secondary" onClick={onPresentWithdraw} mr="6px">

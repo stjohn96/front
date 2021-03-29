@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import ApyButton from 'views/Farms/components/FarmCard/ApyButton'
-import { Address, QuoteToken } from 'config/constants/types'
+import { Address, FarmConfig, QuoteToken } from 'config/constants/types'
 import BigNumber from 'bignumber.js'
-import { BASE_ADD_LIQUIDITY_URL } from 'config'
+import { BASE_ADD_LIQUIDITY_URL, BASE_APE_ADD_LIQUIDITY_URL, BASE_APE_EXCHANGE_URL } from 'config'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import useI18n from 'hooks/useI18n'
+import getSwapUrlPathParts from '../../../../utils/getSwapUrlPathParts'
 
 export interface AprProps {
   value: number
@@ -17,6 +18,7 @@ export interface AprProps {
   cakePrice: BigNumber
   originalValue: BigNumber
   hideButton?: boolean
+  farm: FarmConfig
 }
 
 const Container = styled.div`
@@ -50,16 +52,24 @@ const Apr: React.FC<AprProps> = ({
   cakePrice,
   originalValue,
   hideButton = false,
+  farm,
 }) => {
   const TranslateString = useI18n()
   const displayApr = value ? `${value}%` : TranslateString(656, 'Loading...')
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses })
-  const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+  const addLiquidityUrl =
+    farm.isApe || farm.isTokenOnly
+      ? `${BASE_APE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+      : `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+
+  const swapeUrlPathParts = getSwapUrlPathParts({ tokenAddresses })
+  const addTokenUrl = `${BASE_APE_EXCHANGE_URL}/${swapeUrlPathParts}`
+  const getUrl = farm.isTokenOnly ? addTokenUrl : addLiquidityUrl
   return (
     <Container>
       <AprWrapper>{displayApr}</AprWrapper>
       {!hideButton && (
-        <ApyButton lpLabel={lpLabel} cakePrice={cakePrice} apy={originalValue} addLiquidityUrl={addLiquidityUrl} />
+        <ApyButton lpLabel={lpLabel} cakePrice={cakePrice} apy={originalValue} addLiquidityUrl={getUrl} />
       )}
     </Container>
   )

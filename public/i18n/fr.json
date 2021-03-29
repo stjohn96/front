@@ -1349,6 +1349,12 @@
         "stringId": 10007,
         "text": "Nombre de token brulés"
       }
+    },
+    {
+      "data": {
+        "stringId": 10008,
+        "text": "Legacy Pancakeswap"
+      }
     }
   ],
   "pagination": {

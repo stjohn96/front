@@ -53,7 +53,7 @@ const HarvestAction: React.FunctionComponent<FarmWithStakedValue> = ({ pid, user
       <ActionContent>
         <div>
           <Earned>{displayBalance}</Earned>
-          <Staked>~{countUp}USD</Staked>
+          <Staked>≈{countUp} USD</Staked>
         </div>
         {pid === 0 ? (
           <Button

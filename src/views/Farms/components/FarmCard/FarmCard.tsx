@@ -1,15 +1,16 @@
 import React, { useMemo, useState } from 'react'
 import BigNumber from 'bignumber.js'
 import styled, { keyframes } from 'styled-components'
-import { Flex, Text, Skeleton } from '@pancakeswap-libs/uikit'
+import { Flex, Text, Skeleton, Link } from '@pancakeswap-libs/uikit'
 import { communityFarms } from 'config/constants'
 import { Farm } from 'state/types'
 import { provider as ProviderType } from 'web3-core'
 import useI18n from 'hooks/useI18n'
 import ExpandableSectionButton from 'components/ExpandableSectionButton'
 import { QuoteToken } from 'config/constants/types'
-import { BASE_ADD_LIQUIDITY_URL } from 'config'
+import { BASE_ADD_LIQUIDITY_URL, BASE_APE_ADD_LIQUIDITY_URL, BASE_APE_EXCHANGE_URL } from 'config'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
+import getSwapUrlPathParts from 'utils/getSwapUrlPathParts'
 import DetailsSection from './DetailsSection'
 import CardHeading from './CardHeading'
 import CardActionsContainer from './CardActionsContainer'
@@ -86,6 +87,30 @@ const ExpandingWrapper = styled.div<{ expanded: boolean }>`
   overflow: hidden;
 `
 
+const Ribbon = styled.div`
+  background-position: right top;
+  background-repeat: no-repeat;
+  height: 7em;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 6em;
+  background-size: contain;
+  z-index: 999;
+`
+
+const ApeLpRibbon = styled(Ribbon)`
+  background-image: url(/images/ribbon_ape.svg);
+`
+
+const PscLpRibbon = styled(Ribbon)`
+  background-image: url(/images/ribbon_psc.svg);
+`
+
+const PscOldLpRibbon = styled(Ribbon)`
+  background-image: url(/images/ribbon_old.svg);
+`
+
 interface FarmCardProps {
   farm: FarmWithStakedValue
   removed: boolean
@@ -147,11 +172,21 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
 
   const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses } = farm
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses })
-  const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+  const addLiquidityUrl =
+    farm.isApe || farm.isTokenOnly
+      ? `${BASE_APE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+      : `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+
+  const swapeUrlPathParts = getSwapUrlPathParts({ tokenAddresses })
+  const addTokenUrl = `${BASE_APE_EXCHANGE_URL}/${swapeUrlPathParts}`
+  const getUrl = farm.isTokenOnly ? addTokenUrl : addLiquidityUrl
 
   return (
     <FCard>
-      {farm.tokenSymbol === 'LYPTUS' && <StyledCardAccent />}
+      {!farm.isTokenOnly && farm.isApe && <ApeLpRibbon />}
+      {!farm.isTokenOnly && farm.isPsc && <PscLpRibbon />}
+      {!farm.isTokenOnly && farm.isOldPsc && <PscOldLpRibbon />}
+      {farm.tokenSymbol === 'LYPTUS' && farm.isApe && <StyledCardAccent />}
       <CardHeading
         lpLabel={lpLabel}
         multiplier={farm.multiplier}
@@ -164,7 +199,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
           <Text bold style={{ display: 'flex', alignItems: 'center' }}>
             {farm.apy ? (
               <>
-                <ApyButton lpLabel={lpLabel} addLiquidityUrl={addLiquidityUrl} cakePrice={cakePrice} apy={farm.apy} />
+                <ApyButton lpLabel={lpLabel} addLiquidityUrl={getUrl} cakePrice={cakePrice} apy={farm.apy} />
                 {farmAPY}%
               </>
             ) : (
@@ -191,7 +226,29 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
           {farm.depositFeeBP / 100}%
         </Text>
       </Flex>
-      <CardActionsContainer farm={farm} account={account} addLiquidityUrl={addLiquidityUrl} />
+      <CardActionsContainer farm={farm} account={account} addLiquidityUrl={getUrl} />
+      {!farm.isTokenOnly && farm.isOldPsc && (
+        <div>
+          <Text bold color="secondary" fontSize="16px" mt="10px" style={{ textAlign: 'center' }}>
+            💡 {TranslateString(10008, 'Legacy Pancakeswap')}
+          </Text>
+          <Text style={{ textAlign: 'center' }}>
+            <Link
+              color="textDisabled"
+              fontSize="14px"
+              mt="10px"
+              href="https://koaladefi.medium.com/partnership-with-apeswap-finance-c1dd2dd44eee"
+              target="blank"
+              rel="noopener noreferrer"
+            >
+              {TranslateString(
+                10009,
+                'You have to move your liquidity pairs (LP) from Pancakeswap to Apeswap, click here to learn more.',
+              )}
+            </Link>
+          </Text>
+        </div>
+      )}
       <Divider />
       <ExpandableSectionButton
         onClick={() => setShowExpandableSection(!showExpandableSection)}
@@ -204,7 +261,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
           totalValueFormated={totalValueFormated}
           lpTokenPriceFormated={lpTokenPriceFormated}
           lpLabel={lpLabel}
-          addLiquidityUrl={addLiquidityUrl}
+          addLiquidityUrl={getUrl}
           isTokenOnly={farm.isTokenOnly}
         />
       </ExpandingWrapper>
