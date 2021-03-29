@@ -22,7 +22,7 @@ const farms: FarmConfig[] = [
   {
     pid: 9,
     isApe: true,
-    lpSymbol: 'LYPTUS-BUSD APE LP',
+    lpSymbol: 'LYPTUS-BUSD LP',
     lpAddresses: {
       97: '',
       56: '0x744527700ceB261689dF9862FcD0036f5771324C',
@@ -38,7 +38,7 @@ const farms: FarmConfig[] = [
   {
     pid: 10,
     isApe: true,
-    lpSymbol: 'LYPTUS-BNB APE LP',
+    lpSymbol: 'LYPTUS-BNB LP',
     lpAddresses: {
       97: '',
       56: '0x1ea398a30f0f2a6ce00bEBfe08Fe11cd9Df5Afb6',
