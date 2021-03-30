@@ -149,6 +149,7 @@ const data = {
 }
 
 const styles = {
+  bgColor: ({ theme }) => (theme.isDark ? '#36343c' : '#fbfbfb'),
   titleTextColor: '#4e4e4e',
   rowTitleColor: '#4e4e4e',
   rowContentColor: '#6b6b6b',
