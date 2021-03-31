@@ -95,6 +95,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       onConfirm={onStake}
       tokenName={stakingLimit ? `${stakingTokenName} (${stakingLimit} max)` : stakingTokenName}
       depositFeeBP={pool.depositFee}
+      pool={pool}
     />,
   )
 
@@ -157,6 +158,9 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           <div>-</div>
         )}
         <Label isFinished={isFinished && sousId !== 0} text={TranslateString(330, `${tokenName} earned`)} />
+        <Text color="secondary" fontSize="14px">
+          {TranslateString(10009, `Deposit:`)} {stakingTokenName}
+        </Text>
         <StyledCardActions>
           {!account && <UnlockButton />}
           {account &&
@@ -199,7 +203,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         <StyledDetails>
           <div style={{ flex: 1 }}>
             {TranslateString(10001, 'Deposit Fee')}{' '}
-            <span data-tip data-for="depositFeeTooltip">
+            <span data-tip data-for={`depositFeeTooltip${pool.sousId}`}>
               <FontAwesomeIcon icon={faQuestionCircle} />
             </span>{' '}
             :
@@ -215,8 +219,17 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           >
             {pool.depositFee / 100}%
           </Text>
-          <ReactTooltip id="depositFeeTooltip" effect="solid" place="right">
-            <span>{TranslateString(742, 'Deposit fees will be automatically eaten (burnt)')}</span>
+          <ReactTooltip id={`depositFeeTooltip${pool.sousId}`} effect="solid" place="right">
+            {pool.isLp === true ? (
+              <span>
+                {TranslateString(
+                  10010,
+                  'In the case of an LP, only the deposit fees on non-stable tokens will be eaten (burnt).',
+                )}
+              </span>
+            ) : (
+              <span>{TranslateString(742, 'Deposit fees will be automatically eaten (burnt)')}</span>
+            )}
           </ReactTooltip>
         </StyledDetails>
         <StyledDetails>
@@ -229,7 +242,9 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         </StyledDetails>
         <StyledDetails>
           <div style={{ flex: 1 }}>
-            <img src="/images/farms/lyptus.png" alt="LYPTUS Token" width="15" height="15" />{' '}
+            {pool.stakingTokenName === 'LYPTUS' && (
+              <img src="/images/farms/lyptus.png" alt="LYPTUS Token" width="15" height="15" />
+            )}
             {TranslateString(384, 'Your Stake')}:
           </div>
           <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
@@ -252,6 +267,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         tokenName={stakingTokenName}
         tokenAddress={stakingTokenAddress}
         tokenDecimals={stakingTokenDecimals}
+        isLp={pool.isLp}
       />
     </Card>
   )

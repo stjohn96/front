@@ -771,7 +771,7 @@
     {
       "data": {
         "stringId": 580,
-        "text": "Déposer des LYPTUS pour en gagner d'autres."
+        "text": "Déposer des LYPTUS et LYPTUS LPs pour en gagner d'autres."
       }
     },
     {
@@ -1354,6 +1354,24 @@
       "data": {
         "stringId": 10008,
         "text": "Legacy Pancakeswap"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10009,
+        "text": "Déposer:"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10010,
+        "text": "Dans le cas d'un LP, seuls les frais de dépôt sur les tokens non stables seront consommés (brûlés)."
+      }
+    },
+    {
+      "data": {
+        "stringId": 10011,
+        "text": "Total déposé"
       }
     }
   ],

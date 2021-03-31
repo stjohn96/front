@@ -28,6 +28,7 @@ interface Props {
   tokenName: string
   tokenAddress: string
   tokenDecimals: number
+  isLp: boolean
 }
 
 const StyledFooter = styled.div<{ isFinished: boolean }>`
@@ -91,6 +92,7 @@ const CardFooter: React.FC<Props> = ({
   isFinished,
   blocksUntilStart,
   poolCategory,
+  isLp,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const TranslateString = useI18n()
@@ -116,8 +118,12 @@ const CardFooter: React.FC<Props> = ({
           <Row style={{ marginBottom: '4px' }}>
             <FlexFull>
               <Label>
-                <img src="/images/farms/lyptus.png" alt="LYPTUS Token" width="15" height="15" />{' '}
-                {TranslateString(408, 'Total')}
+                {tokenName === 'LYPTUS' && (
+                  <span>
+                    <img src="/images/farms/lyptus.png" alt="LYPTUS Token" width="15" height="15" />{' '}
+                  </span>
+                )}
+                {TranslateString(10011, 'Total staked')}
               </Label>
             </FlexFull>
             <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(totalStaked)} />
@@ -130,12 +136,14 @@ const CardFooter: React.FC<Props> = ({
               <Balance fontSize="14px" isDisabled={isFinished} value={blocksRemaining} decimals={0} />
             </Row>
           )}
-          <Row>
-            <TokenLink onClick={() => registerToken(tokenAddress, tokenName, tokenDecimals, imageSrc)}>
-              Add {tokenName} to Metamask
-            </TokenLink>
-            <MetamaskIcon height={15} width={15} ml="4px" />
-          </Row>
+          {!isLp && (
+            <Row>
+              <TokenLink onClick={() => registerToken(tokenAddress, tokenName, tokenDecimals, imageSrc)}>
+                Add {tokenName} to Metamask
+              </TokenLink>
+              <MetamaskIcon height={15} width={15} ml="4px" />
+            </Row>
+          )}
           <Row>
             <TokenLink href={projectLink} target="_blank">
               {TranslateString(412, 'View project site')}

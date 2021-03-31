@@ -35,6 +35,7 @@ export enum QuoteToken {
   'COMP' = 'COMP',
   'SUSHI' = 'SUSHI',
   'LYPTUS' = 'LYPTUS',
+  'LYPTUS_BUSD_APE_LP' = 'LYPTUS-BUSD APE LP',
 }
 
 export enum PoolCategory {
@@ -87,9 +88,11 @@ export interface PoolConfig {
   harvest?: boolean
   isFinished?: boolean
   isBush?: boolean
+  isLp?: boolean
   bushVersion?: number
   tokenDecimals: number
   depositFee?: number
+  getUrl?: string
 }
 
 export type Images = {

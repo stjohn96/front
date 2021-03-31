@@ -10,14 +10,14 @@ import partition from 'lodash/partition'
 import useI18n from 'hooks/useI18n'
 import useBlock from 'hooks/useBlock'
 import { getBalanceNumber } from 'utils/formatBalance'
-import { useFarms, usePriceBnbBusd, usePools, usePriceEthBnb } from 'state/hooks'
+import { useFarms, usePriceBnbBusd, usePools, usePriceEthBnb, useGetApiPrice } from 'state/hooks'
 import { QuoteToken, PoolCategory } from 'config/constants/types'
 import FlexLayout from 'components/layout/Flex'
 import PoolCard from '../Pools/components/PoolCard'
 import PoolTabButtons from '../Pools/components/PoolTabButtons'
 import Divider from '../Pools/components/Divider'
-import Page from '../../components/layout/Page'
 import Coming from '../Pools/components/Coming'
+import useApePrice from '../../hooks/useApePrice'
 
 const Bush: React.FC = () => {
   const { path } = useRouteMatch()
@@ -29,6 +29,13 @@ const Bush: React.FC = () => {
   const ethPriceBnb = usePriceEthBnb()
   const block = useBlock()
   const [stackedOnly, setStackedOnly] = useState(false)
+  const [apePrice, setApePrice] = useState(0)
+
+  const apeReserve = useApePrice()
+  apeReserve.then(setApePrice)
+  // if (apeReserve !== undefined && apeReserve[1] !== undefined) {
+  //   console.log(apeReserve[1])
+  // }
 
   const priceToBnb = (tokenName: string, tokenPrice: BigNumber, quoteToken: QuoteToken): BigNumber => {
     const tokenPriceBN = new BigNumber(tokenPrice)
@@ -46,14 +53,17 @@ const Bush: React.FC = () => {
     const rewardTokenFarm = farms.find((f) => f.tokenSymbol === pool.tokenName)
     const stakingTokenFarm = farms.find((s) => s.tokenSymbol === pool.stakingTokenName)
 
+    let tokenPriceVsQuote = stakingTokenFarm?.tokenPriceVsQuote
+    if (pool.tokenName === 'BANANA') {
+      tokenPriceVsQuote = new BigNumber(apePrice)
+    }
+
     // tmp mulitplier to support ETH farms
     // Will be removed after the price api
     const tempMultiplier = stakingTokenFarm?.quoteTokenSymbol === 'ETH' ? ethPriceBnb : 1
 
     // /!\ Assume that the farm quote price is BNB
-    const stakingTokenPriceInBNB = isBnbPool
-      ? new BigNumber(1)
-      : new BigNumber(stakingTokenFarm?.tokenPriceVsQuote).times(tempMultiplier)
+    const stakingTokenPriceInBNB = isBnbPool ? new BigNumber(1) : new BigNumber(tokenPriceVsQuote).times(tempMultiplier)
     const rewardTokenPriceInBNB = priceToBnb(
       pool.tokenName,
       rewardTokenFarm?.tokenPriceVsQuote,
@@ -64,13 +74,13 @@ const Bush: React.FC = () => {
     const totalStakingTokenInPool = stakingTokenPriceInBNB.times(getBalanceNumber(pool.totalStaked))
     let apy = totalRewardPricePerYear.div(totalStakingTokenInPool).times(100)
 
-    // /!\ todo: clean this shit
     if (pool.tokenName === 'WBNB') {
-      console.log(bnbPriceUSD.toJSON())
+      // console.log(bnbPriceUSD.toJSON())
       apy = apy.multipliedBy(bnbPriceUSD.toJSON())
     }
 
     // console.table({
+    //   'tokenName': pool.tokenName,
     //   'stakingTokenFarm?.tokenPriceVsQuote': stakingTokenFarm?.tokenPriceVsQuote,
     //   stakingTokenPriceInBNB: stakingTokenPriceInBNB.toJSON(),
     //   rewardTokenPriceInBNB: rewardTokenPriceInBNB.toJSON(),
@@ -130,10 +140,10 @@ const Bush: React.FC = () => {
         </Heading>
         <Heading size="md" color="text">
           <ul>
-            <li>{TranslateString(580, 'Stake LYPTUS to earn new tokens.')}</li>
+            <li>{TranslateString(580, 'Stake LYPTUS token and LYPTUS LPs to earn new tokens.')}</li>
             <li>{TranslateString(486, 'You can unstake at any time.')}</li>
             <li>{TranslateString(406, 'Rewards are calculated per block.')}</li>
-            <li>{TranslateString(742, 'Deposit fees will be automatically eaten (burnt)')}</li>
+            <li>{TranslateString(742, 'Deposit fees will be automatically eaten (burnt).')}</li>
           </ul>
         </Heading>
         <Text style={{ marginTop: '10px' }}>

@@ -765,7 +765,7 @@
     {
       "data": {
         "stringId": 580,
-        "text": "Stake LYPTUS to earn new tokens."
+        "text": "Stake LYPTUS token and LYPTUS LPs to earn new tokens."
       }
     },
     {
@@ -1227,7 +1227,7 @@
     {
       "data": {
         "stringId": 742,
-        "text": "Deposit fees will be automatically eaten (burnt)"
+        "text": "Deposit fees will be automatically eaten (burnt)."
       }
     },
     {
@@ -1288,6 +1288,24 @@
       "data": {
         "stringId": 10008,
         "text": "Legacy Pancakeswap"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10009,
+        "text": "Deposit:"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10010,
+        "text": "In the case of an LP, only the deposit fees on non-stable tokens will be eaten (burnt)."
+      }
+    },
+    {
+      "data": {
+        "stringId": 10011,
+        "text": "Total staked"
       }
     }
   ],

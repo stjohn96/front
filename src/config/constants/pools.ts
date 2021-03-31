@@ -21,6 +21,7 @@ const pools: PoolConfig[] = [
     isFinished: true,
     tokenDecimals: 18,
     isBush: true,
+    isLp: false,
     bushVersion: 0,
   },
   {
@@ -43,7 +44,9 @@ const pools: PoolConfig[] = [
     isFinished: false,
     tokenDecimals: 18,
     isBush: true,
+    isLp: false,
     bushVersion: 1,
+    getUrl: '/#/swap?outputCurrency=0xba26397cdff25f0d26e815d218ef3c77609ae7f1',
   },
   {
     sousId: 68, // V1
@@ -65,7 +68,33 @@ const pools: PoolConfig[] = [
     isFinished: false,
     tokenDecimals: 18,
     isBush: true,
+    isLp: false,
     bushVersion: 1,
+    getUrl: '/#/swap?outputCurrency=0xba26397cdff25f0d26e815d218ef3c77609ae7f1',
+  },
+  {
+    sousId: 69, // V1
+    tokenName: 'BANANA',
+    tokenLabel: 'BANANA v1',
+    tokenAddress: '0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95',
+    stakingTokenName: QuoteToken.LYPTUS_BUSD_APE_LP,
+    stakingTokenAddress: '0x744527700ceB261689dF9862FcD0036f5771324C',
+    stakingTokenDecimals: 18,
+    contractAddress: {
+      97: '',
+      56: '0x9dA22cd406890Be1De991243f4922CcE83cC874F',
+    },
+    poolCategory: PoolCategory.COMMUNITY,
+    projectLink: 'https://apeswap.finance/',
+    harvest: true,
+    tokenPerBlock: '0.005456349206',
+    sortOrder: 999,
+    isFinished: false,
+    tokenDecimals: 18,
+    isBush: true,
+    isLp: true,
+    bushVersion: 1,
+    getUrl: '/#/add/0xe9e7cea3dedca5984780bafc599bd69add087d56/0xba26397cdff25f0d26e815d218ef3c77609ae7f1',
   },
 ]
 
