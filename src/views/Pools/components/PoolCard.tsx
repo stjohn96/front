@@ -68,9 +68,6 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const { onStake } = useSousStake(sousId, isBnbPool)
   const { onUnstake } = useSousUnstake(sousId)
   const { onReward } = useSousHarvest(sousId, isBnbPool)
-  const test = usePoolFromPid(sousId)
-
-  // console.log(pool.contractAddress['56'], test, test.depositFee)
 
   const [requestedApproval, setRequestedApproval] = useState(false)
   const [pendingTx, setPendingTx] = useState(false)
@@ -87,6 +84,10 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const needsApproval = !accountHasStakedBalance && !allowance.toNumber() && !isBnbPool
   const isCardActive = isFinished && accountHasStakedBalance
   const isOldFinishedBush = sousId === 66
+
+  const totalValueFormated = pool.totalValue
+    ? `$${Number(pool.totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
+    : '-'
 
   const convertedLimit = new BigNumber(stakingLimit).multipliedBy(new BigNumber(10).pow(tokenDecimals))
   const [onPresentDeposit] = useModal(
@@ -268,6 +269,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         tokenAddress={stakingTokenAddress}
         tokenDecimals={stakingTokenDecimals}
         isLp={pool.isLp}
+        totalValueFormated={totalValueFormated}
       />
     </Card>
   )

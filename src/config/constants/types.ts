@@ -93,6 +93,7 @@ export interface PoolConfig {
   tokenDecimals: number
   depositFee?: number
   getUrl?: string
+  totalValue?: BigNumber
 }
 
 export type Images = {

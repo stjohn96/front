@@ -10,7 +10,7 @@ import partition from 'lodash/partition'
 import useI18n from 'hooks/useI18n'
 import useBlock from 'hooks/useBlock'
 import { getBalanceNumber } from 'utils/formatBalance'
-import { useFarms, usePriceBnbBusd, usePools, usePriceEthBnb, useGetApiPrice } from 'state/hooks'
+import { useFarms, usePriceBnbBusd, usePools, usePriceEthBnb, usePriceCakeBusd, useFarmFromPid } from 'state/hooks'
 import { QuoteToken, PoolCategory } from 'config/constants/types'
 import FlexLayout from 'components/layout/Flex'
 import PoolCard from '../Pools/components/PoolCard'
@@ -27,15 +27,14 @@ const Bush: React.FC = () => {
   const pools = usePools(account)
   const bnbPriceUSD = usePriceBnbBusd()
   const ethPriceBnb = usePriceEthBnb()
+  const cakePrice = usePriceCakeBusd()
+  const lyptusBusdfarm = useFarmFromPid(9)
+  const [apePrice, setApePrice] = useState(0)
   const block = useBlock()
   const [stackedOnly, setStackedOnly] = useState(false)
-  const [apePrice, setApePrice] = useState(0)
 
   const apeReserve = useApePrice()
   apeReserve.then(setApePrice)
-  // if (apeReserve !== undefined && apeReserve[1] !== undefined) {
-  //   console.log(apeReserve[1])
-  // }
 
   const priceToBnb = (tokenName: string, tokenPrice: BigNumber, quoteToken: QuoteToken): BigNumber => {
     const tokenPriceBN = new BigNumber(tokenPrice)
@@ -75,8 +74,17 @@ const Bush: React.FC = () => {
     let apy = totalRewardPricePerYear.div(totalStakingTokenInPool).times(100)
 
     if (pool.tokenName === 'WBNB') {
-      // console.log(bnbPriceUSD.toJSON())
       apy = apy.multipliedBy(bnbPriceUSD.toJSON())
+    }
+
+    // total liquidity
+    let totalValue = new BigNumber(0)
+    if (pool.stakingTokenName === QuoteToken.LYPTUS) {
+      totalValue = new BigNumber(pool.totalStaked).div(new BigNumber(10).pow(18)).multipliedBy(cakePrice)
+    }
+    if (pool.stakingTokenName === QuoteToken.LYPTUS_BUSD_APE_LP) {
+      const lpPrice = Number(lyptusBusdfarm.lpTotalInQuoteToken) / Number(lyptusBusdfarm.lpTokenBalanceMC)
+      totalValue = new BigNumber(pool.totalStaked).div(new BigNumber(10).pow(18)).multipliedBy(lpPrice)
     }
 
     // console.table({
@@ -97,6 +105,7 @@ const Bush: React.FC = () => {
       ...pool,
       isFinished: pool.sousId === 0 ? false : pool.isFinished || block > pool.endBlock,
       apy,
+      totalValue,
     }
   })
 

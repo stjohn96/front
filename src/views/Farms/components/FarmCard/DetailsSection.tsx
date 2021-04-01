@@ -49,12 +49,10 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
         <Text>{TranslateString(316, 'Stake')}:</Text>
         <StyledLinkExternal href={addLiquidityUrl}>{lpLabel}</StyledLinkExternal>
       </Flex>
-      {!removed && (
-        <Flex justifyContent="space-between">
-          <Text>{TranslateString(23, 'Total Liquidity')}:</Text>
-          <Text>{totalValueFormated}</Text>
-        </Flex>
-      )}
+      <Flex justifyContent="space-between">
+        <Text>{TranslateString(23, 'Total Liquidity')}:</Text>
+        <Text>{totalValueFormated}</Text>
+      </Flex>
       {!isTokenOnly && (
         <Flex justifyContent="space-between">
           <Text>{TranslateString(999, 'LP price')}:</Text>

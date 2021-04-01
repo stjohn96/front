@@ -234,6 +234,7 @@ export const useTotalValue = (): BigNumber => {
   const bushs = useBushs()
   const bnbPrice = usePriceBnbBusd()
   const cakePrice = usePriceCakeBusd()
+  const lyptusBusdfarm = useFarmFromPid(9)
   let value = new BigNumber(0)
 
   // farms
@@ -256,13 +257,19 @@ export const useTotalValue = (): BigNumber => {
   for (let i = 0; i < bushs.length; i++) {
     const bush = bushs[i]
 
-    const bushValue = new BigNumber(bush.totalStaked).times(cakePrice).div(new BigNumber(10).pow(bush.tokenDecimals))
+    // total liquidity
+    let bushValue = new BigNumber(0)
+    if (bush.stakingTokenName === QuoteToken.LYPTUS) {
+      bushValue = new BigNumber(bush.totalStaked).div(new BigNumber(10).pow(18)).multipliedBy(cakePrice)
+    }
+    if (bush.stakingTokenName === QuoteToken.LYPTUS_BUSD_APE_LP) {
+      const lpPrice = Number(lyptusBusdfarm.lpTotalInQuoteToken) / Number(lyptusBusdfarm.lpTokenBalanceMC)
+      bushValue = new BigNumber(bush.totalStaked).div(new BigNumber(10).pow(18)).multipliedBy(lpPrice)
+    }
 
     if (!bushValue.isNaN()) {
       value = value.plus(bushValue)
     }
-
-    // console.log(bush.tokenName, bushValue.toJSON())
   }
 
   return value

@@ -8,7 +8,7 @@ import Balance from 'components/Balance'
 import { CommunityTag, CoreTag, BinanceTag } from 'components/Tags'
 import { PoolCategory } from 'config/constants/types'
 import registerToken from 'utils/metamaskUtils'
-import { Flex, MetamaskIcon } from '@pancakeswap-libs/uikit'
+import { Flex, MetamaskIcon, Text } from '@pancakeswap-libs/uikit'
 import { BASE_URL } from 'config'
 
 const tags = {
@@ -29,6 +29,7 @@ interface Props {
   tokenAddress: string
   tokenDecimals: number
   isLp: boolean
+  totalValueFormated?: string
 }
 
 const StyledFooter = styled.div<{ isFinished: boolean }>`
@@ -93,6 +94,7 @@ const CardFooter: React.FC<Props> = ({
   blocksUntilStart,
   poolCategory,
   isLp,
+  totalValueFormated,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const TranslateString = useI18n()
@@ -115,26 +117,30 @@ const CardFooter: React.FC<Props> = ({
       </Row>
       {isOpen && (
         <Details>
-          <Row style={{ marginBottom: '4px' }}>
-            <FlexFull>
-              <Label>
-                {tokenName === 'LYPTUS' && (
-                  <span>
-                    <img src="/images/farms/lyptus.png" alt="LYPTUS Token" width="15" height="15" />{' '}
-                  </span>
-                )}
-                {TranslateString(10011, 'Total staked')}
-              </Label>
-            </FlexFull>
-            <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(totalStaked)} />
-          </Row>
+          <Flex justifyContent="space-between">
+            <Text>
+              {tokenName === 'LYPTUS' && (
+                <span>
+                  <img src="/images/farms/lyptus.png" alt="LYPTUS Token" width="15" height="15" />{' '}
+                </span>
+              )}
+              {TranslateString(10011, 'Total staked')}
+            </Text>
+            <Text>
+              <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(totalStaked)} />
+            </Text>
+          </Flex>
+          <Flex justifyContent="space-between">
+            <Text>{TranslateString(23, 'Total Liquidity')}:</Text>
+            <Text>{totalValueFormated}</Text>
+          </Flex>
           {blocksUntilStart === 0 && blocksRemaining > 0 && (
-            <Row>
-              <FlexFull>
-                <Label>⏱ {TranslateString(999, 'Blocks remaining')}:</Label>
-              </FlexFull>
-              <Balance fontSize="14px" isDisabled={isFinished} value={blocksRemaining} decimals={0} />
-            </Row>
+            <Flex justifyContent="space-between">
+              <Text>{TranslateString(999, 'Blocks remaining')}:</Text>
+              <Text>
+                <Balance fontSize="14px" isDisabled={isFinished} value={blocksRemaining} decimals={0} />
+              </Text>
+            </Flex>
           )}
           {!isLp && (
             <Row>
