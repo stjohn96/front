@@ -4,7 +4,9 @@ import styled from 'styled-components'
 import useI18n from 'hooks/useI18n'
 
 const StyledListedOn = styled(Card)`
-  padding: 20px;
+  align-items: center;
+  display: flex;
+  flex: 1;
 `
 
 const LinkListed = styled.a`
@@ -17,6 +19,7 @@ const ListedOn = () => {
   return (
     <StyledListedOn>
       <CardBody>
+        <Heading size="lg">Listed on</Heading>
         <LinkListed>
           <a href="https://www.dapp.com/app/koala-defi-finance" target="_blank" rel="noreferrer">
             <Image
@@ -48,7 +51,11 @@ const ListedOn = () => {
           </a>
         </LinkListed>
         <LinkListed>
-          <a href="https://dex.apeswap.finance/#/swap?outputCurrency=0xba26397cdff25f0d26e815d218ef3c77609ae7f1" target="_blank" rel="noreferrer">
+          <a
+            href="https://dex.apeswap.finance/#/swap?outputCurrency=0xba26397cdff25f0d26e815d218ef3c77609ae7f1"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Image
               src="/images/extras/apeswap.png"
               alt="Cheaper and faster than Uniswap? Discover ApeSwap, the #1 AMM and yield farm for apes by apes."
