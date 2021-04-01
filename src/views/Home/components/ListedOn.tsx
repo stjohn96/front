@@ -47,6 +47,16 @@ const ListedOn = () => {
             />
           </a>
         </LinkListed>
+        <LinkListed>
+          <a href="https://dex.apeswap.finance/#/swap?outputCurrency=0xba26397cdff25f0d26e815d218ef3c77609ae7f1" target="_blank" rel="noreferrer">
+            <Image
+              src="/images/extras/apeswap.png"
+              alt="Cheaper and faster than Uniswap? Discover ApeSwap, the #1 AMM and yield farm for apes by apes."
+              width={150}
+              height={43}
+            />
+          </a>
+        </LinkListed>
       </CardBody>
     </StyledListedOn>
   )
