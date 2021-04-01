@@ -82,6 +82,16 @@ const TokenLink = styled.a`
   cursor: pointer;
 `
 
+interface TextProps {
+  isDisabled?: boolean
+  fontSize?: string
+  color?: string
+}
+
+const StyledText = styled(Text)<TextProps>`
+  color: ${({ isDisabled, color, theme }) => (isDisabled ? theme.colors.textDisabled : color)};
+`
+
 const CardFooter: React.FC<Props> = ({
   projectLink,
   decimals,
@@ -132,7 +142,9 @@ const CardFooter: React.FC<Props> = ({
           </Flex>
           <Flex justifyContent="space-between">
             <Text>{TranslateString(23, 'Total Liquidity')}:</Text>
-            <Text>{totalValueFormated}</Text>
+            <StyledText bold fontSize="14px">
+              {totalValueFormated}
+            </StyledText>
           </Flex>
           {blocksUntilStart === 0 && blocksRemaining > 0 && (
             <Flex justifyContent="space-between">
