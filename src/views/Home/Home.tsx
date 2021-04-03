@@ -98,7 +98,7 @@ const Home: React.FC = () => {
           {TranslateString(578, 'High yields BSC farm brought by the Koalas.')}
         </Heading>
         <Heading size="lg" color="text">
-          <a href="https://swap.koaladefi.finance/#/swap?inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0xba26397cdff25f0d26e815d218ef3c77609ae7f1">
+          <a href="https://swape.koaladefi.finance/#/swap?inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0xba26397cdff25f0d26e815d218ef3c77609ae7f1">
             <Button variant="subtle">
               {TranslateString(733, 'BUY')}{' '}
               <img src="/images/farms/lyptus.png" alt="LYPTUS Token" width="70" height="70" />{' '}
