@@ -57,7 +57,7 @@ const ListedOn = () => {
             rel="noreferrer"
           >
             <Image
-              src="/images/extras/apeswap.png"
+              src="/images/extras/apeswap.svg"
               alt="Cheaper and faster than Uniswap? Discover ApeSwap, the #1 AMM and yield farm for apes by apes."
               width={150}
               height={43}
