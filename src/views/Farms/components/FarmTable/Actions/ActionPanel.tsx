@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import styled from 'styled-components'
 import useI18n from 'hooks/useI18n'
 import { LinkExternal, Text, Link } from '@pancakeswap-libs/uikit'
@@ -18,6 +18,7 @@ import Fee, { FeeProps } from '../Fee'
 import { QuoteToken } from '../../../../../config/constants/types'
 import { BASE_ADD_LIQUIDITY_URL, BASE_APE_ADD_LIQUIDITY_URL, BASE_APE_EXCHANGE_URL } from '../../../../../config'
 import getSwapUrlPathParts from '../../../../../utils/getSwapUrlPathParts'
+import useApePrice from '../../../../../hooks/useApePrice'
 
 export interface ActionPanelProps {
   apr: AprProps
@@ -148,6 +149,10 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, apr, 
   const cakePrice = usePriceCakeBusd()
   const bnbPrice = usePriceBnbBusd()
   const ethPrice = usePriceEthBusd()
+  const [apePrice, setApePrice] = useState(0)
+
+  const apeReserve = useApePrice()
+  apeReserve.then(setApePrice)
 
   const totalValue: BigNumber = useMemo(() => {
     if (!farm.lpTotalInQuoteToken) {
@@ -162,13 +167,24 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, apr, 
     if (farm.quoteTokenSymbol === QuoteToken.ETH) {
       return ethPrice.times(farm.lpTotalInQuoteToken)
     }
+    if (farm.quoteTokenSymbol === QuoteToken.BANANA) {
+      return new BigNumber(apePrice).times(farm.lpTotalInQuoteToken)
+    }
     return farm.lpTotalInQuoteToken
-  }, [bnbPrice, cakePrice, ethPrice, farm.lpTotalInQuoteToken, farm.quoteTokenSymbol])
+  }, [bnbPrice, cakePrice, ethPrice, farm.lpTotalInQuoteToken, farm.quoteTokenSymbol, apePrice])
 
   const lpPrice = useMemo(() => {
     if (farm.isTokenOnly) {
       return null
     }
+
+    // console.log({
+    //   'pid': farm.pid,
+    //   'totalValue': totalValue,
+    //   'lpTokenBalanceMC': farm.lpTokenBalanceMC,
+    //   'lpTotalInQuoteToken': farm.lpTotalInQuoteToken,
+    //   'quoteTokenSymbol': farm.quoteTokenSymbol,
+    // })
 
     return Number(totalValue) / Number(farm.lpTokenBalanceMC)
   }, [farm, totalValue])

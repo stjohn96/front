@@ -31,7 +31,7 @@ const EarnAssetCard = () => {
             <Heading size="lg">
               in <img src="/images/koala/bush.svg" height="24px" width="24px" alt="Bushs" /> Bushs
             </Heading>
-              <ArrowForwardIcon mt={30} color="primary" />
+            <ArrowForwardIcon mt={30} color="primary" />
           </Flex>
         </CardBody>
       </NavLink>

@@ -15,6 +15,7 @@ import DetailsSection from './DetailsSection'
 import CardHeading from './CardHeading'
 import CardActionsContainer from './CardActionsContainer'
 import ApyButton from './ApyButton'
+import useApePrice from '../../../../hooks/useApePrice'
 
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber
@@ -123,6 +124,10 @@ interface FarmCardProps {
 
 const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice, ethPrice, account }) => {
   const TranslateString = useI18n()
+  const [apePrice, setApePrice] = useState(0)
+
+  const apeReserve = useApePrice()
+  apeReserve.then(setApePrice)
 
   const [showExpandableSection, setShowExpandableSection] = useState(false)
 
@@ -147,8 +152,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     if (farm.quoteTokenSymbol === QuoteToken.ETH) {
       return ethPrice.times(farm.lpTotalInQuoteToken)
     }
+    if (farm.quoteTokenSymbol === QuoteToken.BANANA) {
+      return new BigNumber(apePrice).times(farm.lpTotalInQuoteToken)
+    }
     return farm.lpTotalInQuoteToken
-  }, [bnbPrice, cakePrice, ethPrice, farm.lpTotalInQuoteToken, farm.quoteTokenSymbol])
+  }, [bnbPrice, cakePrice, ethPrice, farm.lpTotalInQuoteToken, farm.quoteTokenSymbol, apePrice])
 
   const totalValueFormated = totalValue
     ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
