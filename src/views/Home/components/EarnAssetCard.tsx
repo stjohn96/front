@@ -23,18 +23,18 @@ const EarnAssetCard = () => {
 
   return (
     <StyledFarmStakingCard>
-      <CardBody>
-        <Heading size="lg">Earn</Heading>
-        <CardMidContent>{assets}</CardMidContent>
-        <Flex justifyContent="space-between">
-          <Heading size="lg">
-            in <img src="/images/koala/bush.svg" height="24px" width="24px" alt="Bushs" /> Bushs
-          </Heading>
-          <NavLink exact activeClassName="active" to="/bush" id="pool-cta">
-            <ArrowForwardIcon mt={30} color="primary" />
-          </NavLink>
-        </Flex>
-      </CardBody>
+      <NavLink exact activeClassName="active" to="/bush">
+        <CardBody>
+          <Heading size="lg">Earn</Heading>
+          <CardMidContent>{assets}</CardMidContent>
+          <Flex justifyContent="space-between">
+            <Heading size="lg">
+              in <img src="/images/koala/bush.svg" height="24px" width="24px" alt="Bushs" /> Bushs
+            </Heading>
+              <ArrowForwardIcon mt={30} color="primary" />
+          </Flex>
+        </CardBody>
+      </NavLink>
     </StyledFarmStakingCard>
   )
 }
