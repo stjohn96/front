@@ -52,6 +52,22 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.wbnb,
   },
   {
+    pid: 11,
+    isApe: true,
+    lpSymbol: 'LYPTUS-BANANA LP',
+    lpAddresses: {
+      97: '',
+      56: '0x44530667302C2655E8Cd3D0365a799e9789F388D',
+    },
+    tokenSymbol: 'LYPTUS',
+    tokenAddresses: {
+      97: '',
+      56: '0xba26397cdff25f0d26e815d218ef3c77609ae7f1',
+    },
+    quoteTokenSymbol: QuoteToken.BANANA,
+    quoteTokenAdresses: contracts.banana,
+  },
+  {
     pid: 3,
     isPsc: true,
     lpSymbol: 'USDT-BUSD LP',

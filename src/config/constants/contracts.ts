@@ -67,4 +67,8 @@ export default {
     56: '0xFee8A195570a18461146F401d6033f5ab3380849',
     97: '0x7b7b1583De1DeB32Ce6605F6deEbF24A0671c17C',
   },
+  banana: {
+    56: '0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95',
+    97: '',
+  },
 }

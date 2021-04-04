@@ -35,6 +35,7 @@ export enum QuoteToken {
   'COMP' = 'COMP',
   'SUSHI' = 'SUSHI',
   'LYPTUS' = 'LYPTUS',
+  'BANANA' = 'BANANA',
   'LYPTUS_BUSD_APE_LP' = 'LYPTUS-BUSD APE LP',
 }
 
