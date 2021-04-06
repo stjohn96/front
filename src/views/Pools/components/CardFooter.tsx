@@ -134,14 +134,14 @@ const CardFooter: React.FC<Props> = ({
                   <img src="/images/farms/lyptus.png" alt="LYPTUS Token" width="15" height="15" />{' '}
                 </span>
               )}
-              {TranslateString(10011, 'Total staked')}
+              {TranslateString(10011, 'Total staked')}:
             </Text>
             <Text>
               <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(totalStaked)} />
             </Text>
           </Flex>
           <Flex justifyContent="space-between">
-            <Text>{TranslateString(23, 'Total Liquidity')}:</Text>
+            <Text>{TranslateString(10012, 'Value staked')}:</Text>
             <StyledText bold fontSize="14px">
               {totalValueFormated}
             </StyledText>

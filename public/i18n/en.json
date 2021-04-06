@@ -1307,6 +1307,12 @@
         "stringId": 10011,
         "text": "Total staked"
       }
+    },
+    {
+      "data": {
+        "stringId": 10012,
+        "text": "Value staked"
+      }
     }
   ],
   "pagination": {

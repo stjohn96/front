@@ -1,7 +1,10 @@
 import React from 'react'
 import useI18n from 'hooks/useI18n'
 import styled from 'styled-components'
+import BigNumber from 'bignumber.js'
 import { Text, Flex, Link, LinkExternal } from '@pancakeswap-libs/uikit'
+import Balance from '../../../../components/Balance'
+import { getBalanceNumber } from '../../../../utils/formatBalance'
 
 export interface ExpandableSectionProps {
   bscScanAddress?: string
@@ -11,6 +14,8 @@ export interface ExpandableSectionProps {
   lpLabel?: string
   addLiquidityUrl?: string
   isTokenOnly: boolean
+  tokenName?: string
+  totalStaked?: string
 }
 
 const Wrapper = styled.div`
@@ -40,6 +45,8 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
   lpLabel,
   addLiquidityUrl,
   isTokenOnly,
+  tokenName,
+  totalStaked,
 }) => {
   const TranslateString = useI18n()
 
@@ -49,15 +56,37 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
         <Text>{TranslateString(316, 'Stake')}:</Text>
         <StyledLinkExternal href={addLiquidityUrl}>{lpLabel}</StyledLinkExternal>
       </Flex>
-      <Flex justifyContent="space-between">
-        <Text>{TranslateString(23, 'Total Liquidity')}:</Text>
-        <Text>{totalValueFormated}</Text>
-      </Flex>
+      {isTokenOnly && (
+        <div>
+          <Flex justifyContent="space-between">
+            <Text>
+              {tokenName === 'LYPTUS' && (
+                <span>
+                  <img src="/images/farms/lyptus.png" alt="LYPTUS Token" width="15" height="15" />{' '}
+                </span>
+              )}
+              {TranslateString(10011, 'Total staked')}:
+            </Text>
+            <Text>{totalStaked}</Text>
+          </Flex>
+          <Flex justifyContent="space-between">
+            <Text>{TranslateString(10012, 'Value staked')}:</Text>
+            <Text>{totalValueFormated}</Text>
+          </Flex>
+        </div>
+      )}
+
       {!isTokenOnly && (
-        <Flex justifyContent="space-between">
-          <Text>{TranslateString(999, 'LP price')}:</Text>
-          <Text>{lpTokenPriceFormated}</Text>
-        </Flex>
+        <div>
+          <Flex justifyContent="space-between">
+            <Text>{TranslateString(354, 'Total Liquidity')}:</Text>
+            <Text>{totalValueFormated}</Text>
+          </Flex>
+          <Flex justifyContent="space-between">
+            <Text>{TranslateString(999, 'LP price')}:</Text>
+            <Text>{lpTokenPriceFormated}</Text>
+          </Flex>
+        </div>
       )}
       <Flex justifyContent="flex-start">
         <Link external href={bscScanAddress} bold={false}>

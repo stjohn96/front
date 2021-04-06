@@ -162,6 +162,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
     : '-'
 
+  const totalStaked = `${Number(farm.lpTokenBalanceMC).toLocaleString(undefined, { maximumFractionDigits: 3 })}`
+
   const lpPrice = useMemo(() => {
     if (farm.isTokenOnly) {
       return null
@@ -271,6 +273,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
           lpLabel={lpLabel}
           addLiquidityUrl={getUrl}
           isTokenOnly={farm.isTokenOnly}
+          tokenName={farm.tokenSymbol}
+          totalStaked={totalStaked}
         />
       </ExpandingWrapper>
     </FCard>

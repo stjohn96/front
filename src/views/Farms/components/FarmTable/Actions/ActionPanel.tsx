@@ -224,7 +224,11 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, apr, 
           <Multiplier {...multiplier} />
         </ValueWrapper>
         <ValueWrapper>
-          <Text>{TranslateString(999, 'Liquidity')}</Text>
+          {!farm.isTokenOnly ? (
+            <Text>{TranslateString(999, 'Liquidity')}</Text>
+          ) : (
+            <Text>{TranslateString(10012, 'Value staked')}</Text>
+          )}
           <Liquidity {...liquidity} />
         </ValueWrapper>
         <ValueWrapper>
