@@ -77,6 +77,10 @@ const Bush: React.FC = () => {
       apy = apy.multipliedBy(bnbPriceUSD.toJSON())
     }
 
+    if (pool.tokenName === 'BANANA') {
+      apy = apy.multipliedBy(new BigNumber(apePrice).toJSON())
+    }
+
     // total liquidity
     let totalValue = new BigNumber(0)
     if (pool.stakingTokenName === QuoteToken.LYPTUS) {
