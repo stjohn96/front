@@ -84,6 +84,11 @@ const config: MenuEntry[] = [
         target: '_blank',
       },
       {
+        label: '🛡 Audits',
+        href: 'https://doc.koaladefi.finance/security/audits',
+        target: '_blank',
+      },
+      {
         label: 'PancakeSwap',
         href: 'https://pancakeswap.info/token/0xba26397cdff25f0d26e815d218ef3c77609ae7f1',
         target: '_blank',
@@ -118,6 +123,12 @@ const config: MenuEntry[] = [
   //   icon: 'IfoIcon',
   //   href: '/ifo',
   // },
+  {
+    label: 'FAQ',
+    icon: 'GroupsIcon',
+    href: 'https://doc.koaladefi.finance/faq',
+    target: '_blank',
+  },
   {
     label: 'More',
     icon: 'MoreIcon',
