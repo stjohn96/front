@@ -105,7 +105,7 @@ const ApeLpRibbon = styled(Ribbon)`
 `
 
 const PscLpRibbon = styled(Ribbon)`
-  background-image: url(/images/ribbon_psc.svg);
+  background-image: url(/images/ribbon_pcs.svg);
 `
 
 const PscOldLpRibbon = styled(Ribbon)`
