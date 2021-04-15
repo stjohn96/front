@@ -96,6 +96,30 @@ const pools: PoolConfig[] = [
     bushVersion: 1,
     getUrl: '/#/add/0xe9e7cea3dedca5984780bafc599bd69add087d56/0xba26397cdff25f0d26e815d218ef3c77609ae7f1',
   },
+  {
+    sousId: 70, // V1
+    tokenName: 'CAKE',
+    tokenLabel: 'CAKE v1',
+    tokenAddress: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
+    stakingTokenName: QuoteToken.LYPTUS_BUSD_APE_LP,
+    stakingTokenAddress: '0x744527700ceB261689dF9862FcD0036f5771324C',
+    stakingTokenDecimals: 18,
+    contractAddress: {
+      97: '',
+      56: '0xe0c34a5b8E231e05AEF3A30d7FB953223fE4e642',
+    },
+    poolCategory: PoolCategory.COMMUNITY,
+    projectLink: 'https://pancakeswap.finance/',
+    harvest: true,
+    tokenPerBlock: '0.000248015873',
+    sortOrder: 999,
+    isFinished: false,
+    tokenDecimals: 18,
+    isBush: true,
+    isLp: true,
+    bushVersion: 1,
+    getUrl: '/#/add/0xe9e7cea3dedca5984780bafc599bd69add087d56/0xba26397cdff25f0d26e815d218ef3c77609ae7f1',
+  },
 ]
 
 export default pools

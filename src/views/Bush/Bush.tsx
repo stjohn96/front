@@ -18,6 +18,7 @@ import PoolTabButtons from '../Pools/components/PoolTabButtons'
 import Divider from '../Pools/components/Divider'
 import Coming from '../Pools/components/Coming'
 import useApePrice from '../../hooks/useApePrice'
+import useCakePrice from '../../hooks/useCakePrice'
 
 const Bush: React.FC = () => {
   const { path } = useRouteMatch()
@@ -27,14 +28,18 @@ const Bush: React.FC = () => {
   const pools = usePools(account)
   const bnbPriceUSD = usePriceBnbBusd()
   const ethPriceBnb = usePriceEthBnb()
-  const cakePrice = usePriceCakeBusd()
+  const lyptusPrice = usePriceCakeBusd()
   const lyptusBusdfarm = useFarmFromPid(9)
   const [apePrice, setApePrice] = useState(0)
+  const [cakePrice, setCakePrice] = useState(0)
   const block = useBlock()
   const [stackedOnly, setStackedOnly] = useState(false)
 
   const apeReserve = useApePrice()
   apeReserve.then(setApePrice)
+
+  const cakeReserve = useCakePrice()
+  cakeReserve.then(setCakePrice)
 
   const priceToBnb = (tokenName: string, tokenPrice: BigNumber, quoteToken: QuoteToken): BigNumber => {
     const tokenPriceBN = new BigNumber(tokenPrice)
@@ -48,13 +53,16 @@ const Bush: React.FC = () => {
   }
 
   const poolsWithApy = pools.map((pool) => {
-    const isBnbPool = pool.poolCategory === PoolCategory.BINANCE
-    const rewardTokenFarm = farms.find((f) => f.tokenSymbol === pool.tokenName)
     const stakingTokenFarm = farms.find((s) => s.tokenSymbol === pool.stakingTokenName)
+
+    const cakePriceFinal = cakePrice * bnbPriceUSD.toNumber()
 
     let tokenPriceVsQuote = stakingTokenFarm?.tokenPriceVsQuote
     if (pool.tokenName === 'BANANA') {
       tokenPriceVsQuote = new BigNumber(apePrice)
+    }
+    if (pool.tokenName === 'CAKE') {
+      tokenPriceVsQuote = new BigNumber(cakePriceFinal)
     }
 
     // tmp mulitplier to support ETH farms
@@ -62,15 +70,19 @@ const Bush: React.FC = () => {
     const tempMultiplier = stakingTokenFarm?.quoteTokenSymbol === 'ETH' ? ethPriceBnb : 1
 
     // /!\ Assume that the farm quote price is BNB
-    const stakingTokenPriceInBNB = isBnbPool ? new BigNumber(1) : new BigNumber(tokenPriceVsQuote).times(tempMultiplier)
-    const rewardTokenPriceInBNB = priceToBnb(
-      pool.tokenName,
-      rewardTokenFarm?.tokenPriceVsQuote,
-      rewardTokenFarm?.quoteTokenSymbol,
-    )
+    const stakingTokenPriceInBNB = new BigNumber(tokenPriceVsQuote).times(tempMultiplier)
+
+    // total liquidity
+    let totalStakingTokenInPool = new BigNumber(0)
+    if (pool.stakingTokenName === QuoteToken.LYPTUS) {
+      totalStakingTokenInPool = new BigNumber(pool.totalStaked).div(new BigNumber(10).pow(18)).multipliedBy(lyptusPrice)
+    }
+    if (pool.stakingTokenName === QuoteToken.LYPTUS_BUSD_APE_LP) {
+      const lpPrice = Number(lyptusBusdfarm.lpTotalInQuoteToken) / Number(lyptusBusdfarm.lpTokenBalanceMC)
+      totalStakingTokenInPool = new BigNumber(pool.totalStaked).div(new BigNumber(10).pow(18)).multipliedBy(lpPrice)
+    }
 
     const totalRewardPricePerYear = new BigNumber(1).times(pool.tokenPerBlock).times(BLOCKS_PER_YEAR)
-    const totalStakingTokenInPool = stakingTokenPriceInBNB.times(getBalanceNumber(pool.totalStaked))
     let apy = totalRewardPricePerYear.div(totalStakingTokenInPool).times(100)
 
     if (pool.tokenName === 'WBNB') {
@@ -81,35 +93,34 @@ const Bush: React.FC = () => {
       apy = apy.multipliedBy(new BigNumber(apePrice).toJSON())
     }
 
-    // total liquidity
-    let totalValue = new BigNumber(0)
-    if (pool.stakingTokenName === QuoteToken.LYPTUS) {
-      totalValue = new BigNumber(pool.totalStaked).div(new BigNumber(10).pow(18)).multipliedBy(cakePrice)
-    }
-    if (pool.stakingTokenName === QuoteToken.LYPTUS_BUSD_APE_LP) {
-      const lpPrice = Number(lyptusBusdfarm.lpTotalInQuoteToken) / Number(lyptusBusdfarm.lpTokenBalanceMC)
-      totalValue = new BigNumber(pool.totalStaked).div(new BigNumber(10).pow(18)).multipliedBy(lpPrice)
+    if (pool.tokenName === 'CAKE') {
+      apy = apy.multipliedBy(new BigNumber(cakePriceFinal).toJSON())
     }
 
-    // console.table({
-    //   'tokenName': pool.tokenName,
-    //   'stakingTokenFarm?.tokenPriceVsQuote': stakingTokenFarm?.tokenPriceVsQuote,
-    //   stakingTokenPriceInBNB: stakingTokenPriceInBNB.toJSON(),
-    //   rewardTokenPriceInBNB: rewardTokenPriceInBNB.toJSON(),
-    //   totalRewardPricePerYear: totalRewardPricePerYear.toJSON(),
-    //   totalStakingTokenInPool: totalStakingTokenInPool.toJSON(),
+    // const debug = {
+    //   '---': '-',
+    //   apePrice,
+    //   cakePrice: cakePriceFinal,
+    //   '----': '-',
+    //   tokenName: pool.tokenName,
+    //   tokenPriceVsQuote: tokenPriceVsQuote ? tokenPriceVsQuote.toString() : '-',
+    //   'sTF?.tokenPriceVsQuote': Number(stakingTokenFarm?.tokenPriceVsQuote).toFixed(3),
+    //   stakingTokenPriceInBNB: stakingTokenPriceInBNB.toFixed(3),
+    //   totalRewardPricePerYear: totalRewardPricePerYear.toFixed(3),
+    //   totalStakingTokenInPool: totalStakingTokenInPool.toFixed(3),
     //   'pool.tokenPerBlock': pool.tokenPerBlock,
-    //   'pool.totalStaked': pool.totalStaked,
-    //   'getBalanceNumber(pool.totalStaked)': getBalanceNumber(pool.totalStaked),
-    //   BLOCKS_PER_YEAR: BLOCKS_PER_YEAR.toJSON(),
-    //   'stakingTokenFarm?.quoteTokenSymbol': stakingTokenFarm?.quoteTokenSymbol,
-    // })
+    //   'pool.totalStaked': getBalanceNumber(pool.totalStaked).toFixed(3),
+    //   BLOCKS_PER_YEAR: BLOCKS_PER_YEAR.toFixed(3),
+    //   'sTF?.quoteTokenSymbol': stakingTokenFarm?.quoteTokenSymbol,
+    // }
+    const debug = null
 
     return {
       ...pool,
       isFinished: pool.sousId === 0 ? false : pool.isFinished || block > pool.endBlock,
       apy,
-      totalValue,
+      totalValue: totalStakingTokenInPool,
+      debug,
     }
   })
 
