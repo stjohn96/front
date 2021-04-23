@@ -68,8 +68,40 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.banana,
   },
   {
+    pid: 12,
+    isApe: true,
+    lpSymbol: 'USDC-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0xC087C78AbaC4A0E900a327444193dBF9BA69058E',
+    },
+    tokenSymbol: 'USDC',
+    tokenAddresses: {
+      97: '',
+      56: '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+  {
+    pid: 13,
+    isApe: true,
+    lpSymbol: 'CAKE-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x60593Abea55e9Ea9d31c1b6473191cD2475a720D',
+    },
+    tokenSymbol: 'CAKE',
+    tokenAddresses: {
+      97: '',
+      56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
+  {
     pid: 3,
-    isPsc: true,
+    isOldPsc: true,
     lpSymbol: 'USDT-BUSD LP',
     lpAddresses: {
       97: '',
@@ -136,7 +168,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 7,
-    isPsc: true,
+    isOldPsc: true,
     lpSymbol: 'CAKE-BNB LP',
     lpAddresses: {
       97: '',
