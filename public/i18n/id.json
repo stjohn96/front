@@ -1,0 +1,1322 @@
+{
+  "data": [
+    {
+      "data": {
+        "stringId": 278,
+        "text": "Bertani"
+      }
+    },
+    {
+      "data": {
+        "stringId": 280,
+        "text": "Pertaruhan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 284,
+        "text": "Pertukaran"
+      }
+    },
+    {
+      "data": {
+        "stringId": 286,
+        "text": "Dokumen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 288,
+        "text": "Pemungutan Suara"
+      }
+    },
+    {
+      "data": {
+        "stringId": 290,
+        "text": "Lotre"
+      }
+    },
+    {
+      "data": {
+        "stringId": 292,
+        "text": "Hubungkan Dompet"
+      }
+    },
+    {
+      "data": {
+        "stringId": 294,
+        "text": "Saldo %aset% Anda"
+      }
+    },
+    {
+      "data": {
+        "stringId": 296,
+        "text": "Total %aset% Pasokan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 298,
+        "text": "Mengunci"
+      }
+    },
+    {
+      "data": {
+        "stringId": 300,
+        "text": "Panen Tertunda"
+      }
+    },
+    {
+      "data": {
+        "stringId": 302,
+        "text": "Hadiah baru per blok"
+      }
+    },
+    {
+      "data": {
+        "stringId": 304,
+        "text": "Total LYPTUS dibakar sejak diluncurkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 306,
+        "text": "Lihat Dapur"
+      }
+    },
+    {
+      "data": {
+        "stringId": 308,
+        "text": "Telegram"
+      }
+    },
+    {
+      "data": {
+        "stringId": 310,
+        "text": "Blog"
+      }
+    },
+    {
+      "data": {
+        "stringId": 312,
+        "text": "Github"
+      }
+    },
+    {
+      "data": {
+        "stringId": 314,
+        "text": "Twitter"
+      }
+    },
+    {
+      "data": {
+        "stringId": 316,
+        "text": "Setoran"
+      }
+    },
+    {
+      "data": {
+        "stringId": 318,
+        "text": "Hasilkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 320,
+        "text": "Pertaruhkan token LP untuk hasilkan LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 322,
+        "text": "Pertaruhkan Lyptus, dapatkan SYRUP."
+      }
+    },
+    {
+      "data": {
+        "stringId": 328,
+        "text": "Anda dapat menukar kembali kapan saja"
+      }
+    },
+    {
+      "data": {
+        "stringId": 330,
+        "text": "%aset% Dihasilkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 332,
+        "text": "Token Dipertaruhkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 334,
+        "text": "Setiap kali Anda mempertaruhkan dan mencabut token LYPTUS, kontrak akan secara otomatis memanen hadiah LYPTUS untuk Anda!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 338,
+        "text": "Sous Chef sedang memasak suguhan untuk semua pemegang SYRUP "
+      }
+    },
+    {
+      "data": {
+        "stringId": 340,
+        "text": "Token SYRUP Dipertaruhkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 342,
+        "text": "Token XVS Dihasilkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 344,
+        "text": "Pertaruhkan SYRUP anda untuk menghasilkan token projek barus."
+      }
+    },
+    {
+      "data": {
+        "stringId": 346,
+        "text": "Hadiah akan dihitung per blok dan total hadiah akan didistribusikan secara otomatis di akhir periode pertanian setiap proyek."
+      }
+    },
+    {
+      "data": {
+        "stringId": 348,
+        "text": "Kolam"
+      }
+    },
+    {
+      "data": {
+        "stringId": 350,
+        "text": "Segera Hadir"
+      }
+    },
+    {
+      "data": {
+        "stringId": 352,
+        "text": "APR"
+      }
+    },
+    {
+      "data": {
+        "stringId": 354,
+        "text": "Total Liquiditas"
+      }
+    },
+    {
+      "data": {
+        "stringId": 356,
+        "text": "Lihat pada BscScan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 358,
+        "text": "Harga Lyptus"
+      }
+    },
+    {
+      "data": {
+        "stringId": 360,
+        "text": "%aset% Token Dihasilkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 362,
+        "text": "%num% blok hingga periode bertani selesai"
+      }
+    },
+    {
+      "data": {
+        "stringId": 364,
+        "text": "Total Syrup Dipertaruhkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 380,
+        "text": "1 LYPTUS = 1 SYRUP"
+      }
+    },
+    {
+      "data": {
+        "stringId": 382,
+        "text": "Segera hadir..."
+      }
+    },
+    {
+      "data": {
+        "stringId": 384,
+        "text": "Taruhan Anda"
+      }
+    },
+    {
+      "data": {
+        "stringId": 386,
+        "text": "Bertani Dimulai pada %num% Blok"
+      }
+    },
+    {
+      "data": {
+        "stringId": 388,
+        "text": "Selesai"
+      }
+    },
+    {
+      "data": {
+        "stringId": 390,
+        "text": "Periode Bertani Selesai pada %num% Blok"
+      }
+    },
+    {
+      "data": {
+        "stringId": 392,
+        "text": "Situs Proyek"
+      }
+    },
+    {
+      "data": {
+        "stringId": 394,
+        "text": "Tarik Taruhan SYRUP"
+      }
+    },
+    {
+      "data": {
+        "stringId": 400,
+        "text": "Pemegang SYRUP secara proporsional membagi 25% emisi blok LYPTUS setiap hari (10 LYPTUS per blok), Hadiah dibagikan setiap blok."
+      }
+    },
+    {
+      "data": {
+        "stringId": 402,
+        "text": "Pertaruhkan SYRUP untuk menghasilkan token baru."
+      }
+    },
+    {
+      "data": {
+        "stringId": 406,
+        "text": "Hadiah dihitung per blok."
+      }
+    },
+    {
+      "data": {
+        "stringId": 408,
+        "text": "Total"
+      }
+    },
+    {
+      "data": {
+        "stringId": 410,
+        "text": "Berakhir"
+      }
+    },
+    {
+      "data": {
+        "stringId": 412,
+        "text": "Lihat Situs Proyek"
+      }
+    },
+    {
+      "data": {
+        "stringId": 414,
+        "text": "Proyek Anda? \ud83d\udc40"
+      }
+    },
+    {
+      "data": {
+        "stringId": 416,
+        "text": "Buat kolam untuk token Anda"
+      }
+    },
+    {
+      "data": {
+        "stringId": 418,
+        "text": "Ajukan sekarang"
+      }
+    },
+    {
+      "data": {
+        "stringId": 420,
+        "text": "Fase 1: PEMBELIAN"
+      }
+    },
+    {
+      "data": {
+        "stringId": 424,
+        "text": "%num% LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 426,
+        "text": "Habiskan LYPTUS untuk membeli tiket, berkontribusi pada pot lotere. Pembelian tiket kira-kira berakhir. 30 menit sebelum lotere. Menangkan hadiah jika 2, 3, atau 4 nomor tiket Anda cocok dengan nomor pemenang dan posisi mereka! Semoga berhasil!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 428,
+        "text": "Total tiket Anda untuk babak ini"
+      }
+    },
+    {
+      "data": {
+        "stringId": 430,
+        "text": "Beli tiket"
+      }
+    },
+    {
+      "data": {
+        "stringId": 432,
+        "text": "Lihat tiket anda"
+      }
+    },
+    {
+      "data": {
+        "stringId": 434,
+        "text": "Approx. waktu tersisa untuk membeli tiket"
+      }
+    },
+    {
+      "data": {
+        "stringId": 438,
+        "text": "Tutup"
+      }
+    },
+    {
+      "data": {
+        "stringId": 440,
+        "text": "Angka Kemenangan Terbaru"
+      }
+    },
+    {
+      "data": {
+        "stringId": 442,
+        "text": "Tiket yang cocok dengan 4 nomor:"
+      }
+    },
+    {
+      "data": {
+        "stringId": 444,
+        "text": "Tiket yang cocok dengan 3 nomor:"
+      }
+    },
+    {
+      "data": {
+        "stringId": 446,
+        "text": "Tiket yang cocok dengan 2 nomor:"
+      }
+    },
+    {
+      "data": {
+        "stringId": 448,
+        "text": "Ekspor nomor pemenang baru-baru ini"
+      }
+    },
+    {
+      "data": {
+        "stringId": 450,
+        "text": "Masukkan jumlah tiket yang akan dibeli"
+      }
+    },
+    {
+      "data": {
+        "stringId": 452,
+        "text": "Maksimal"
+      }
+    },
+    {
+      "data": {
+        "stringId": 454,
+        "text": "%num% LYPTUS Tersedia"
+      }
+    },
+    {
+      "data": {
+        "stringId": 456,
+        "text": "Jumlah Anda harus kelipatan 10 LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 458,
+        "text": "1 Tiket = 10 LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 462,
+        "text": "Batalkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 464,
+        "text": "Konfirmasi"
+      }
+    },
+    {
+      "data": {
+        "stringId": 466,
+        "text": "Peringatan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 468,
+        "text": "Pembelian tiket lotere berakhir."
+      }
+    },
+    {
+      "data": {
+        "stringId": 472,
+        "text": "Tiket hanya berlaku untuk satu undian lotere, dan akan dibakar setelah pengundian."
+      }
+    },
+    {
+      "data": {
+        "stringId": 474,
+        "text": "Membeli tiket tidak menjamin Anda akan memenangkan apapun. Harap hanya berpartisipasi setelah Anda memahami risikonya."
+      }
+    },
+    {
+      "data": {
+        "stringId": 476,
+        "text": "Saya memahami"
+      }
+    },
+    {
+      "data": {
+        "stringId": 478,
+        "text": "Pembelian tiket bersifat final. LYPTUS Anda tidak dapat dikembalikan kepada Anda setelah membeli tiket."
+      }
+    },
+    {
+      "data": {
+        "stringId": 480,
+        "text": "Klaim hadiah"
+      }
+    },
+    {
+      "data": {
+        "stringId": 482,
+        "text": "Hadiah LYPTUS akan diklaim"
+      }
+    },
+    {
+      "data": {
+        "stringId": 484,
+        "text": "Fase 2: KLAIM"
+      }
+    },
+    {
+      "data": {
+        "stringId": 486,
+        "text": "Anda dapat melepas taruhan kapan saja."
+      }
+    },
+    {
+      "data": {
+        "stringId": 488,
+        "text": "Konfirmasi Tertunda"
+      }
+    },
+    {
+      "data": {
+        "stringId": 490,
+        "text": "Tiket Saya (Total: %TIKET%)"
+      }
+    },
+    {
+      "data": {
+        "stringId": 492,
+        "text": "Approx. waktu sebelum lotere berikutnya dimulai"
+      }
+    },
+    {
+      "data": {
+        "stringId": 494,
+        "text": "Menyetujui LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 496,
+        "text": "Pemegang SYRUP secara proporsional membagi 40% emisi blok LYPTUS setiap hari (10 LYPTUS per blok), Hadiah dibagikan setiap blok."
+      }
+    },
+    {
+      "data": {
+        "stringId": 500,
+        "text": "IFO: Initial Farm Offerings"
+      }
+    },
+    {
+      "data": {
+        "stringId": 502,
+        "text": "Beli token baru dengan model penjualan token baru."
+      }
+    },
+    {
+      "data": {
+        "stringId": 504,
+        "text": "Anda\u2019ll bayar token baru menggunakan token LP LYPTUS-BNB, yang berarti Anda perlu mempertaruhkan jumlah yang sama dari LYPTUS dan BNB dalam kumpulan likuiditas untuk mengambil bagian."
+      }
+    },
+    {
+      "data": {
+        "stringId": 506,
+        "text": "Dapatkan LYPTUS-BNB LP >"
+      }
+    },
+    {
+      "data": {
+        "stringId": 508,
+        "text": "Proyek mendapatkan BNB, Koala DeFi Finance membakar LYPTUS."
+      }
+    },
+    {
+      "data": {
+        "stringId": 510,
+        "text": "Anda mendapatkan tokennya."
+      }
+    },
+    {
+      "data": {
+        "stringId": 512,
+        "text": "Ingin meluncurkan IFO Anda sendiri?"
+      }
+    },
+    {
+      "data": {
+        "stringId": 514,
+        "text": "Luncurkan proyek Anda dengan Koala DeFi Finance, proyek AMM dan penyedia likuiditas Binance Smart Chain\u2019s yang paling banyak digunakan, untuk membawa token Anda langsung ke komunitas yang paling aktif dan berkembang pesat di BSC ."
+      }
+    },
+    {
+      "data": {
+        "stringId": 516,
+        "text": "Ajukan permohonan untuk meluncurkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 520,
+        "text": "Komunitas"
+      }
+    },
+    {
+      "data": {
+        "stringId": 522,
+        "text": "Inti"
+      }
+    },
+    {
+      "data": {
+        "stringId": 526,
+        "text": "Tersedia"
+      }
+    },
+    {
+      "data": {
+        "stringId": 528,
+        "text": "Dompet Saya"
+      }
+    },
+    {
+      "data": {
+        "stringId": 530,
+        "text": "Keluar"
+      }
+    },
+    {
+      "data": {
+        "stringId": 532,
+        "text": "Panen semua (%menghitung%)"
+      }
+    },
+    {
+      "data": {
+        "stringId": 534,
+        "text": "Statistik Lyptus"
+      }
+    },
+    {
+      "data": {
+        "stringId": 536,
+        "text": "Total Minted"
+      }
+    },
+    {
+      "data": {
+        "stringId": 538,
+        "text": "LYPTUS dimakan oleh Koala"
+      }
+    },
+    {
+      "data": {
+        "stringId": 540,
+        "text": "LYPTUS Baru\/block"
+      }
+    },
+    {
+      "data": {
+        "stringId": 542,
+        "text": "Pertanian & Taruhan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 544,
+        "text": "LYPTUS untuk Dipanen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 546,
+        "text": "LYPTUS di Dompet"
+      }
+    },
+    {
+      "data": {
+        "stringId": 548,
+        "text": "Mengumpulkan LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 550,
+        "text": "Lotere yang Anda Menangkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 552,
+        "text": "LYPTUS untuk Dikumpulkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 554,
+        "text": "Total jackpot putaran ini"
+      }
+    },
+    {
+      "data": {
+        "stringId": 556,
+        "text": "Kumpulkan Kemenangan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 558,
+        "text": "Beli Tiket"
+      }
+    },
+    {
+      "data": {
+        "stringId": 562,
+        "text": "Panen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 564,
+        "text": "Setuju"
+      }
+    },
+    {
+      "data": {
+        "stringId": 568,
+        "text": "Pilih"
+      }
+    },
+    {
+      "data": {
+        "stringId": 570,
+        "text": "Pemenang Babak Ini"
+      }
+    },
+    {
+      "data": {
+        "stringId": 574,
+        "text": "Kolam Taruhan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 576,
+        "text": "Koala DeFi Finance"
+      }
+    },
+    {
+      "data": {
+        "stringId": 578,
+        "text": "High yields BSC farm brought by the Koalas."
+      }
+    },
+    {
+      "data": {
+        "stringId": 580,
+        "text": "Pertaruhkan token LYPTUS dan LP LYPTUS untuk mendapatkan token baru."
+      }
+    },
+    {
+      "data": {
+        "stringId": 582,
+        "text": "Waktu Peluncuran"
+      }
+    },
+    {
+      "data": {
+        "stringId": 584,
+        "text": "Dijual"
+      }
+    },
+    {
+      "data": {
+        "stringId": 586,
+        "text": "LYPTUS dibakar (USD)"
+      }
+    },
+    {
+      "data": {
+        "stringId": 588,
+        "text": "Tarik Taruhan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 590,
+        "text": "\u2b50\ufe0f Setiap kali Anda mempertaruhkan dan melepas token LP, kontrak akan secara otomatis memanen hadiah LYPTUS untuk Anda!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 592,
+        "text": "Cara ambil bagian"
+      }
+    },
+    {
+      "data": {
+        "stringId": 594,
+        "text": "Sebelum Dijual"
+      }
+    },
+    {
+      "data": {
+        "stringId": 596,
+        "text": "Beli LYPTUS dan token BNB"
+      }
+    },
+    {
+      "data": {
+        "stringId": 598,
+        "text": "Dapatkan token LP LYPTUS-BNB dengan menambahkan likuiditas LYPTUS dan BNB"
+      }
+    },
+    {
+      "data": {
+        "stringId": 600,
+        "text": "Selama Penjualan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 602,
+        "text": "Saat penjualan berlangsung, komit token LYPTUS-LP Anda untuk membeli token IFO"
+      }
+    },
+    {
+      "data": {
+        "stringId": 604,
+        "text": "Setelah Penjualan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 606,
+        "text": "Klaim token yang Anda beli, bersama dengan dana yang tidak terpakai."
+      }
+    },
+    {
+      "data": {
+        "stringId": 608,
+        "text": "Selesai!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 610,
+        "text": "Baca lebih lanjut"
+      }
+    },
+    {
+      "data": {
+        "stringId": 612,
+        "text": "Hubungkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 614,
+        "text": "Tukar tambah LYPTUS, atau simpan untuk koleksi Anda!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 616,
+        "text": "Daftarkan minat Anda untuk memenangkan NFT di bawah ini."
+      }
+    },
+    {
+      "data": {
+        "stringId": 618,
+        "text": "Daftarkan diri Anda untuk mendapatkan kesempatan menang"
+      }
+    },
+    {
+      "data": {
+        "stringId": 620,
+        "text": "Pelajari lebih lanjut"
+      }
+    },
+    {
+      "data": {
+        "stringId": 622,
+        "text": "Perdagangkan NFT"
+      }
+    },
+    {
+      "data": {
+        "stringId": 624,
+        "text": "Perdagangan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 626,
+        "text": "Anda akan menerima"
+      }
+    },
+    {
+      "data": {
+        "stringId": 628,
+        "text": "Saat Anda memperdagangkan NFT ini untuk menerima LYPTUS, Anda akan kehilangan akses ke sana selamanya!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 630,
+        "text": "Klaim NFT"
+      }
+    },
+    {
+      "data": {
+        "stringId": 632,
+        "text": "Bagaimana itu bekerja"
+      }
+    },
+    {
+      "data": {
+        "stringId": 634,
+        "text": "Pemenang dapat mengklaim NFT di halaman ini setelah periode klaim dimulai."
+      }
+    },
+    {
+      "data": {
+        "stringId": 636,
+        "text": "Jika Anda tidak terpilih, Anda tidak akan dapat mengklaim. Semoga lain kali lebih beruntung!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 638,
+        "text": "Pemenang dapat menukar NFT mereka dengan nilai LYPTUS hingga tanggal kedaluwarsa yang tertulis di bawah ini. Jika Anda tidak menukar NFT Anda saat itu, jangan khawatir: Anda akan tetap menyimpannya di dompet!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 640,
+        "text": "Bagaimana pemenang dipilih?"
+      }
+    },
+    {
+      "data": {
+        "stringId": 642,
+        "text": "Pemenang dipilih secara acak! Semoga berhasil!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 646,
+        "text": "Nilai jika diperdagangkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 648,
+        "text": "Jumlah dicetak"
+      }
+    },
+    {
+      "data": {
+        "stringId": 650,
+        "text": "Jumlah yang dibakar"
+      }
+    },
+    {
+      "data": {
+        "stringId": 652,
+        "text": "Klaim NFT"
+      }
+    },
+    {
+      "data": {
+        "stringId": 654,
+        "text": "Tukar tambah dengan LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 656,
+        "text": "Memuat\u2026"
+      }
+    },
+    {
+      "data": {
+        "stringId": 658,
+        "text": "Detail"
+      }
+    },
+    {
+      "data": {
+        "stringId": 660,
+        "text": "Anda menang!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 662,
+        "text": "Klaim NFT dari opsi di bawah ini!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 664,
+        "text": "Bisa diperdagangkan sampai"
+      }
+    },
+    {
+      "data": {
+        "stringId": 666,
+        "text": "Dompet Terputus"
+      }
+    },
+    {
+      "data": {
+        "stringId": 668,
+        "text": "Hubungkan untuk melihat apakah Anda telah memenangkan NFT!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 670,
+        "text": "Beranda"
+      }
+    },
+    {
+      "data": {
+        "stringId": 672,
+        "text": "Pedagangan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 674,
+        "text": "Bertani"
+      }
+    },
+    {
+      "data": {
+        "stringId": 676,
+        "text": "Kolam"
+      }
+    },
+    {
+      "data": {
+        "stringId": 678,
+        "text": "NFT"
+      }
+    },
+    {
+      "data": {
+        "stringId": 680,
+        "text": "Informasi"
+      }
+    },
+    {
+      "data": {
+        "stringId": 682,
+        "text": "IFO"
+      }
+    },
+    {
+      "data": {
+        "stringId": 684,
+        "text": "Lebih"
+      }
+    },
+    {
+      "data": {
+        "stringId": 686,
+        "text": "Liquiditas"
+      }
+    },
+    {
+      "data": {
+        "stringId": 688,
+        "text": "Gambaran"
+      }
+    },
+    {
+      "data": {
+        "stringId": 690,
+        "text": "Token"
+      }
+    },
+    {
+      "data": {
+        "stringId": 692,
+        "text": "Pairs"
+      }
+    },
+    {
+      "data": {
+        "stringId": 694,
+        "text": "Akun"
+      }
+    },
+    {
+      "data": {
+        "stringId": 696,
+        "text": "Pertaruhkan token LP, hasilkan LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 698,
+        "text": "Aktif"
+      }
+    },
+    {
+      "data": {
+        "stringId": 700,
+        "text": "Tidak Aktif"
+      }
+    },
+    {
+      "data": {
+        "stringId": 702,
+        "text": "Ganda"
+      }
+    },
+    {
+      "data": {
+        "stringId": 704,
+        "text": "Compound"
+      }
+    },
+    {
+      "data": {
+        "stringId": 706,
+        "text": "Tarik Taruhan %aset%"
+      }
+    },
+    {
+      "data": {
+        "stringId": 708,
+        "text": "LYPTUS Lotre"
+      }
+    },
+    {
+      "data": {
+        "stringId": 710,
+        "text": "Beli tiket dengan LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 712,
+        "text": "Menangkan jika 2, 3 atau 4 nomor tiket Anda sesuai!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 716,
+        "text": "Pengundian berikutnya"
+      }
+    },
+    {
+      "data": {
+        "stringId": 718,
+        "text": "Hasil imbang sebelumnya"
+      }
+    },
+    {
+      "data": {
+        "stringId": 720,
+        "text": "Putaran %num%"
+      }
+    },
+    {
+      "data": {
+        "stringId": 722,
+        "text": "Pot Total"
+      }
+    },
+    {
+      "data": {
+        "stringId": 724,
+        "text": "Tiket Anda untuk babak ini"
+      }
+    },
+    {
+      "data": {
+        "stringId": 726,
+        "text": "Maaf, tidak ada hadiah untuk dikumpulkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 728,
+        "text": "Di Dompet"
+      }
+    },
+    {
+      "data": {
+        "stringId": 729,
+        "text": "Menghasilkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 730,
+        "text": "Dipertaruhkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 731,
+        "text": "Total Value Locked (TVL)"
+      }
+    },
+    {
+      "data": {
+        "stringId": 732,
+        "text": "Di Semua Ladang, Kolam and Semak"
+      }
+    },
+    {
+      "data": {
+        "stringId": 742,
+        "text": "Biaya deposit akan otomatis dibakar."
+      }
+    },
+    {
+      "data": {
+        "stringId": 743,
+        "text": "Pelajari lebih lanjut tentang Semak"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10000,
+        "text": "Biaya Deposit akan digunakan untuk membeli kembali LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10001,
+        "text": "Biaya Deposit"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10002,
+        "text": "Token taruhan untuk mendapatkan LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10003,
+        "text": "Pengumuman"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10004,
+        "text": "Persediaan yang Beredar"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10005,
+        "text": "Kapitalisasi Pasar"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10006,
+        "text": "Pelajari lebih lanjut tentang mekanisme Burn dan fee farming kami"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10007,
+        "text": "Total token yang dibakar"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10008,
+        "text": "Legacy Pancakeswap"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10009,
+        "text": "Setoran:"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10010,
+        "text": "Dalam kasus LP, hanya biaya setoran pada token yang tidak stabil yang akan dibakar."
+      }
+    },
+    {
+      "data": {
+        "stringId": 10011,
+        "text": "Total yang dipertaruhkan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10012,
+        "text": "Nilai dipertaruhkan"
+      }
+    }
+  ],
+  "pagination": {
+    "offset": 0,
+    "limit": 200
+  }
+}
