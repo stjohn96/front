@@ -137,6 +137,11 @@ const config: MenuEntry[] = [
         target: '_blank',
       },
       {
+        label: 'Community Feedback',
+        href: 'https://koaladefi.nolt.io/',
+        target: '_blank',
+      },
+      {
         label: 'Roadmap',
         href: 'https://doc.koaladefi.finance/roadmap',
         target: '_blank',
