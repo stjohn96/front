@@ -57,6 +57,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     isFinished,
     userData,
     stakingLimit,
+    debug,
   } = pool
   // Pools using native BNB behave differently than pools using a token
   const isBnbPool = poolCategory === PoolCategory.BINANCE
@@ -84,6 +85,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const needsApproval = !accountHasStakedBalance && !allowance.toNumber() && !isBnbPool
   const isCardActive = isFinished && accountHasStakedBalance
   const isOldFinishedBush = sousId === 66
+
+  const blocksUntilStartHuman = (blocksUntilStart * 3) / 3600
 
   const totalValueFormated = pool.totalValue
     ? `$${Number(pool.totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
@@ -120,6 +123,22 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       console.error(e)
     }
   }, [onApprove, setRequestedApproval])
+
+  const showDebug = () => {
+    const rows = []
+
+    for (let i = 0; i < Object.entries(debug).length; i++) {
+      const [key, value] = Object.entries(debug)[i]
+      rows.push(
+        <StyledDetails>
+          <div style={{ flex: 1 }}>{key}:</div>
+          <div style={{ fontWeight: 600, lineHeight: '1.5' }}>{value}</div>
+        </StyledDetails>,
+      )
+    }
+
+    return <div>{rows}</div>
+  }
 
   return (
     <Card isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
@@ -256,6 +275,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
             <Balance fontSize="14px" isDisabled={isFinished} value={blocksUntilStart} decimals={0} />
           </StyledDetails>
         )}
+        {debug !== null && <>{showDebug()}</>}
       </div>
       <CardFooter
         projectLink={projectLink}

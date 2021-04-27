@@ -1,0 +1,1322 @@
+{
+  "data": [
+    {
+      "data": {
+        "stringId": 278,
+        "text": "Farm"
+      }
+    },
+    {
+      "data": {
+        "stringId": 280,
+        "text": "Staking"
+      }
+    },
+    {
+      "data": {
+        "stringId": 284,
+        "text": "Beurs"
+      }
+    },
+    {
+      "data": {
+        "stringId": 286,
+        "text": "Docs"
+      }
+    },
+    {
+      "data": {
+        "stringId": 288,
+        "text": "Stemmen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 290,
+        "text": "Lotterij"
+      }
+    },
+    {
+      "data": {
+        "stringId": 292,
+        "text": "Open portomonnee"
+      }
+    },
+    {
+      "data": {
+        "stringId": 294,
+        "text": "Jouw %asset% Balans"
+      }
+    },
+    {
+      "data": {
+        "stringId": 296,
+        "text": "Totale %asset% Voorraad"
+      }
+    },
+    {
+      "data": {
+        "stringId": 298,
+        "text": "VASTGEZET"
+      }
+    },
+    {
+      "data": {
+        "stringId": 300,
+        "text": "Oogst in afwachting"
+      }
+    },
+    {
+      "data": {
+        "stringId": 302,
+        "text": "Nieuwe beloningen per block"
+      }
+    },
+    {
+      "data": {
+        "stringId": 304,
+        "text": "Totaal aantal lyptus verbrand"
+      }
+    },
+    {
+      "data": {
+        "stringId": 306,
+        "text": "Bekijk het bos"
+      }
+    },
+    {
+      "data": {
+        "stringId": 308,
+        "text": "Telegram"
+      }
+    },
+    {
+      "data": {
+        "stringId": 310,
+        "text": "Blog"
+      }
+    },
+    {
+      "data": {
+        "stringId": 312,
+        "text": "Github"
+      }
+    },
+    {
+      "data": {
+        "stringId": 314,
+        "text": "Twitter"
+      }
+    },
+    {
+      "data": {
+        "stringId": 316,
+        "text": "Stort"
+      }
+    },
+    {
+      "data": {
+        "stringId": 318,
+        "text": "Verdien"
+      }
+    },
+    {
+      "data": {
+        "stringId": 320,
+        "text": "Stake LP tokens om LYPTUS te verdienen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 322,
+        "text": "Stake Lyptus, ontvang SYRUP."
+      }
+    },
+    {
+      "data": {
+        "stringId": 328,
+        "text": "Je kunt altijd terug wisselen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 330,
+        "text": "%asset% Verdiend"
+      }
+    },
+    {
+      "data": {
+        "stringId": 332,
+        "text": "Tokens Gestaked"
+      }
+    },
+    {
+      "data": {
+        "stringId": 334,
+        "text": "Iedere keer dat je LYPTUS tokens staked and unstaked, zal het contract de beloningen voor je verzamelen!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 338,
+        "text": "De koala komt met een verrassing voor alle LYPTUS houders"
+      }
+    },
+    {
+      "data": {
+        "stringId": 340,
+        "text": "SYRUP Tokens Gestaked"
+      }
+    },
+    {
+      "data": {
+        "stringId": 342,
+        "text": "XVS Tokens Verdiend"
+      }
+    },
+    {
+      "data": {
+        "stringId": 344,
+        "text": "Stake je SYRUP om tokens van nieuwe projecten te verdienen."
+      }
+    },
+    {
+      "data": {
+        "stringId": 346,
+        "text": "Beloningen worden per block berekend en het totaal aantal beloningen zal automatisch worden verdeeld na het beeindigen van de farming periode van elk project."
+      }
+    },
+    {
+      "data": {
+        "stringId": 348,
+        "text": "Pool"
+      }
+    },
+    {
+      "data": {
+        "stringId": 350,
+        "text": "Coming soon"
+      }
+    },
+    {
+      "data": {
+        "stringId": 352,
+        "text": "APR"
+      }
+    },
+    {
+      "data": {
+        "stringId": 354,
+        "text": "Totale Liquiditeit"
+      }
+    },
+    {
+      "data": {
+        "stringId": 356,
+        "text": "Bekijk op BscScan"
+      }
+    },
+    {
+      "data": {
+        "stringId": 358,
+        "text": "Lyptus prijs"
+      }
+    },
+    {
+      "data": {
+        "stringId": 360,
+        "text": "%asset% Tokens Verdiend"
+      }
+    },
+    {
+      "data": {
+        "stringId": 362,
+        "text": "%num% blocks tot het farming stopt"
+      }
+    },
+    {
+      "data": {
+        "stringId": 364,
+        "text": "Totaal Syrup Staked"
+      }
+    },
+    {
+      "data": {
+        "stringId": 380,
+        "text": "1 LYPTUS = 1 SYRUP"
+      }
+    },
+    {
+      "data": {
+        "stringId": 382,
+        "text": "Coming soon..."
+      }
+    },
+    {
+      "data": {
+        "stringId": 384,
+        "text": "Jouw Stake"
+      }
+    },
+    {
+      "data": {
+        "stringId": 386,
+        "text": "Farming begint over %num% Blocks"
+      }
+    },
+    {
+      "data": {
+        "stringId": 388,
+        "text": "Afgelopen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 390,
+        "text": "Farming stopt over %num% Blocks"
+      }
+    },
+    {
+      "data": {
+        "stringId": 392,
+        "text": "Project Site"
+      }
+    },
+    {
+      "data": {
+        "stringId": 394,
+        "text": "Unstake SYRUP"
+      }
+    },
+    {
+      "data": {
+        "stringId": 400,
+        "text": "SYRUP houders delen 25% van de LYPTUS blok emiissie per dag (10 LYPTUS per block), Beloningen worden ieder blok verdeeld."
+      }
+    },
+    {
+      "data": {
+        "stringId": 402,
+        "text": "Stake SYRUP om nieuwe tokens te verdienen."
+      }
+    },
+    {
+      "data": {
+        "stringId": 406,
+        "text": "Beloningen worden per blok berekend."
+      }
+    },
+    {
+      "data": {
+        "stringId": 408,
+        "text": "Totaal"
+      }
+    },
+    {
+      "data": {
+        "stringId": 410,
+        "text": "Einde"
+      }
+    },
+    {
+      "data": {
+        "stringId": 412,
+        "text": "Bekijk project site"
+      }
+    },
+    {
+      "data": {
+        "stringId": 414,
+        "text": "Jouw Project? \ud83d\udc40"
+      }
+    },
+    {
+      "data": {
+        "stringId": 416,
+        "text": "Maak een pool voor jouw token"
+      }
+    },
+    {
+      "data": {
+        "stringId": 418,
+        "text": "Doe nu mee"
+      }
+    },
+    {
+      "data": {
+        "stringId": 420,
+        "text": "fase 1: KOPEN"
+      }
+    },
+    {
+      "data": {
+        "stringId": 424,
+        "text": "%num% LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 426,
+        "text": "Koop loten met je LYPTUS, de waarde wordt aan de pot toegevoegd. De loten zijn tot een half uur voor de trekking te koop. Je wint een prijs als je 2, 3 of 4 nummers goed hebt (juiste nummer op de juiste plaats!). Veel geluk!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 428,
+        "text": "Totaal aantal loten deze ronde"
+      }
+    },
+    {
+      "data": {
+        "stringId": 430,
+        "text": "Koop loten"
+      }
+    },
+    {
+      "data": {
+        "stringId": 432,
+        "text": "Bekijk je loten"
+      }
+    },
+    {
+      "data": {
+        "stringId": 434,
+        "text": "Tijd over om een lot te kopen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 438,
+        "text": "Sluit"
+      }
+    },
+    {
+      "data": {
+        "stringId": 440,
+        "text": "Laatste lotterij winnaars"
+      }
+    },
+    {
+      "data": {
+        "stringId": 442,
+        "text": "Tickets met 4 overeenkomstige nummers:"
+      }
+    },
+    {
+      "data": {
+        "stringId": 444,
+        "text": "Tickets met 3 overeenkomstige nummers:"
+      }
+    },
+    {
+      "data": {
+        "stringId": 446,
+        "text": "Tickets met 2 overeenkomstige nummers:"
+      }
+    },
+    {
+      "data": {
+        "stringId": 448,
+        "text": "Exporteer de recent winnende nummers"
+      }
+    },
+    {
+      "data": {
+        "stringId": 450,
+        "text": "Het aantal loten dat je wilt kopen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 452,
+        "text": "Max"
+      }
+    },
+    {
+      "data": {
+        "stringId": 454,
+        "text": "%num% LYPTUS beschikbaar"
+      }
+    },
+    {
+      "data": {
+        "stringId": 456,
+        "text": "Je aantal moet een veelvoud zijn van 10 LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 458,
+        "text": "1 Lot = 10 LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 462,
+        "text": "Annuleer"
+      }
+    },
+    {
+      "data": {
+        "stringId": 464,
+        "text": "Accepteer"
+      }
+    },
+    {
+      "data": {
+        "stringId": 466,
+        "text": "Waarschuwing"
+      }
+    },
+    {
+      "data": {
+        "stringId": 468,
+        "text": "Lotterij lot aankopen zijn definitief."
+      }
+    },
+    {
+      "data": {
+        "stringId": 472,
+        "text": "Loten zijn 1 lotterij geldig en worden na de lotterij verbrand."
+      }
+    },
+    {
+      "data": {
+        "stringId": 474,
+        "text": "Het kopen van een lotterij lot geeft je geen enkele garantie op een prijs. Doe alleen mee aan de lotterij als je de risico's begrijpt."
+      }
+    },
+    {
+      "data": {
+        "stringId": 476,
+        "text": "Ik begrijp het"
+      }
+    },
+    {
+      "data": {
+        "stringId": 478,
+        "text": "Aangekochte loten zijn definitief. Je kunt deze niet meer omwisselen tegen LYPTUS na de aankoop."
+      }
+    },
+    {
+      "data": {
+        "stringId": 480,
+        "text": "Claim prijzen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 482,
+        "text": "LYPTUS prijzen om te claimen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 484,
+        "text": "Fase 2: CLAIMEN"
+      }
+    },
+    {
+      "data": {
+        "stringId": 486,
+        "text": "Je kunt op ieder moment unstaken."
+      }
+    },
+    {
+      "data": {
+        "stringId": 488,
+        "text": "Wacht op bevestiging"
+      }
+    },
+    {
+      "data": {
+        "stringId": 490,
+        "text": "Mijn Loten (Totaal: %TICKETS%)"
+      }
+    },
+    {
+      "data": {
+        "stringId": 492,
+        "text": "Tijd tot de nieuwe lotterij start (ongeveer)"
+      }
+    },
+    {
+      "data": {
+        "stringId": 494,
+        "text": "Keur LYPTUS goed"
+      }
+    },
+    {
+      "data": {
+        "stringId": 496,
+        "text": "SYRUP houders delen elke dag proportioneel 40% van de LYPTUS block emissie (10 LYPTUS per block), Beloningen worden ieder blok uitgedeeld."
+      }
+    },
+    {
+      "data": {
+        "stringId": 500,
+        "text": "IFO: Initial Farm Offerings"
+      }
+    },
+    {
+      "data": {
+        "stringId": 502,
+        "text": "Koop nieuwe tokens met een volledig nieuw token verkoop model."
+      }
+    },
+    {
+      "data": {
+        "stringId": 504,
+        "text": "Je betaalt voor de nieuwe tokens met LYPTUS-BNB LP tokens, dit betekent dat je een gelijk deel LYPTUS en BNB in een LP moet staken om deel te nemen."
+      }
+    },
+    {
+      "data": {
+        "stringId": 506,
+        "text": "Maak LYPTUS-BNB LP >"
+      }
+    },
+    {
+      "data": {
+        "stringId": 508,
+        "text": "Het project ontvangt de BNB, Koala DeFi Finance burnt de LYPTUS."
+      }
+    },
+    {
+      "data": {
+        "stringId": 510,
+        "text": "Je krijgt de tokens."
+      }
+    },
+    {
+      "data": {
+        "stringId": 512,
+        "text": "Je eigen IFO lanceren?"
+      }
+    },
+    {
+      "data": {
+        "stringId": 514,
+        "text": "Lanceer jouw project op Koala Defi Finance, Binance Smart Chain\u2019s meest gebruikte AMM project en liquiditeitsverschaffer, om jouw token te lanceren op de meest actieve en snel groeiende community op BSC."
+      }
+    },
+    {
+      "data": {
+        "stringId": 516,
+        "text": "Meld je project aan om deel te nemen aan de lancering"
+      }
+    },
+    {
+      "data": {
+        "stringId": 520,
+        "text": "Community"
+      }
+    },
+    {
+      "data": {
+        "stringId": 522,
+        "text": "Kern"
+      }
+    },
+    {
+      "data": {
+        "stringId": 526,
+        "text": "Beschikbaar"
+      }
+    },
+    {
+      "data": {
+        "stringId": 528,
+        "text": "Mijn portomonnee"
+      }
+    },
+    {
+      "data": {
+        "stringId": 530,
+        "text": "Log uit"
+      }
+    },
+    {
+      "data": {
+        "stringId": 532,
+        "text": "Oogst alles (%count%)"
+      }
+    },
+    {
+      "data": {
+        "stringId": 534,
+        "text": "Lyptus Statistieken"
+      }
+    },
+    {
+      "data": {
+        "stringId": 536,
+        "text": "Totaal Gemint"
+      }
+    },
+    {
+      "data": {
+        "stringId": 538,
+        "text": "LYPTUS opgegeten door Koalas"
+      }
+    },
+    {
+      "data": {
+        "stringId": 540,
+        "text": "Nieuwe LYPTUS\/block"
+      }
+    },
+    {
+      "data": {
+        "stringId": 542,
+        "text": "Farms & Staking"
+      }
+    },
+    {
+      "data": {
+        "stringId": 544,
+        "text": "LYPTUS to oogsten"
+      }
+    },
+    {
+      "data": {
+        "stringId": 546,
+        "text": "LYPTUS in portomonnee"
+      }
+    },
+    {
+      "data": {
+        "stringId": 548,
+        "text": "Claim LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 550,
+        "text": "Jouw Lotterij Prijzen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 552,
+        "text": "LYPTUS te claimen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 554,
+        "text": "Totale jackpot deze ronde"
+      }
+    },
+    {
+      "data": {
+        "stringId": 556,
+        "text": "Claim je prijs"
+      }
+    },
+    {
+      "data": {
+        "stringId": 558,
+        "text": "Koop Tickets"
+      }
+    },
+    {
+      "data": {
+        "stringId": 562,
+        "text": "Oogst"
+      }
+    },
+    {
+      "data": {
+        "stringId": 564,
+        "text": "Keur goed"
+      }
+    },
+    {
+      "data": {
+        "stringId": 568,
+        "text": "Selecteer"
+      }
+    },
+    {
+      "data": {
+        "stringId": 570,
+        "text": "Winnende nummers deze ronde"
+      }
+    },
+    {
+      "data": {
+        "stringId": 574,
+        "text": "Staking Pool"
+      }
+    },
+    {
+      "data": {
+        "stringId": 576,
+        "text": "Koala DeFi Finance"
+      }
+    },
+    {
+      "data": {
+        "stringId": 578,
+        "text": "Een farm met hoge opbrengsten gebracht door de Koalas."
+      }
+    },
+    {
+      "data": {
+        "stringId": 580,
+        "text": "Stake LYPTUS token en LYPTUS LPs om nieuwe tokens te verdienen."
+      }
+    },
+    {
+      "data": {
+        "stringId": 582,
+        "text": "Lancering"
+      }
+    },
+    {
+      "data": {
+        "stringId": 584,
+        "text": "Te koop"
+      }
+    },
+    {
+      "data": {
+        "stringId": 586,
+        "text": "LYPTUS te burnen (USD)"
+      }
+    },
+    {
+      "data": {
+        "stringId": 588,
+        "text": "Unstake"
+      }
+    },
+    {
+      "data": {
+        "stringId": 590,
+        "text": "\u2b50\ufe0f Elke keer dat je LP tokens stake and unstakeds, zal het contract automatisch je LYPTUS tokens oogsten!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 592,
+        "text": "Hoe neem je deel"
+      }
+    },
+    {
+      "data": {
+        "stringId": 594,
+        "text": "Voor de verkoop"
+      }
+    },
+    {
+      "data": {
+        "stringId": 596,
+        "text": "Koop LYPTUS en BNB tokens"
+      }
+    },
+    {
+      "data": {
+        "stringId": 598,
+        "text": "Verkrijg LYPTUS-BNB LP tokens door LYPTUS en BNB liquiditeit toe te voegen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 600,
+        "text": "Tijdens de verkoop"
+      }
+    },
+    {
+      "data": {
+        "stringId": 602,
+        "text": "Terwijl de verkoop bezig is, kan je jouw LYPTUS verhandelen tegen de IFO tokens."
+      }
+    },
+    {
+      "data": {
+        "stringId": 604,
+        "text": "Na verkoop"
+      }
+    },
+    {
+      "data": {
+        "stringId": 606,
+        "text": "Claim je gekochte en niet uitgegeven tokens."
+      }
+    },
+    {
+      "data": {
+        "stringId": 608,
+        "text": "Klaar!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 610,
+        "text": "Lees meer"
+      }
+    },
+    {
+      "data": {
+        "stringId": 612,
+        "text": "Maak verbinding"
+      }
+    },
+    {
+      "data": {
+        "stringId": 614,
+        "text": "Verhandel tegen LYPTUS, of bewaar voor in je collectie!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 616,
+        "text": "Laat ons hieronder weten of je een NFT wilt winnen."
+      }
+    },
+    {
+      "data": {
+        "stringId": 618,
+        "text": "Registeer om te winnen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 620,
+        "text": "Meer informatie"
+      }
+    },
+    {
+      "data": {
+        "stringId": 622,
+        "text": "Verhandel NFT"
+      }
+    },
+    {
+      "data": {
+        "stringId": 624,
+        "text": "Ruil in"
+      }
+    },
+    {
+      "data": {
+        "stringId": 626,
+        "text": "Je ontvangt"
+      }
+    },
+    {
+      "data": {
+        "stringId": 628,
+        "text": "Zodra je jouw NFT inruilt, verlies je deze voor eeuwig!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 630,
+        "text": "Claim NFT"
+      }
+    },
+    {
+      "data": {
+        "stringId": 632,
+        "text": "Hoe het werkt"
+      }
+    },
+    {
+      "data": {
+        "stringId": 634,
+        "text": "Winnaars kunnen hun NFT claimen zodra de claim periode start."
+      }
+    },
+    {
+      "data": {
+        "stringId": 636,
+        "text": "Als je niet geselecteerd bent, kan je niets claimen. Volgende keer meer geluk!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 638,
+        "text": "Winnaars kunnen hun NFTs inruilen tegen LYPTUS tot de onderstaande vervaldatum. Heb je jouw NFT niet op tijd ingeruild? Maak je geen zorgen, de NFT blijft van jou in je portomonnee!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 640,
+        "text": "Hoe worden de winnaars geselecteerd?"
+      }
+    },
+    {
+      "data": {
+        "stringId": 642,
+        "text": "Er wordt een willekeurige winnaar getrokken! Veel geluk!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 646,
+        "text": "Waarde bij omwisselen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 648,
+        "text": "Aantal gemint"
+      }
+    },
+    {
+      "data": {
+        "stringId": 650,
+        "text": "Aantal burned"
+      }
+    },
+    {
+      "data": {
+        "stringId": 652,
+        "text": "Claim deze NFT"
+      }
+    },
+    {
+      "data": {
+        "stringId": 654,
+        "text": "Verhandel voor LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 656,
+        "text": "Loading\u2026"
+      }
+    },
+    {
+      "data": {
+        "stringId": 658,
+        "text": "Details"
+      }
+    },
+    {
+      "data": {
+        "stringId": 660,
+        "text": "Gefeliciteerd, je hebt gewonnen!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 662,
+        "text": "Claim een NFT uit de onderstaande opties!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 664,
+        "text": "Kan worden verhandeld tot"
+      }
+    },
+    {
+      "data": {
+        "stringId": 666,
+        "text": "Portomonnee niet verbonden"
+      }
+    },
+    {
+      "data": {
+        "stringId": 668,
+        "text": "Maak verbinding om te zien of je een NFT hebt gewonnen!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 670,
+        "text": "Home"
+      }
+    },
+    {
+      "data": {
+        "stringId": 672,
+        "text": "Handel"
+      }
+    },
+    {
+      "data": {
+        "stringId": 674,
+        "text": "Farms"
+      }
+    },
+    {
+      "data": {
+        "stringId": 676,
+        "text": "Pools"
+      }
+    },
+    {
+      "data": {
+        "stringId": 678,
+        "text": "NFT"
+      }
+    },
+    {
+      "data": {
+        "stringId": 680,
+        "text": "Informatie"
+      }
+    },
+    {
+      "data": {
+        "stringId": 682,
+        "text": "IFO"
+      }
+    },
+    {
+      "data": {
+        "stringId": 684,
+        "text": "Meer"
+      }
+    },
+    {
+      "data": {
+        "stringId": 686,
+        "text": "Liquiditeit"
+      }
+    },
+    {
+      "data": {
+        "stringId": 688,
+        "text": "Overzicht"
+      }
+    },
+    {
+      "data": {
+        "stringId": 690,
+        "text": "Token"
+      }
+    },
+    {
+      "data": {
+        "stringId": 692,
+        "text": "Paren"
+      }
+    },
+    {
+      "data": {
+        "stringId": 694,
+        "text": "Accounts"
+      }
+    },
+    {
+      "data": {
+        "stringId": 696,
+        "text": "Stake LP tokens om LYPTUS te verdienen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 698,
+        "text": "Actief"
+      }
+    },
+    {
+      "data": {
+        "stringId": 700,
+        "text": "Inactief"
+      }
+    },
+    {
+      "data": {
+        "stringId": 702,
+        "text": "Dubbel"
+      }
+    },
+    {
+      "data": {
+        "stringId": 704,
+        "text": "Compound"
+      }
+    },
+    {
+      "data": {
+        "stringId": 706,
+        "text": "Unstake %asset%"
+      }
+    },
+    {
+      "data": {
+        "stringId": 708,
+        "text": "De LYPTUS Lotterij"
+      }
+    },
+    {
+      "data": {
+        "stringId": 710,
+        "text": "Koop loten met LYPTUS"
+      }
+    },
+    {
+      "data": {
+        "stringId": 712,
+        "text": "Je wint als 2, 3 of 4 van je lotnummers overeenkomen!"
+      }
+    },
+    {
+      "data": {
+        "stringId": 716,
+        "text": "Volgende trekking"
+      }
+    },
+    {
+      "data": {
+        "stringId": 718,
+        "text": "Vorige trekkingen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 720,
+        "text": "Ronde %num%"
+      }
+    },
+    {
+      "data": {
+        "stringId": 722,
+        "text": "Totale Pot"
+      }
+    },
+    {
+      "data": {
+        "stringId": 724,
+        "text": "Jouw lot voor deze ronde"
+      }
+    },
+    {
+      "data": {
+        "stringId": 726,
+        "text": "Helaas, je hebt geen prijs"
+      }
+    },
+    {
+      "data": {
+        "stringId": 728,
+        "text": "In Portomonnee"
+      }
+    },
+    {
+      "data": {
+        "stringId": 729,
+        "text": "Verdiend"
+      }
+    },
+    {
+      "data": {
+        "stringId": 730,
+        "text": "Staked"
+      }
+    },
+    {
+      "data": {
+        "stringId": 731,
+        "text": "Totale  vergrendelde waarde (TVL)"
+      }
+    },
+    {
+      "data": {
+        "stringId": 732,
+        "text": "Across all Farms, Pools and Bushs"
+      }
+    },
+    {
+      "data": {
+        "stringId": 742,
+        "text": "Deposit fees worden automatisch opgegeten (burnt)."
+      }
+    },
+    {
+      "data": {
+        "stringId": 743,
+        "text": "Leer meer over de Bush"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10000,
+        "text": "Deposit Fee wordt gebruikt om LYPTUS terug te kopen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10001,
+        "text": "Deposit Fee"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10002,
+        "text": "Stake tokens om LYPTUS te verdienen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10003,
+        "text": "Aankondigingen"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10004,
+        "text": "Aantal tokens in omloop"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10005,
+        "text": "Market Cap"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10006,
+        "text": "Leer meer over ons burn mechanisme en fee farming"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10007,
+        "text": "Totaal aantal opgegeten tokens (burn)"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10008,
+        "text": "Legacy Pancakeswap"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10009,
+        "text": "Deposit:"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10010,
+        "text": "In het geval van een LP, wordt alleen de deposit fee van de non-stable coin opgegeten (burn)"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10011,
+        "text": "Totaal staked"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10012,
+        "text": "Waarde staked"
+      }
+    }
+  ],
+  "pagination": {
+    "offset": 0,
+    "limit": 200
+  }
+}

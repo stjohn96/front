@@ -144,8 +144,15 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, apr, 
   const addTokenUrl = `${BASE_APE_EXCHANGE_URL}/${swapeUrlPathParts}`
   const getUrl = farm.isTokenOnly ? addTokenUrl : addLiquidityUrl
   const lpAddress = farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
-  const bsc = `https://bscscan.com/address/${lpAddress}`
-  const info = `https://pancakeswap.info/pair/${lpAddress}`
+  const bsc = farm.isTokenOnly
+    ? `https://bscscan.com/address/${farm.tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
+    : `https://bscscan.com/address/${farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]}`
+  let info: string
+  if (farm.isTokenOnly) {
+    info = `https://info.apeswap.finance/token/${farm.tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
+  } else {
+    info = farm.isPsc ? `https://pancakeswap.info/pair/${lpAddress}` : `https://info.apeswap.finance/pair/${lpAddress}`
+  }
   const cakePrice = usePriceCakeBusd()
   const bnbPrice = usePriceBnbBusd()
   const ethPrice = usePriceEthBusd()

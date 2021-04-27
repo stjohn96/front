@@ -105,7 +105,7 @@ const ApeLpRibbon = styled(Ribbon)`
 `
 
 const PscLpRibbon = styled(Ribbon)`
-  background-image: url(/images/ribbon_psc.svg);
+  background-image: url(/images/ribbon_pcs.svg);
 `
 
 const PscOldLpRibbon = styled(Ribbon)`
@@ -191,6 +191,10 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
   const addTokenUrl = `${BASE_APE_EXCHANGE_URL}/${swapeUrlPathParts}`
   const getUrl = farm.isTokenOnly ? addTokenUrl : addLiquidityUrl
 
+  const bscScanAddress = farm.isTokenOnly
+    ? `https://bscscan.com/address/${farm.tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
+    : `https://bscscan.com/address/${farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]}`
+
   return (
     <FCard>
       {!farm.isTokenOnly && farm.isApe && <ApeLpRibbon />}
@@ -267,7 +271,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
       <ExpandingWrapper expanded={showExpandableSection}>
         <DetailsSection
           removed={removed}
-          bscScanAddress={`https://bscscan.com/address/${farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]}`}
+          bscScanAddress={bscScanAddress}
           totalValueFormated={totalValueFormated}
           lpTokenPriceFormated={lpTokenPriceFormated}
           lpLabel={lpLabel}

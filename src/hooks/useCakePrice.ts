@@ -3,9 +3,11 @@ import apeABI from 'config/abi/ape.json'
 import { getWeb3NoAccount } from 'utils/web3'
 import { AbiItem } from 'web3-utils'
 import BigNumber from 'bignumber.js'
+import { usePriceBnbBusd } from '../state/hooks'
 
-const useApePrice = async () => {
-  const [price, setApePrice] = useState([])
+const useCakePrice = async () => {
+  const [price, setCakePrice] = useState([])
+  const bnbPriceUSD = usePriceBnbBusd()
   const web3 = getWeb3NoAccount()
   const bnToDec = (bn, decimals = 18) => {
     return bn.dividedBy(new BigNumber(10).pow(decimals)).toNumber()
@@ -18,20 +20,17 @@ const useApePrice = async () => {
 
   useEffect(() => {
     async function getPrice() {
-      const bananaBUSDPairContractAddress = '0x7bd46f6da97312ac2dbd1749f82e202764c0b914'
-      const IbananaBUSDPairContract = new web3.eth.Contract(
-        (apeABI as unknown) as AbiItem,
-        bananaBUSDPairContractAddress,
-      )
-      const bananaBUSDPairContract = {
-        address: bananaBUSDPairContractAddress,
+      const cakeBNBPairContractAddress = '0xA527a61703D82139F8a06Bc30097cC9CAA2df5A6'
+      const IcakeBNBPairContract = new web3.eth.Contract((apeABI as unknown) as AbiItem, cakeBNBPairContractAddress)
+      const cakeBNBPairContract = {
+        address: cakeBNBPairContractAddress,
         abi: (apeABI as unknown) as AbiItem,
-        contract: IbananaBUSDPairContract,
+        contract: IcakeBNBPairContract,
         decimals: 18,
       }
-      const result = await callMethod(bananaBUSDPairContract.contract.methods.getReserves, [])
+      const result = await callMethod(cakeBNBPairContract.contract.methods.getReserves, [])
 
-      setApePrice(result)
+      setCakePrice(result)
     }
 
     getPrice()
@@ -40,4 +39,4 @@ const useApePrice = async () => {
   return bnToDec(new BigNumber(price[1])) / bnToDec(new BigNumber(price[0]))
 }
 
-export default useApePrice
+export default useCakePrice
