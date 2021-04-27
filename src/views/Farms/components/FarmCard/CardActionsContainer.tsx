@@ -27,9 +27,10 @@ interface FarmCardActionsProps {
   account?: string
   addLiquidityUrl?: string
   depositFeeBP?: number
+  lpPrice?: number
 }
 
-const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidityUrl }) => {
+const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidityUrl, lpPrice }) => {
   const TranslateString = useI18n()
   const [requestedApproval, setRequestedApproval] = useState(false)
   const { pid, lpAddresses, tokenAddresses, isTokenOnly, depositFeeBP } = useFarmFromPid(farm.pid)
@@ -68,6 +69,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
         pid={pid}
         depositFeeBP={depositFeeBP}
         addLiquidityUrl={addLiquidityUrl}
+        lpPrice={lpPrice}
       />
     ) : (
       <Button mt="8px" width="100%" disabled={requestedApproval} onClick={handleApprove}>

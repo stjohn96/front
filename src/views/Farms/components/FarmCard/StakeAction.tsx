@@ -16,6 +16,7 @@ interface FarmCardActionsProps {
   pid?: number
   addLiquidityUrl?: string
   depositFeeBP?: number
+  lpPrice?: number
 }
 
 const IconButtonWrapper = styled.div`
@@ -25,6 +26,16 @@ const IconButtonWrapper = styled.div`
   }
 `
 
+const EstimatedPriceDollar = styled.div`
+  font-size: 13px;
+  color: ${({ theme }) => theme.colors.textSubtle};
+  font-weight: normal;
+`
+const EstimatedSymbol = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+`
+
 const StakeAction: React.FC<FarmCardActionsProps> = ({
   stakedBalance,
   tokenBalance,
@@ -32,6 +43,7 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
   pid,
   addLiquidityUrl,
   depositFeeBP,
+  lpPrice,
 }) => {
   const TranslateString = useI18n()
   const { onStake } = useStake(pid)
@@ -39,6 +51,10 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
 
   const rawStakedBalance = getBalanceNumber(stakedBalance)
   const displayBalance = rawStakedBalance.toLocaleString()
+
+  const rawStakedBalanceUsdFormated = lpPrice
+    ? `$${(lpPrice * rawStakedBalance).toLocaleString(undefined, { maximumFractionDigits: 2 })}`
+    : null
 
   const [onPresentDeposit] = useModal(
     <DepositModal
@@ -70,7 +86,15 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
 
   return (
     <Flex justifyContent="space-between" alignItems="center">
-      <Heading color={rawStakedBalance === 0 ? 'textDisabled' : 'text'}>{displayBalance}</Heading>
+      <Heading color={rawStakedBalance === 0 ? 'textDisabled' : 'text'} textAlign="left">
+        <p>{displayBalance}</p>
+        {lpPrice && (
+          <EstimatedPriceDollar>
+            <EstimatedSymbol>≈</EstimatedSymbol>
+            <span>{rawStakedBalanceUsdFormated || 0}</span>
+          </EstimatedPriceDollar>
+        )}
+      </Heading>
       {renderStakingButtons()}
     </Flex>
   )
