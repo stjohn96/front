@@ -9,9 +9,9 @@ import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
 import useI18n from 'hooks/useI18n'
 import useBlock from 'hooks/useBlock'
-import { getBalanceNumber } from 'utils/formatBalance'
+import Faq from 'react-faq-component'
 import { useFarms, usePriceBnbBusd, usePools, usePriceEthBnb, usePriceCakeBusd, useFarmFromPid } from 'state/hooks'
-import { QuoteToken, PoolCategory } from 'config/constants/types'
+import { QuoteToken } from 'config/constants/types'
 import FlexLayout from 'components/layout/Flex'
 import PoolCard from '../Pools/components/PoolCard'
 import PoolTabButtons from '../Pools/components/PoolTabButtons'
@@ -19,6 +19,31 @@ import Divider from '../Pools/components/Divider'
 import Coming from '../Pools/components/Coming'
 import useApePrice from '../../hooks/useApePrice'
 import useCakePrice from '../../hooks/useCakePrice'
+import Page from '../../components/layout/Page'
+
+const faqData = {
+  title: 'FAQ',
+  rows: [
+    {
+      title: `What about Deposit Fees`,
+      content: `We eat them. The participation fee collected are fully eaten (burnt) by the Koalas. The LYPTUS-BUSD LP from the deposit fee will be decomposed, then we will use the BUSD portion to market buy the $LYPTUS equivalent, then finally eat (burn) all of the 🍃 $LYPTUS.`,
+    },
+    {
+      title: `Audit`,
+      content: `Bush V1 contract were fully audited by Techrate, <a href="https://koaladefi.finance/files/audit_techrate.pdf" target="_blank" style="color: orange;font-weight: bold">check the Techrate audit</a>`,
+    },
+    {
+      title: `V1 vs V0 ?`,
+      content: `Learn more about Bushs Evolution on our blog: <a href="https://koaladefi.medium.com/the-bush-next-evolution-d9e316be71f1" target="_blank" style="color: orange;font-weight: bold">https://koaladefi.medium.com/the-bush-next-evolution-d9e316be71f1</a>`,
+    },
+  ],
+}
+const faqStyles = {
+  bgColor: ({ theme }) => (theme.isDark ? '#36343c' : '#fbfbfb'),
+  titleTextColor: '#4e4e4e',
+  rowTitleColor: '#4e4e4e',
+  rowContentColor: '#6b6b6b',
+}
 
 const Bush: React.FC = () => {
   const { path } = useRouteMatch()
@@ -176,23 +201,29 @@ const Bush: React.FC = () => {
           </AddressLink>
         </Text>
       </Header>
-      <PoolTabButtons stackedOnly={stackedOnly} setStackedOnly={setStackedOnly} />
-      <Divider />
-      <FlexLayout>
-        <Route exact path={`${path}`}>
-          <>
-            {stackedOnly
-              ? orderBy(stackedOnlyPools, ['sortOrder']).map((pool) => <PoolCard key={pool.sousId} pool={pool} />)
-              : orderBy(openPools, ['sortOrder']).map((pool) => <PoolCard key={pool.sousId} pool={pool} />)}
-            <Coming />
-          </>
-        </Route>
-        <Route path={`${path}/history`}>
-          {orderBy(finishedPools, ['sortOrder']).map((pool) => (
-            <PoolCard key={pool.sousId} pool={pool} />
-          ))}
-        </Route>
-      </FlexLayout>
+      <Page>
+        <PoolTabButtons stackedOnly={stackedOnly} setStackedOnly={setStackedOnly} />
+        <Divider />
+        <FlexLayout>
+          <Route exact path={`${path}`}>
+            <>
+              {stackedOnly
+                ? orderBy(stackedOnlyPools, ['sortOrder']).map((pool) => <PoolCard key={pool.sousId} pool={pool} />)
+                : orderBy(openPools, ['sortOrder']).map((pool) => <PoolCard key={pool.sousId} pool={pool} />)}
+              <Coming />
+            </>
+          </Route>
+          <Route path={`${path}/history`}>
+            {orderBy(finishedPools, ['sortOrder']).map((pool) => (
+              <PoolCard key={pool.sousId} pool={pool} />
+            ))}
+          </Route>
+        </FlexLayout>
+        <div>
+          <hr />
+          <Faq data={faqData} styles={faqStyles} />
+        </div>
+      </Page>
     </>
   )
 }
