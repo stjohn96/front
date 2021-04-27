@@ -65,11 +65,7 @@ const ListedOn = () => {
           </a>
         </LinkListed>
         <LinkListed>
-          <a
-            href="https://bscproject.org/#/project/109"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://bscproject.org/#/project/109" target="_blank" rel="noreferrer">
             <Image
               src="/images/extras/bscproject.png"
               alt="All Projects building on Binance Smart Chain (BSC)"
