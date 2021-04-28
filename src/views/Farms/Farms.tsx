@@ -25,6 +25,7 @@ import { RowProps } from './components/FarmTable/Row'
 import ToggleView from './components/ToggleView/ToggleView'
 import { DesktopColumnSchema, ViewMode } from './components/types'
 import Select, { OptionProps } from './components/Select/Select'
+import useApePrice from '../../hooks/useApePrice'
 
 const ControlContainer = styled.div`
   display: flex;
@@ -171,6 +172,9 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const { account } = useWeb3React()
   const [sortOption, setSortOption] = useState('hot')
   const { tokenMode } = farmsProps
+  const [apePrice, setApePrice] = useState(0)
+  const apeReserve = useApePrice()
+  apeReserve.then(setApePrice)
 
   const dispatch = useDispatch()
   const { fastRefresh } = useRefresh()
@@ -211,11 +215,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   // to retrieve assets prices against USD
   const farmsList = useCallback(
     (farmsToDisplay): FarmWithStakedValue[] => {
-      // const cakePriceVsBNB = new BigNumber(farmsLP.find((farm) => farm.pid === CAKE_POOL_PID)?.tokenPriceVsQuote || 0)
       let farmsToDisplayWithAPY: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
-        // if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken) {
-        //   return farm
-        // }
+
         const cakeRewardPerBlock = new BigNumber(farm.lyptusPerBlock || 1)
           .times(new BigNumber(farm.poolWeight))
           .div(new BigNumber(10).pow(18))
@@ -228,6 +229,9 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
         if (farm.quoteTokenSymbol === QuoteToken.BNB) {
           totalValue = totalValue.times(bnbPrice)
+        }
+        if (farm.quoteTokenSymbol === QuoteToken.BANANA) {
+          totalValue = totalValue.times(apePrice)
         }
 
         if (totalValue.comparedTo(0) > 0) {
@@ -246,6 +250,23 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           liquidity = cakePrice.times(farm.lpTotalInQuoteToken)
         }
 
+        console.table({
+          'lyptusPerBlock': farm.lyptusPerBlock,
+          'quoteTokenSymbol': farm.quoteTokenSymbol,
+          'pid': farm.pid,
+          'lpSymbol': farm.lpSymbol,
+          'lpAddresses': farm.lpAddresses,
+          'tokenSymbol': farm.tokenSymbol,
+          'tokenAddresses': farm.tokenAddresses,
+          'quoteTokenAdresses': farm.quoteTokenAdresses,
+          'multiplier': farm.multiplier,
+          'lpTotalInQuoteToken': farm.lpTotalInQuoteToken,
+          'cakeRewardPerBlock': cakeRewardPerBlock.toJSON(),
+          'totalValue': totalValue.toJSON(),
+          'apy': apy.times(new BigNumber(100)).toNumber().toLocaleString('en-US').slice(0, -1),
+          'liquidity': new BigNumber(liquidity).toJSON()
+        })
+
         return { ...farm, apy, liquidity }
       })
 
@@ -261,7 +282,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       }
       return farmsToDisplayWithAPY
     },
-    [bnbPrice, query, cakePrice],
+    [bnbPrice, query, cakePrice, apePrice],
   )
 
   const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
