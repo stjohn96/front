@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { Heading, Card, CardBody, Flex, ArrowForwardIcon, Skeleton } from '@pancakeswap-libs/uikit'
 import { NavLink } from 'react-router-dom'
@@ -8,6 +8,7 @@ import { useFarms, usePriceBnbBusd, usePriceCakeBusd } from 'state/hooks'
 import { FarmWithStakedValue } from '../../Farms/components/FarmCard/FarmCard'
 import { BLOCKS_PER_YEAR } from '../../../config'
 import { QuoteToken } from '../../../config/constants/types'
+import useApePrice from '../../../hooks/useApePrice'
 
 const StyledFarmStakingCard = styled(Card)`
   margin-left: auto;
@@ -23,16 +24,19 @@ const CardMidContent = styled(Heading).attrs({ size: 'xl' })`
   color: ${({ theme }) => (theme.isDark ? 'white' : '#41aa29')};
   line-height: 44px;
 `
-const EarnAPYCard = () => {
+const EarnAPYCard: React.FC = () => {
   const TranslateString = useI18n()
   const farmsLP = useFarms()
   const bnbPrice = usePriceBnbBusd()
   const cakePrice = usePriceCakeBusd()
+  const [apePrice, setApePrice] = useState(0)
+  const apeReserve = useApePrice()
+  apeReserve.then(setApePrice)
 
   const maxAPY = useRef(Number.MIN_VALUE)
 
   const getHighestAPY = () => {
-    const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X')
+    const activeFarms = farmsLP.filter((farm) => !farm.isTokenOnly && farm.pid !== 0 && farm.multiplier !== '0X')
 
     calculateAPY(activeFarms)
 
@@ -55,19 +59,30 @@ const EarnAPYCard = () => {
         if (farm.quoteTokenSymbol === QuoteToken.BNB) {
           totalValue = totalValue.times(bnbPrice)
         }
+        if (farm.quoteTokenSymbol === QuoteToken.BANANA) {
+          totalValue = totalValue.times(new BigNumber(apePrice))
+        }
 
         if (totalValue.comparedTo(0) > 0) {
           apy = apy.div(totalValue)
         }
 
-        if (maxAPY.current < apy.toNumber()) maxAPY.current = apy.toNumber()
+        // console.table({
+        //   'lpSymbol': farm.lpSymbol,
+        //   'apy': apy.toJSON(),
+        //   'totalValue': totalValue.toJSON(),
+        //   'bnbPrice': bnbPrice.toJSON(),
+        //   'apePrice': apePrice,
+        // })
+
+        if (maxAPY.current < apy.toNumber() && apy.toNumber() < 5000) maxAPY.current = apy.toNumber() // weird
 
         return apy
       })
 
       return farmsToDisplayWithAPY
     },
-    [bnbPrice, cakePrice],
+    [bnbPrice, cakePrice, apePrice],
   )
 
   return (
