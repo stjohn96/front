@@ -216,7 +216,6 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const farmsList = useCallback(
     (farmsToDisplay): FarmWithStakedValue[] => {
       let farmsToDisplayWithAPY: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
-
         const cakeRewardPerBlock = new BigNumber(farm.lyptusPerBlock || 1)
           .times(new BigNumber(farm.poolWeight))
           .div(new BigNumber(10).pow(18))
@@ -250,22 +249,22 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           liquidity = cakePrice.times(farm.lpTotalInQuoteToken)
         }
 
-        console.table({
-          'lyptusPerBlock': farm.lyptusPerBlock,
-          'quoteTokenSymbol': farm.quoteTokenSymbol,
-          'pid': farm.pid,
-          'lpSymbol': farm.lpSymbol,
-          'lpAddresses': farm.lpAddresses,
-          'tokenSymbol': farm.tokenSymbol,
-          'tokenAddresses': farm.tokenAddresses,
-          'quoteTokenAdresses': farm.quoteTokenAdresses,
-          'multiplier': farm.multiplier,
-          'lpTotalInQuoteToken': farm.lpTotalInQuoteToken,
-          'cakeRewardPerBlock': cakeRewardPerBlock.toJSON(),
-          'totalValue': totalValue.toJSON(),
-          'apy': apy.times(new BigNumber(100)).toNumber().toLocaleString('en-US').slice(0, -1),
-          'liquidity': new BigNumber(liquidity).toJSON()
-        })
+        // console.table({
+        //   'lyptusPerBlock': farm.lyptusPerBlock,
+        //   'quoteTokenSymbol': farm.quoteTokenSymbol,
+        //   'pid': farm.pid,
+        //   'lpSymbol': farm.lpSymbol,
+        //   'lpAddresses': farm.lpAddresses,
+        //   'tokenSymbol': farm.tokenSymbol,
+        //   'tokenAddresses': farm.tokenAddresses,
+        //   'quoteTokenAdresses': farm.quoteTokenAdresses,
+        //   'multiplier': farm.multiplier,
+        //   'lpTotalInQuoteToken': farm.lpTotalInQuoteToken,
+        //   'cakeRewardPerBlock': cakeRewardPerBlock.toJSON(),
+        //   'totalValue': totalValue.toJSON(),
+        //   'apy': apy.times(new BigNumber(100)).toNumber().toLocaleString('en-US').slice(0, -1),
+        //   'liquidity': new BigNumber(liquidity).toJSON()
+        // })
 
         return { ...farm, apy, liquidity }
       })
