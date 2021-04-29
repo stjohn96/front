@@ -65,6 +65,25 @@ const config: MenuEntry[] = [
   //   href: '/nft',
   // },
   {
+    label: 'Koalasino',
+    icon: 'TicketIcon',
+    items: [
+      {
+        label: 'Bingo',
+        href: 'https://koaladefi.finance/bingo',
+        target: '_blank',
+      },
+      {
+        label: 'Money wheel',
+        href: '/koalasino/wheel',
+      },
+      {
+        label: 'Lottery',
+        href: '/koalasino/lottery',
+      },
+    ],
+  },
+  {
     label: 'Info',
     icon: 'InfoIcon',
     items: [

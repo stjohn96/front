@@ -46,6 +46,7 @@ html, body {
 }
 
 #container {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
     position: relative;
     display: block;
     height: 500px;
@@ -65,3 +66,22 @@ p {
     font-size: 20px;
 }
 
+.countdown ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.countdown ul li {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0.5rem;
+    color: #3bc6bf;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+.countdown ul li span {
+    font-size: 2rem;
+}
