@@ -46,13 +46,13 @@ const container = document.getElementById('container');
 const print_button = document.getElementById('print-button');
 
 var xAxis = 230;
-var yAxis = 150;
+var yAxis = 160;
 var bingo_index = 0;
 
 var bingo_numbers = randomArray();
 
 for(i=0;i<5;i++){
-    xAxis = 230;
+    xAxis = 220;
     for(j=0;j<5;j++){
         let p = document.createElement('p');
         
@@ -61,7 +61,7 @@ for(i=0;i<5;i++){
         p.style.left = xAxis + 'px';
         p.style.top = yAxis + 'px';
         container.appendChild(p);
-        xAxis +=60;
+        xAxis +=58;
         bingo_index++;
     }
     yAxis += 55;

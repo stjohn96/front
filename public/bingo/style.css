@@ -1,0 +1,65 @@
+*{
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+}
+
+.bingo-container {
+    background-color: #3bc6bf;
+    padding: 40px 0;
+    background-image: url('assets/bingo-bg.png');
+    background-size: cover;
+}
+
+.logo {
+    padding: 10px 0;
+}
+.logo img {
+    max-width: 500px;
+}
+
+.youtube-video {
+    width: 500px;
+    height: 350px;
+}
+
+#block {
+    margin-top: 40px;
+    min-width: 500px;
+}
+
+@media (max-width: 600px) {
+    #block {
+        transform: scale(0.7) translate(-90px,0px);
+    }
+
+    .logo img {
+        max-width: 80%;
+    }
+
+    .youtube-video {
+        width: 100%;
+    }
+}
+
+#container{
+    position: relative;
+    display: block;
+    height: 500px;
+    width: 500px;
+    background-image: url('assets/koala_card.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    -webkit-print-color-adjust: exact !important;   /* Chrome, Safari */
+    color-adjust: exact !important;                 /*Firefox*/
+}
+button{
+    margin: 5px;
+}
+
+p{
+    font-size: 20px;
+}
+

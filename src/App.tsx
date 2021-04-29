@@ -19,7 +19,6 @@ const Home = lazy(() => import('./views/Home'))
 const Farms = lazy(() => import('./views/Farms'))
 const NotFound = lazy(() => import('./views/NotFound'))
 const Bush = lazy(() => import('./views/Bush'))
-const Bingo = lazy(() => import('./views/Bingo'))
 
 // This config is required for number formating
 BigNumber.config({
@@ -52,9 +51,6 @@ const App: React.FC = () => {
             </Route>
             <Route path="/bush">
               <Bush />
-            </Route>
-            <Route path="/bingo">
-              <Bingo />
             </Route>
             {/* 404 */}
             <Route component={NotFound} />
