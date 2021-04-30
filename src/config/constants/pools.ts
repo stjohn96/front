@@ -143,7 +143,7 @@ const pools: PoolConfig[] = [
     isLp: false,
     bushVersion: 1,
     getUrl: '/#/swap?outputCurrency=0xba26397cdff25f0d26e815d218ef3c77609ae7f1',
-  }, 
+  },
 ]
 
 export default pools
