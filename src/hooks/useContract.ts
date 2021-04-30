@@ -14,7 +14,9 @@ import {
   getPointCenterIfoContract,
   getSouschefContract,
   getClaimRefundContract,
+  getMoneyWheelContract,
 } from 'utils/contractHelpers'
+import { createReturn } from 'typescript'
 
 /**
  * Helper hooks to get specific contracts (by ABI)
@@ -83,4 +85,9 @@ export const useBunnySpecialContract = () => {
 export const useClaimRefundContract = () => {
   const web3 = useWeb3()
   return useMemo(() => getClaimRefundContract(web3), [web3])
+}
+
+export const useMoneyWheel = () => {
+  const web3 = useWeb3()
+  return useMemo(() => getMoneyWheelContract(web3), [web3])
 }

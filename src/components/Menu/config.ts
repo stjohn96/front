@@ -38,6 +38,11 @@ const config: MenuEntry[] = [
     href: '/bush',
   },
   {
+    label: 'Money Wheel',
+    icon: 'TicketIcon',
+    href: '/moneywheel',
+  },
+  {
     label: 'Certik Audit',
     icon: 'ShieldIcon',
     href: 'https://koaladefi.finance/files/audit_certik.pdf',
