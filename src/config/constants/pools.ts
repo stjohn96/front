@@ -120,6 +120,30 @@ const pools: PoolConfig[] = [
     bushVersion: 1,
     getUrl: '/#/add/0xe9e7cea3dedca5984780bafc599bd69add087d56/0xba26397cdff25f0d26e815d218ef3c77609ae7f1',
   },
+  {
+    sousId: 71, // V1
+    tokenName: 'ETH',
+    tokenLabel: 'ETH v1',
+    tokenAddress: '0x2170ed0880ac9a755fd29b2688956bd959f933f8',
+    stakingTokenName: QuoteToken.LYPTUS,
+    stakingTokenAddress: '0xba26397cdff25f0d26e815d218ef3c77609ae7f1',
+    stakingTokenDecimals: 18,
+    contractAddress: {
+      97: '',
+      56: '0x984902aFBb8174691C50b74Cd853eD3Cf0Abd9A3',
+    },
+    poolCategory: PoolCategory.CORE,
+    projectLink: 'https://koaladefi.finance',
+    harvest: true,
+    tokenPerBlock: '0.000003472222222',
+    sortOrder: 999,
+    isFinished: false,
+    tokenDecimals: 18,
+    isBush: true,
+    isLp: false,
+    bushVersion: 1,
+    getUrl: '/#/swap?outputCurrency=0xba26397cdff25f0d26e815d218ef3c77609ae7f1',
+  }, 
 ]
 
 export default pools
