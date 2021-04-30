@@ -75,4 +75,7 @@ export default {
     56: '0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95',
     97: '',
   },
+  moneyWheel: {
+    56: '0x471d512e946391FC7E2bbe0fecD6E52AcB6999A0', // change to new contract
+  }
 }
