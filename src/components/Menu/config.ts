@@ -65,7 +65,7 @@ const config: MenuEntry[] = [
   //   href: '/nft',
   // },
   {
-    label: 'Koalasino',
+    label: 'Koasino',
     icon: 'TicketIcon',
     items: [
       {
@@ -75,11 +75,11 @@ const config: MenuEntry[] = [
       },
       {
         label: 'Money wheel',
-        href: '/koalasino/wheel',
+        href: '/Koasino/wheel',
       },
       {
         label: 'Lottery',
-        href: '/koalasino/lottery',
+        href: '/Koasino/lottery',
       },
     ],
   },
