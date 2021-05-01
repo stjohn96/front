@@ -1,4 +1,5 @@
 import React from 'react'
+// eslint-disable-next-line import/no-unresolved
 import MoneyWheelBsc from 'moneywheel-bsc'
 import useTokenBalance from 'hooks/useTokenBalance'
 import { useMoneyWheel, useERC20 } from 'hooks/useContract'
