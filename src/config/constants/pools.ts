@@ -130,7 +130,7 @@ const pools: PoolConfig[] = [
     stakingTokenDecimals: 18,
     contractAddress: {
       97: '',
-      56: '0x984902aFBb8174691C50b74Cd853eD3Cf0Abd9A3',
+      56: '0x4728d316cE08Fd64cE845b85EE4b2fEc629440C5',
     },
     poolCategory: PoolCategory.CORE,
     projectLink: 'https://koaladefi.finance',
