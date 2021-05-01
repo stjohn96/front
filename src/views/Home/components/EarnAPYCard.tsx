@@ -1,12 +1,14 @@
-import React, { useCallback, useRef } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { Heading, Card, CardBody, Flex, ArrowForwardIcon, Skeleton } from '@pancakeswap-libs/uikit'
 import { NavLink } from 'react-router-dom'
 import useI18n from 'hooks/useI18n'
 import BigNumber from 'bignumber.js'
-import { QuoteToken } from 'config/constants/types'
-import { useFarms, usePriceBnbBusd } from 'state/hooks'
-import { BLOCKS_PER_YEAR, CAKE_PER_BLOCK, CAKE_POOL_PID } from 'config'
+import { useFarms, usePriceBnbBusd, usePriceCakeBusd } from 'state/hooks'
+import { FarmWithStakedValue } from '../../Farms/components/FarmCard/FarmCard'
+import { BLOCKS_PER_YEAR } from '../../../config'
+import { QuoteToken } from '../../../config/constants/types'
+import useApePrice from '../../../hooks/useApePrice'
 
 const StyledFarmStakingCard = styled(Card)`
   margin-left: auto;
@@ -19,17 +21,22 @@ const StyledFarmStakingCard = styled(Card)`
   }
 `
 const CardMidContent = styled(Heading).attrs({ size: 'xl' })`
+  color: ${({ theme }) => (theme.isDark ? 'white' : '#41aa29')};
   line-height: 44px;
 `
-const EarnAPYCard = () => {
+const EarnAPYCard: React.FC = () => {
   const TranslateString = useI18n()
   const farmsLP = useFarms()
   const bnbPrice = usePriceBnbBusd()
+  const cakePrice = usePriceCakeBusd()
+  const [apePrice, setApePrice] = useState(0)
+  const apeReserve = useApePrice()
+  apeReserve.then(setApePrice)
 
   const maxAPY = useRef(Number.MIN_VALUE)
 
   const getHighestAPY = () => {
-    const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X')
+    const activeFarms = farmsLP.filter((farm) => !farm.isTokenOnly && farm.pid !== 0 && farm.multiplier !== '0X')
 
     calculateAPY(activeFarms)
 
@@ -37,65 +44,67 @@ const EarnAPYCard = () => {
   }
 
   const calculateAPY = useCallback(
-    (farmsToDisplay) => {
-      const cakePriceVsBNB = new BigNumber(farmsLP.find((farm) => farm.pid === CAKE_POOL_PID)?.tokenPriceVsQuote || 0)
-
-      farmsToDisplay.map((farm) => {
-        if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken) {
-          return farm
-        }
-        const cakeRewardPerBlock = CAKE_PER_BLOCK.times(farm.poolWeight)
+    (farmsToDisplay): FarmWithStakedValue[] => {
+      const farmsToDisplayWithAPY: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
+        const cakeRewardPerBlock = new BigNumber(farm.lyptusPerBlock || 1)
+          .times(new BigNumber(farm.poolWeight))
+          .div(new BigNumber(10).pow(18))
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
 
-        let apy = cakePriceVsBNB.times(cakeRewardPerYear).div(farm.lpTotalInQuoteToken)
+        // cakePriceInQuote * cakeRewardPerYear / lpTotalInQuoteToken
+        let apy = cakePrice.times(cakeRewardPerYear)
 
-        if (farm.quoteTokenSymbol === QuoteToken.BUSD) {
-          apy = cakePriceVsBNB.times(cakeRewardPerYear).div(farm.lpTotalInQuoteToken).times(bnbPrice)
-        } else if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
-          apy = cakeRewardPerYear.div(farm.lpTotalInQuoteToken)
-        } else if (farm.dual) {
-          const cakeApy =
-            farm && cakePriceVsBNB.times(cakeRewardPerBlock).times(BLOCKS_PER_YEAR).div(farm.lpTotalInQuoteToken)
-          const dualApy =
-            farm.tokenPriceVsQuote &&
-            new BigNumber(farm.tokenPriceVsQuote)
-              .times(farm.dual.rewardPerBlock)
-              .times(BLOCKS_PER_YEAR)
-              .div(farm.lpTotalInQuoteToken)
+        let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0)
 
-          apy = cakeApy && dualApy && cakeApy.plus(dualApy)
+        if (farm.quoteTokenSymbol === QuoteToken.BNB) {
+          totalValue = totalValue.times(bnbPrice)
+        }
+        if (farm.quoteTokenSymbol === QuoteToken.BANANA) {
+          totalValue = totalValue.times(new BigNumber(apePrice))
         }
 
-        if (maxAPY.current < apy.toNumber()) maxAPY.current = apy.toNumber()
+        if (totalValue.comparedTo(0) > 0) {
+          apy = apy.div(totalValue)
+        }
+
+        // console.table({
+        //   'lpSymbol': farm.lpSymbol,
+        //   'apy': apy.toJSON(),
+        //   'totalValue': totalValue.toJSON(),
+        //   'bnbPrice': bnbPrice.toJSON(),
+        //   'apePrice': apePrice,
+        // })
+
+        if (maxAPY.current < apy.toNumber() && apy.toNumber() < 5000) maxAPY.current = apy.toNumber() // weird
 
         return apy
       })
+
+      return farmsToDisplayWithAPY
     },
-    [bnbPrice, farmsLP],
+    [bnbPrice, cakePrice, apePrice],
   )
 
   return (
     <StyledFarmStakingCard>
-      <CardBody>
-        <Heading color="contrast" size="lg">
-          Earn up to
-        </Heading>
-        <CardMidContent color="#7645d9">
-          {getHighestAPY() ? (
-            `${getHighestAPY()}% ${TranslateString(736, 'APR')}`
-          ) : (
-            <Skeleton animation="pulse" variant="rect" height="44px" />
-          )}
-        </CardMidContent>
-        <Flex justifyContent="space-between">
-          <Heading color="contrast" size="lg">
-            in Farms
-          </Heading>
-          <NavLink exact activeClassName="active" to="/farms" id="farm-apy-cta">
+      <NavLink exact activeClassName="active" to="/farms" id="farm-apy-cta">
+        <CardBody>
+          <Heading size="lg">Earn up to</Heading>
+          <CardMidContent>
+            {getHighestAPY() ? (
+              `${getHighestAPY()}% ${TranslateString(736, 'APR')}`
+            ) : (
+              <Skeleton animation="pulse" variant="rect" height="44px" />
+            )}
+          </CardMidContent>
+          <Flex justifyContent="space-between">
+            <Heading size="lg">
+              in <img src="/images/koala/farms.svg" height="24px" width="24px" alt="Farms" /> Farms
+            </Heading>
             <ArrowForwardIcon mt={30} color="primary" />
-          </NavLink>
-        </Flex>
-      </CardBody>
+          </Flex>
+        </CardBody>
+      </NavLink>
     </StyledFarmStakingCard>
   )
 }

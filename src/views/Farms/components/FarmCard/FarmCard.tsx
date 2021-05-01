@@ -240,7 +240,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
           {farm.depositFeeBP / 100}%
         </Text>
       </Flex>
-      <CardActionsContainer farm={farm} account={account} addLiquidityUrl={getUrl} />
+      <CardActionsContainer farm={farm} account={account} addLiquidityUrl={getUrl} lpPrice={lpPrice} />
       {!farm.isTokenOnly && farm.isOldPsc && (
         <div>
           <Text bold color="secondary" fontSize="16px" mt="10px" style={{ textAlign: 'center' }}>

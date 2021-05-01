@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koala Bingo Generator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="/bingo/style.css">
+</head>
+<body>
+  <div class="bingo-container">
+    <div class="logo d-flex justify-content-center">
+        <img src="/bingo/assets/bingo.png" alt="Bingo" />
+    </div>
+    <div class="d-flex justify-content-center">
+
+      <h3>Card generator</h3>
+    </div>
+    <div id="block" class="d-flex justify-content-center">
+      <div id="container"></div>
+    </div>
+    <div class="d-flex justify-content-center mt-5">
+      <button id='print-button' class="btn btn-default">Print Card</button>
+      <button disabled class="btn btn-default">Share on Twitter</button>
+      <!-- <img id="koala_bingo_img" src="./assets/koala_card.jpg" alt="koala_card" width="500" height="500"> -->
+      <script src="/bingo/script.js"></script>
+      <script src="/bingo/html2canvas.js"></script>
+    </div>
+  </div>
+  <div class=" mt-5">
+    <div class="d-flex justify-content-center">
+      <div>
+        <h3>
+          Tutorial
+        </h3>
+        <h5>
+          How to play the #koalabingo
+        </h5>
+        <iframe
+          class="youtube-video"
+          src="https://www.youtube.com/embed/6IdhKigJuUE"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center m-5">
+    <hr/>
+    <a href="https://koaladefi.finance/" target="_blank" class="btn btn-outline-success btn-lg  mb-5">Visit koaladefi.finance to enjoy chewing 🍃$LYPTUS with us</a>
+  </footer>
+</body>
+</html>

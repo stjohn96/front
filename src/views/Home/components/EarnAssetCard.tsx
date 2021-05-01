@@ -12,7 +12,7 @@ const StyledFarmStakingCard = styled(Card)`
   flex: 1;
 `
 const CardMidContent = styled(Heading).attrs({ size: 'xl' })`
-  color: ${({ theme }) => (theme.isDark ? 'white' : '#4bca4b')};
+  color: ${({ theme }) => (theme.isDark ? 'white' : '#41aa29')};
   line-height: 44px;
 `
 const EarnAssetCard = () => {
