@@ -77,5 +77,5 @@ export default {
   },
   moneyWheel: {
     56: '0x471d512e946391FC7E2bbe0fecD6E52AcB6999A0', // change to new contract
-  }
+  },
 }

@@ -1,12 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Heading } from '@pancakeswap-libs/uikit'
+// eslint-disable-next-line import/no-unresolved
+import MoneyWheelBsc from 'moneywheel-bsc'
 import useI18n from 'hooks/useI18n'
-import Flex from 'components/layout/Flex'
-import Page from '../../components/layout/Page'
+import { useERC20, useMoneyWheel } from '../../hooks/useContract'
+import { getFullDisplayBalance } from '../../utils/formatBalance'
+import useTokenBalance from '../../hooks/useTokenBalance'
 
 const Wheel: React.FC = () => {
   const TranslateString = useI18n()
+
+  // Use temporary demo token for now
+  // Remove this and use useCake instead
+  const tokenContractAddress = '0xfC0349599B3E246DDC91dd7b51055e51C65bC796'
+
+  const tokenBalance = useTokenBalance(tokenContractAddress)
 
   const Header = styled.div`
     padding: 32px 0px;
@@ -30,10 +39,24 @@ const Wheel: React.FC = () => {
           {TranslateString(999, 'MoneyWheel')}
         </Heading>
       </Header>
-      <Page>
-        <img src="/images/koalasino/moneywheel-01.png" alt="MoneyWheel" />
-        Coming soon...
-      </Page>
+
+      <div style={{ padding: '20px' }}>
+        <MoneyWheelBsc
+          contract={useMoneyWheel()}
+          token={useERC20(tokenContractAddress)}
+          tokenBalance={getFullDisplayBalance(tokenBalance)}
+          tokenName="WHEEL"
+          tokenImageUrl="https://koaladefi.finance/images/farms/lyptus.png"
+          soundUrl="https://demo.defifusion.io/wheel.mp3"
+          colors={{
+            primaryColor: '#62815c',
+            primaryContrastTextColor: '#fff',
+            secondaryColor: '#41aa29',
+            secondaryContrastTextColor: '#fff',
+            jackpotColor: '#f4ad2b',
+          }}
+        />
+      </div>
     </>
   )
 }

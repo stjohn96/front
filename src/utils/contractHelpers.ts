@@ -83,6 +83,6 @@ export const getMasterchefContract = (web3?: Web3) => {
 export const getClaimRefundContract = (web3?: Web3) => {
   return getContract(claimRefundAbi, getClaimRefundAddress(), web3)
 }
-export const getMoneyWheelContract = (web3? : Web3) => {
+export const getMoneyWheelContract = (web3?: Web3) => {
   return getContract(wheelAbi, getMoneyWheelAddress(), web3)
 }
