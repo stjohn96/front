@@ -43,6 +43,10 @@ html, body {
     .youtube-video {
         width: 100%;
     }
+
+    .countdown ul {
+        display: block;
+    }
 }
 
 #container {
