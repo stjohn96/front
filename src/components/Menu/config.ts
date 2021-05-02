@@ -38,6 +38,25 @@ const config: MenuEntry[] = [
     href: '/bush',
   },
   {
+    label: 'Koasino',
+    icon: 'TicketIcon',
+    items: [
+      {
+        label: 'Bingo',
+        href: 'https://koaladefi.finance/bingo',
+        target: '_blank',
+      },
+      {
+        label: 'Money wheel',
+        href: '/koasino/wheel',
+      },
+      {
+        label: 'Lottery',
+        href: '/koasino/lottery',
+      },
+    ],
+  },
+  {
     label: 'Certik Audit',
     icon: 'ShieldIcon',
     href: 'https://koaladefi.finance/files/audit_certik.pdf',
@@ -64,25 +83,6 @@ const config: MenuEntry[] = [
   //   icon: 'NftIcon',
   //   href: '/nft',
   // },
-  {
-    label: 'Koasino',
-    icon: 'TicketIcon',
-    items: [
-      {
-        label: 'Bingo',
-        href: 'https://koaladefi.finance/bingo',
-        target: '_blank',
-      },
-      {
-        label: 'Money wheel',
-        href: '/Koasino/wheel',
-      },
-      {
-        label: 'Lottery',
-        href: '/Koasino/lottery',
-      },
-    ],
-  },
   {
     label: 'Info',
     icon: 'InfoIcon',

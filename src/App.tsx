@@ -54,10 +54,10 @@ const App: React.FC = () => {
             <Route path="/bush">
               <Bush />
             </Route>
-            <Route path="/Koasino/wheel">
+            <Route path="/koasino/wheel">
               <Wheel />
             </Route>
-            <Route path="/Koasino/lottery">
+            <Route path="/koasino/lottery">
               <Lottery />
             </Route>
             {/* 404 */}
