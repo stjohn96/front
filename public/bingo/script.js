@@ -82,7 +82,7 @@ print_button.addEventListener('click', printCard)
 reload_button.addEventListener('click', refresh)
 
 /* countdown */
-const end = new Date('May 1, 2021 13:00:00') // UTC
+const end = new Date('May 9, 2021 16:00:00') // UTC
 const human_countdown = document.getElementById('human-countdown')
 const dayEl = document.getElementById('days')
 const hoursEl = document.getElementById('hours')
@@ -95,7 +95,7 @@ let offset = 0
 let userDate = utc + (3600000 * offset)
 
 let utcDate = new Date(userDate)
-human_countdown.innerHTML = 'Local time: ' + utcDate.toLocaleString()
+human_countdown.innerHTML = 'Your local time: ' + utcDate.toLocaleString()
 
 const seconds = 1000
 const minutes = seconds * 60
