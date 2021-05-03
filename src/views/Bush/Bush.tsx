@@ -9,7 +9,6 @@ import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
 import useI18n from 'hooks/useI18n'
 import useBlock from 'hooks/useBlock'
-import Faq from 'react-faq-component'
 import { useFarms, usePriceBnbBusd, usePools, usePriceEthBnb, usePriceCakeBusd, useFarmFromPid } from 'state/hooks'
 import { QuoteToken } from 'config/constants/types'
 import FlexLayout from 'components/layout/Flex'
@@ -20,30 +19,8 @@ import Coming from '../Pools/components/Coming'
 import useApePrice from '../../hooks/useApePrice'
 import useCakePrice from '../../hooks/useCakePrice'
 import Page from '../../components/layout/Page'
+import BushFaq from './Faq'
 
-const faqData = {
-  title: 'FAQ',
-  rows: [
-    {
-      title: `What about Deposit Fees`,
-      content: `We eat them. The participation fee collected are fully eaten (burnt) by the Koalas. The LYPTUS-BUSD LP from the deposit fee will be decomposed, then we will use the BUSD portion to market buy the $LYPTUS equivalent, then finally eat (burn) all of the 🍃 $LYPTUS.`,
-    },
-    {
-      title: `Audit`,
-      content: `Bush V1 contract were fully audited by Techrate, <a href="https://koaladefi.finance/files/audit_techrate.pdf" target="_blank" style="color: orange;font-weight: bold">check the Techrate audit</a>`,
-    },
-    {
-      title: `V1 vs V0 ?`,
-      content: `Learn more about Bushs Evolution on our blog: <a href="https://koaladefi.medium.com/the-bush-next-evolution-d9e316be71f1" target="_blank" style="color: orange;font-weight: bold">https://koaladefi.medium.com/the-bush-next-evolution-d9e316be71f1</a>`,
-    },
-  ],
-}
-const faqStyles = {
-  bgColor: ({ theme }) => (theme.isDark ? '#36343c' : '#fbfbfb'),
-  titleTextColor: '#4e4e4e',
-  rowTitleColor: '#4e4e4e',
-  rowContentColor: '#6b6b6b',
-}
 
 const Bush: React.FC = () => {
   const { path } = useRouteMatch()
@@ -220,8 +197,9 @@ const Bush: React.FC = () => {
           </Route>
         </FlexLayout>
         <div>
-          <hr />
-          <Faq data={faqData} styles={faqStyles} />
+          <div style={{ marginTop: '3rem' }}>
+            <BushFaq />
+          </div>
         </div>
       </Page>
     </>
