@@ -1299,7 +1299,7 @@
     {
       "data": {
         "stringId": 10010,
-        "text": "In the case of an LP, only the deposit fees on non-stable tokens will be eaten (burnt)."
+        "text": "LYPTUS-BUSD LP will be decomposed, then we will use the BUSD portion to market buy the $LYPTUS equivalent, then finally eat (burn) all of the \uD83C\uDF43 $LYPTUS."
       }
     },
     {
@@ -1312,6 +1312,24 @@
       "data": {
         "stringId": 10012,
         "text": "Value staked"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10013,
+        "text": "Burn fee"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10014,
+        "text": "Blocks until start"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10015,
+        "text": "Blocks remaining"
       }
     }
   ],
