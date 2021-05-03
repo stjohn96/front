@@ -140,6 +140,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     return <div>{rows}</div>
   }
 
+  const balanceNumber = getBalanceNumber(earnings, tokenDecimals)
+
   return (
     <Card isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
       {isFinished && sousId !== 0 && <PoolFinishedSash />}
@@ -165,7 +167,11 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         </div>
         {!isOldFinishedBush && !isOldSyrup ? (
           <BalanceAndCompound>
-            <Balance value={getBalanceNumber(earnings, tokenDecimals)} isDisabled={isFinished} />
+            <Balance
+              value={balanceNumber}
+              decimals={balanceNumber !== 0 && balanceNumber < 0.001 ? 8 : 2}
+              isDisabled={isFinished}
+            />
             {sousId === 0 && account && harvest && (
               <HarvestButton
                 disabled={!earnings.toNumber() || pendingTx}
@@ -219,61 +225,68 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
               </>
             ))}
         </StyledCardActions>
-
-        <StyledDetails>
-          <div style={{ flex: 1 }}>
-            {TranslateString(10001, 'Deposit Fee')}{' '}
-            <span data-tip data-for={`depositFeeTooltip${pool.sousId}`}>
-              <FontAwesomeIcon icon={faQuestionCircle} />
-            </span>{' '}
-            :
-          </div>
-          <Text
-            bold
-            style={{
-              backgroundColor: pool.depositFee === 0 ? '#4bca4b' : 'transparent',
-              color: pool.depositFee === 0 ? 'white' : '#424f3e',
-              padding: pool.depositFee === 0 ? '2px 5px' : 'inherit',
-              borderRadius: pool.depositFee === 0 ? '10px' : 'inherit',
-            }}
-          >
-            {pool.depositFee / 100}%
-          </Text>
-          <ReactTooltip id={`depositFeeTooltip${pool.sousId}`} effect="solid" place="right">
-            {pool.isLp === true ? (
-              <span>
-                {TranslateString(
-                  10010,
-                  'In the case of an LP, only the deposit fees on non-stable tokens will be eaten (burnt).',
-                )}
-              </span>
+        <Flex justifyContent="space-between">
+          <Text>{TranslateString(736, 'APR')}:</Text>
+          <Text bold>
+            {isFinished || isOldSyrup || !apy || apy?.isNaN() || !apy?.isFinite() ? (
+              '-'
             ) : (
-              <span>{TranslateString(742, 'Deposit fees will be automatically eaten (burnt)')}</span>
+              <Balance fontSize="18px" isDisabled={isFinished} value={apy?.toNumber()} decimals={2} unit="%" />
             )}
-          </ReactTooltip>
-        </StyledDetails>
-        <StyledDetails>
-          <div style={{ flex: 1 }}>{TranslateString(736, 'APR')}:</div>
-          {isFinished || isOldSyrup || !apy || apy?.isNaN() || !apy?.isFinite() ? (
-            '-'
-          ) : (
-            <Balance fontSize="14px" isDisabled={isFinished} value={apy?.toNumber()} decimals={2} unit="%" />
-          )}
-        </StyledDetails>
-        <StyledDetails>
-          <div style={{ flex: 1 }}>
+          </Text>
+        </Flex>
+        <Flex justifyContent="space-between">
+          <Text>
             {pool.stakingTokenName === 'LYPTUS' && (
               <img src="/images/farms/lyptus.png" alt="LYPTUS Token" width="15" height="15" />
             )}
             {TranslateString(384, 'Your Stake')}:
-          </div>
-          <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
-        </StyledDetails>
+          </Text>
+          <Text bold>
+            <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
+          </Text>
+        </Flex>
+        {!isFinished && (
+          <Flex justifyContent="space-between">
+            <Text>
+              🔥 {TranslateString(10013, 'Burn fee')}{' '}
+              <span data-tip data-for={`depositFeeTooltip${pool.sousId}`}>
+                <FontAwesomeIcon icon={faQuestionCircle} color="lightgray" />
+              </span>{' '}
+              :
+            </Text>
+            <Text
+              bold
+              style={{
+                backgroundColor: pool.depositFee === 0 ? '#4bca4b' : 'transparent',
+                color: pool.depositFee === 0 ? 'white' : '#424f3e',
+                padding: pool.depositFee === 0 ? '2px 5px' : 'inherit',
+                borderRadius: pool.depositFee === 0 ? '10px' : 'inherit',
+              }}
+            >
+              <Balance fontSize="14px" isDisabled={isFinished} value={pool.depositFee / 100} decimals={2} unit="%" />
+            </Text>
+            <ReactTooltip id={`depositFeeTooltip${pool.sousId}`} effect="solid" place="right">
+              {pool.isLp === true ? (
+                <span>
+                  {TranslateString(
+                    10010,
+                    'In the case of an LP, only the deposit fees on non-stable tokens will be eaten (burnt).',
+                  )}
+                </span>
+              ) : (
+                <span>{TranslateString(742, 'Deposit fees will be automatically eaten (burnt)')}</span>
+              )}
+            </ReactTooltip>
+          </Flex>
+        )}
         {blocksUntilStart > 0 && (
-          <StyledDetails>
-            <div style={{ flex: 1 }}>⏱ {TranslateString(999, 'Blocks until start')}:</div>
-            <Balance fontSize="14px" isDisabled={isFinished} value={blocksUntilStart} decimals={0} />
-          </StyledDetails>
+          <Flex justifyContent="space-between">
+            <Text>⏱ {TranslateString(10014, 'Blocks until start')}</Text>
+            <Text bold>
+              <Balance fontSize="14px" isDisabled={isFinished} value={blocksUntilStart} decimals={0} />
+            </Text>
+          </Flex>
         )}
         {debug !== null && <>{showDebug()}</>}
       </div>

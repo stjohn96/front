@@ -148,7 +148,7 @@ const CardFooter: React.FC<Props> = ({
           </Flex>
           {blocksUntilStart === 0 && blocksRemaining > 0 && (
             <Flex justifyContent="space-between">
-              <Text>{TranslateString(999, 'Blocks remaining')}:</Text>
+              <Text>{TranslateString(10015, 'Blocks remaining')}:</Text>
               <Text>
                 <Balance fontSize="14px" isDisabled={isFinished} value={blocksRemaining} decimals={0} />
               </Text>
