@@ -16,7 +16,6 @@ import useI18n from 'hooks/useI18n'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { orderBy } from 'lodash'
 
-
 import FarmCard, { FarmWithStakedValue } from './components/FarmCard/FarmCard'
 import Table from './components/FarmTable/FarmTable'
 import FarmTabButtons from './components/FarmTabButtons'
@@ -27,7 +26,6 @@ import { DesktopColumnSchema, ViewMode } from './components/types'
 import Select, { OptionProps } from './components/Select/Select'
 import useApePrice from '../../hooks/useApePrice'
 import FarmFaq from './components/Faq'
-
 
 const ControlContainer = styled.div`
   display: flex;
@@ -128,7 +126,6 @@ const Header = styled.div`
 export interface FarmsProps {
   tokenMode?: boolean
 }
-
 
 const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const { path } = useRouteMatch()
@@ -452,8 +449,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         </ControlContainer>
         {renderContent()}
         {!tokenMode && (
-          <div style={{ marginTop: '3rem'}}>
-            <FarmFaq/>
+          <div style={{ marginTop: '3rem' }}>
+            <FarmFaq />
           </div>
         )}
         <Image src="/images/lyptus/8.png" alt="illustration" width={1352} height={587} responsive />
