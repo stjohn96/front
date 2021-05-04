@@ -28,13 +28,15 @@ const Bush: React.FC = () => {
   const farms = useFarms()
   const pools = usePools(account)
   const bnbPriceUSD = usePriceBnbBusd()
-  const ethPriceBnb = usePriceEthBnb()
+  const ethPriceBusd = usePriceEthBnb()
   const lyptusPrice = usePriceCakeBusd()
   const lyptusBusdfarm = useFarmFromPid(9)
   const [apePrice, setApePrice] = useState(0)
   const [cakePrice, setCakePrice] = useState(0)
   const block = useBlock()
   const [stackedOnly, setStackedOnly] = useState(false)
+
+  // console.log(ethPriceBnb.toJSON())
 
   const apeReserve = useApePrice()
   apeReserve.then(setApePrice)
@@ -54,24 +56,7 @@ const Bush: React.FC = () => {
   }
 
   const poolsWithApy = pools.map((pool) => {
-    const stakingTokenFarm = farms.find((s) => s.tokenSymbol === pool.stakingTokenName)
-
     const cakePriceFinal = cakePrice * bnbPriceUSD.toNumber()
-
-    let tokenPriceVsQuote = stakingTokenFarm?.tokenPriceVsQuote
-    if (pool.tokenName === 'BANANA') {
-      tokenPriceVsQuote = new BigNumber(apePrice)
-    }
-    if (pool.tokenName === 'CAKE') {
-      tokenPriceVsQuote = new BigNumber(cakePriceFinal)
-    }
-
-    // tmp mulitplier to support ETH farms
-    // Will be removed after the price api
-    const tempMultiplier = stakingTokenFarm?.quoteTokenSymbol === 'ETH' ? ethPriceBnb : 1
-
-    // /!\ Assume that the farm quote price is BNB
-    const stakingTokenPriceInBNB = new BigNumber(tokenPriceVsQuote).times(tempMultiplier)
 
     // total liquidity
     let totalStakingTokenInPool = new BigNumber(0)
@@ -86,16 +71,20 @@ const Bush: React.FC = () => {
     const totalRewardPricePerYear = new BigNumber(1).times(pool.tokenPerBlock).times(BLOCKS_PER_YEAR)
     let apy = totalRewardPricePerYear.div(totalStakingTokenInPool).times(100)
 
-    if (pool.tokenName === 'WBNB') {
+    if (pool.tokenName === QuoteToken.WBNB) {
       apy = apy.multipliedBy(bnbPriceUSD.toJSON())
     }
 
-    if (pool.tokenName === 'BANANA') {
+    if (pool.tokenName === QuoteToken.BANANA) {
       apy = apy.multipliedBy(new BigNumber(apePrice).toJSON())
     }
 
-    if (pool.tokenName === 'CAKE') {
+    if (pool.tokenName === QuoteToken.CAKE) {
       apy = apy.multipliedBy(new BigNumber(cakePriceFinal).toJSON())
+    }
+
+    if (pool.tokenName === QuoteToken.ETH) {
+      apy = apy.multipliedBy(ethPriceBusd.toJSON())
     }
 
     // const debug = {

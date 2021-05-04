@@ -29,7 +29,7 @@ const data = {
   ],
 }
 
-const FarmFaq = function () {
+const BushFaq = function () {
   const { isDark } = useContext(ThemeContext)
   const styles = {
     bgColor: isDark ? 'linear-gradient(139.73deg,#313D5C 0%,#3D2A54 100%)' : '#FFFFFF',
@@ -41,4 +41,4 @@ const FarmFaq = function () {
   return <Faq data={data} styles={styles} />
 }
 
-export default FarmFaq
+export default BushFaq

@@ -1365,13 +1365,37 @@
     {
       "data": {
         "stringId": 10010,
-        "text": "Dans le cas d'un LP, seuls les frais de dépôt sur les tokens non stables seront consommés (brûlés)."
+        "text": "Le LP LYPTUS-BUSD sera décomposé, puis nous utiliserons la partie BUSD pour acheter l'équivalent $ LYPTUS sur le marché, puis enfin manger (brûler) tout le \uD83C\uDF43 $ LYPTUS."
       }
     },
     {
       "data": {
         "stringId": 10011,
         "text": "Total déposé"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10012,
+        "text": "Valeur déposée"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10013,
+        "text": "Frais de dépot"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10014,
+        "text": "Nb block avant démarrage"
+      }
+    },
+    {
+      "data": {
+        "stringId": 10015,
+        "text": "Nb block restants"
       }
     }
   ],
