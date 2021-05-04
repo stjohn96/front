@@ -21,7 +21,6 @@ import useCakePrice from '../../hooks/useCakePrice'
 import Page from '../../components/layout/Page'
 import BushFaq from './Faq'
 
-
 const Bush: React.FC = () => {
   const { path } = useRouteMatch()
   const TranslateString = useI18n()

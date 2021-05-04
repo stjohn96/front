@@ -24,7 +24,7 @@ const data = {
         All futures farms will use APE LP. Read more about the Koala DeFi & ApeSwap partnership in this <a href="https://koaladefi.medium.com/partnership-with-apeswap-finance-c1dd2dd44eee" target="_blank" style="color: orange;font-weight: bold">blog post</a>.`,
     },
     {
-      title: 'What happends to my liquitity in the OLD farms ?',
+      title: 'What happends to my liquidity in the OLD farms ?',
       content: `Your liquidities will always remain available for withdrawal. Your funds are SAFU.<br><br>
         The Pancakeswap farms have been deactivated ($LYPTUS rewards will not longer be distributed), these farms have been moved to the inactive tab.<br><br>
         You will always be able to find these farms in the inactive tab and withdraw your funds.
